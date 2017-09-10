@@ -37,25 +37,6 @@ module.exports = (grunt) => {
     }
   };
 
-  // Patch the Custom Element Polyfill to add the WebComponentsReady event
-  grunt.registerTask('patchCE', 'Patch Custom Elements Polyfill', () => {
-    // Patch the Custom Element polyfill
-    if (grunt.file.exists('dist/polyfills/webcomponents-ce.js')) {
-      let ce = grunt.file.read('dist/polyfills/webcomponents-ce.js');
-      ce = ce.replace('//# sourceMappingURL=custom-elements.min.js.map', `
-(function(){
-	window.WebComponents = window.WebComponents || {};
-	requestAnimationFrame(function() {
-		window.WebComponents.ready= true;
-		document.dispatchEvent(new CustomEvent("WebComponentsReady", { bubbles:true }) );
-	})
-})();
-//# sourceMappingURL=custom-elements.js.map`);
-
-      grunt.file.write('dist/polyfills/webcomponents-ce.js', ce);
-    }
-  });
-
   // Compile the css
   grunt.registerTask('compile', 'Compile css files', () => {
     const compileCss = (element) => {
@@ -92,6 +73,7 @@ module.exports = (grunt) => {
     };
 
     console.info('Build the stylesheets')
+    deleteFolderRecursive('dist/css');
     grunt.settings.elements.forEach((element) => {
       // Create the css for each element
       compileCss(element);
@@ -186,59 +168,6 @@ module.exports = (grunt) => {
     });
   });
 
-  grunt.registerTask('polyfillsDist', 'Create a copy of the polyfills', () => {
-    // Copy polyfills in dist and demo folders
-    if (grunt.file.exists('node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js')) {
-      let polyfills = ['webcomponents-hi-ce', 'webcomponents-hi-sd-ce', 'webcomponents-hi', 'webcomponents-lite', 'webcomponents-loader', 'webcomponents-sd-ce'];
-
-      polyfills.forEach((polyfill) => {
-        // Put a copy of webcomponentjs polyfills in the dist folder
-        grunt.config.set('copy.' + polyfill + '.files', [{
-          src: 'node_modules/@webcomponents/webcomponentsjs/' + polyfill + '.js',
-          dest: 'dist/polyfills/' + polyfill + '.js'
-        }]);
-
-        grunt.task.run('copy:' + polyfill);
-
-        // Put a copy of webcomponentjs polyfills maps in the dist folder
-        grunt.config.set('copy.' + polyfill + '-map.files', [{
-          src: 'node_modules/@webcomponents/webcomponentsjs/' + polyfill + '.js.map',
-          dest: 'dist/polyfills/' + polyfill + '.js.map'
-        }]);
-
-        grunt.task.run('copy:' + polyfill + '-map');
-      })
-
-      // Copy the Custom Elements polyfill
-      grunt.config.set('copy.ce.files', [{
-        src: 'node_modules/@webcomponents/custom-elements/custom-elements.min.js',
-        dest: 'dist/polyfills/webcomponents-ce.js'
-      }]);
-
-      grunt.task.run('copy:ce');
-
-      // Copy the Custom Elements polyfill map
-      grunt.config.set('copy.ce-map.files', [{
-        src: 'node_modules/@webcomponents/custom-elements/custom-elements.min.js.map',
-        dest: 'dist/polyfills/webcomponents-ce.js.map'
-      }]);
-
-      grunt.task.run('copy:ce-map');
-
-      grunt.task.run('patchCE');
-    }
-
-    // Uglify the polyfills
-    grunt.config.set('uglify.polyfills-js.files', [{
-      src: ['!dist/polyfills/*.min.js', 'dist/polyfills/*.js'],
-      dest: '',
-      ext: '.min.js',
-      expand: true
-    }]);
-
-    grunt.task.run('uglify:polyfills-js');
-  });
-
   // Cleanup process
   grunt.registerTask('clearFiles', 'Clean up', () => {
 
@@ -304,12 +233,4 @@ module.exports = (grunt) => {
   });
 
   grunt.registerTask('default', ['elements']);
-
-  grunt.registerTask('polyfills', () => {
-    // Clear the polyfills folder
-    deleteFolderRecursive('dist/polyfills');
-
-    // Create the polyfills
-    grunt.task.run('polyfillsDist');
-  });
 };
