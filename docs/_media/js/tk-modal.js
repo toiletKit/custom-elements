@@ -1,4 +1,4 @@
-class JoomlaModalElement extends HTMLElement {
+class TkModalElement extends HTMLElement {
   constructor() {
     super();
 
@@ -31,7 +31,7 @@ class JoomlaModalElement extends HTMLElement {
 
   connectedCallback() {
     if (!this.id) {
-      throw new Error('`Joomla-modal` requires an id');
+      throw new Error('`Tk-modal` requires an id');
     }
 
     this.setAttribute('role', 'dialog');
@@ -235,4 +235,4 @@ class JoomlaModalElement extends HTMLElement {
   /*eslint-enable */
 }
 
-customElements.define('tk-modal', JoomlaModalElement);
+customElements.define('tk-modal', TkModalElement);

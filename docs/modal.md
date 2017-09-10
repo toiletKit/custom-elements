@@ -10,7 +10,7 @@ The simplified version of the custom elements
 ```html
 <button type="button" class="btn btn-primary" data-href="#exampleModal">Launch demo modal</button>
 
-<tk-modal id="exampleModal" title="Modal title" close-button-title="Close" width="100%" height="400px" iframe="https://www.joomla.org">
+<tk-modal id="exampleModal" title="Modal title" close-button-title="Close" width="100%" height="400px" iframe="https://www.google.com">
 
 	<section>
 		<h4>I'm a Modal</h4>
@@ -37,7 +37,7 @@ The simplified version of the custom elements
 </tk-modal>
 <hr>
 <button type="button" class="btn btn-primary" data-href="#exampleModal2">Modal with iframe</button>
-<tk-modal id="exampleModal2" title="Modal title" close-button-title="Close" width="100%" height="400px" iframe="https://www.joomla.org">
+<tk-modal id="exampleModal2" title="Modal title" close-button-title="Close" width="100%" height="400px" iframe="https://www.google.com">
 <section>
 	<h4>I'm a Modal</h4>
 </section>

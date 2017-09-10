@@ -17,7 +17,7 @@ var _createClass = function () {
   if (!a) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return b && ('object' == (typeof b === 'undefined' ? 'undefined' : _typeof(b)) || 'function' == typeof b) ? b : a;
 }function _inherits(a, b) {
   if ('function' != typeof b && null !== b) throw new TypeError('Super expression must either be null or a function, not ' + (typeof b === 'undefined' ? 'undefined' : _typeof(b)));a.prototype = Object.create(b && b.prototype, { constructor: { value: a, enumerable: !1, writable: !0, configurable: !0 } }), b && (Object.setPrototypeOf ? Object.setPrototypeOf(a, b) : a.__proto__ = b);
-}var JoomlaPanelsElement = function (a) {
+}var TkPanelsElement = function (a) {
   function b() {
     _classCallCheck(this, b);var a = _possibleConstructorReturn(this, (b.__proto__ || Object.getPrototypeOf(b)).call(this));return a.hasActive = !1, a.currentActive = '', a.hasNested = !1, a.isNested = !1, a.tabs = [], a.tabsLinks = [], a.panels = [], a.tabLinkHash = [], a;
   }return _inherits(b, a), _createClass(b, [{ key: 'recall', get: function get() {
@@ -43,7 +43,7 @@ var _createClass = function () {
     } }], [{ key: 'observedAttributes', get: function get() {
       return ['recall', 'orientation', 'view', 'responsive', 'collapse-width'];
     } }]), _createClass(b, [{ key: 'connectedCallback', value: function connectedCallback() {
-      var a = this;if ((!this.orientation || this.orientation && -1 === ['horizontal', 'vertical'].indexOf(this.orientation)) && this.setAttribute('orientation', 'horizontal'), this.view = this.getAttribute('view') || 'tabs', this.recall = this.recall || 'false', this.responsive = this.getAttribute('responsive') || 'false', this.collapseWidth = this.getAttribute('collapseWidth') || 0, this.panels = [].slice.call(this.querySelectorAll('section')), !this.panels.length) throw new Error('`Joomla-panels` require one ore more panels!');if (this.findAncestorByTagNme(this, 'tk-tab') && (this.isNested = !0), this.querySelector('tk-tab') && (this.hasNested = !0), this.recall) {
+      var a = this;if ((!this.orientation || this.orientation && -1 === ['horizontal', 'vertical'].indexOf(this.orientation)) && this.setAttribute('orientation', 'horizontal'), this.view = this.getAttribute('view') || 'tabs', this.recall = this.recall || 'false', this.responsive = this.getAttribute('responsive') || 'false', this.collapseWidth = this.getAttribute('collapseWidth') || 0, this.panels = [].slice.call(this.querySelectorAll('section')), !this.panels.length) throw new Error('`Tk-panels` require one ore more panels!');if (this.findAncestorByTagNme(this, 'tk-tab') && (this.isNested = !0), this.querySelector('tk-tab') && (this.hasNested = !0), this.recall) {
         var b = sessionStorage.getItem(this.getStorageKey());b && !/@\[/.test(b) && this.tabLinkHash.push(b), this.setTabState();
       }'ul' !== this.firstElementChild.tagName && this.createNavigation(), this.panels.forEach(function (b) {
         b.setAttribute('role', 'tabpanel'), a.tabs.push('#tab-' + b.id), b.hasAttribute('active') && (a.hasActive = !0, a.currentActive = b.id, a.querySelector('#tab-' + b.id).setAttribute('aria-selected', 'true'), a.querySelector('#tab-' + b.id).setAttribute('active', ''), a.querySelector('#tab-' + b.id).setAttribute('tabindex', '0'));
@@ -135,6 +135,6 @@ var _createClass = function () {
     } }, { key: 'dispatchCustomEvent', value: function dispatchCustomEvent(a, b, c) {
       var d = new CustomEvent(a, { bubbles: !0, cancelable: !0 });c && (d.relatedTarget = c), b.dispatchEvent(d), b.removeEventListener(a, b);
     } }]), b;
-}(HTMLElement);customElements.define('tk-panels', JoomlaPanelsElement);
+}(HTMLElement);customElements.define('tk-panels', TkPanelsElement);
 
 },{}]},{},[1]);

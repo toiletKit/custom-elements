@@ -1,4 +1,4 @@
-class JoomlaCollapseElement extends HTMLElement {
+class TkCollapseElement extends HTMLElement {
   static get observedAttributes() {
     return ['state'];
   }
@@ -70,4 +70,4 @@ class JoomlaCollapseElement extends HTMLElement {
   }
 }
 
-customElements.define('tk-collapse', JoomlaCollapseElement);
+customElements.define('tk-collapse', TkCollapseElement);

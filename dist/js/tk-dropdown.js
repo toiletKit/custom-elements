@@ -1,4 +1,4 @@
-class JoomlaDropdownElement extends HTMLElement {
+class TkDropdownElement extends HTMLElement {
   static get observedAttributes() {
     return ['for'];
   }
@@ -73,4 +73,4 @@ class JoomlaDropdownElement extends HTMLElement {
   /*eslint-enable */
 }
 
-customElements.define('tk-dropdown', JoomlaDropdownElement);
+customElements.define('tk-dropdown', TkDropdownElement);

@@ -1,4 +1,4 @@
-class JoomlaTipElement extends HTMLElement {
+class TkTipElement extends HTMLElement {
   /* Attributes to monitor */
   static get observedAttributes() { return ['type', 'label', 'tip', 'text', 'position']; }
   get type() { return this.getAttribute('type'); }
@@ -70,4 +70,4 @@ class JoomlaTipElement extends HTMLElement {
   }
 }
 
-customElements.define('tk-tip', JoomlaTipElement);
+customElements.define('tk-tip', TkTipElement);

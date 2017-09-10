@@ -1,4 +1,4 @@
-class JoomlaButtonElement extends HTMLElement {
+class TkButtonElement extends HTMLElement {
   connectedCallback() {
     const buttons = [].slice.call(this.querySelectorAll('[type="checkbox"]'));
     // Checkboxes
@@ -103,4 +103,4 @@ class JoomlaButtonElement extends HTMLElement {
     this.removeEventListener(eventName, this);
   }
 }
-customElements.define('tk-group-buttons', JoomlaButtonElement);
+customElements.define('tk-group-buttons', TkButtonElement);

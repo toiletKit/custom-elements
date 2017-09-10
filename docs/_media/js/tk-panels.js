@@ -1,4 +1,4 @@
-class JoomlaPanelsElement extends HTMLElement {
+class TkPanelsElement extends HTMLElement {
   /* Attributes to monitor */
   static get observedAttributes() { return ['recall', 'orientation', 'view', 'responsive', 'collapse-width']; }
   get recall() { return this.getAttribute('recall'); }
@@ -43,7 +43,7 @@ class JoomlaPanelsElement extends HTMLElement {
 
     // Sanity check
     if (!this.panels.length) {
-      throw new Error('`Joomla-panels` require one ore more panels!');
+      throw new Error('`Tk-panels` require one ore more panels!');
     }
 
     // Is this nested
@@ -428,4 +428,4 @@ class JoomlaPanelsElement extends HTMLElement {
   }
 }
 
-customElements.define('tk-panels', JoomlaPanelsElement);
+customElements.define('tk-panels', TkPanelsElement);

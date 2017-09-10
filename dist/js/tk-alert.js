@@ -1,4 +1,4 @@
-class JoomlaAlertElement extends HTMLElement {
+class TkAlertElement extends HTMLElement {
   /* Attributes to monitor */
   static get observedAttributes() { return ['type', 'dismiss', 'acknowledge', 'href', 'auto-dismiss', 'position', 'textClose', 'textDismiss', 'textAcknowledge']; }
   get type() { return this.getAttribute('type'); }
@@ -173,4 +173,4 @@ class JoomlaAlertElement extends HTMLElement {
   }
 }
 
-customElements.define('tk-alert', JoomlaAlertElement);
+customElements.define('tk-alert', TkAlertElement);

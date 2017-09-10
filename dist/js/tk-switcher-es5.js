@@ -17,7 +17,7 @@ var _createClass = function () {
   if (!a) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return b && ('object' == (typeof b === 'undefined' ? 'undefined' : _typeof(b)) || 'function' == typeof b) ? b : a;
 }function _inherits(a, b) {
   if ('function' != typeof b && null !== b) throw new TypeError('Super expression must either be null or a function, not ' + (typeof b === 'undefined' ? 'undefined' : _typeof(b)));a.prototype = Object.create(b && b.prototype, { constructor: { value: a, enumerable: !1, writable: !0, configurable: !0 } }), b && (Object.setPrototypeOf ? Object.setPrototypeOf(a, b) : a.__proto__ = b);
-}var JoomlaSwitcherElement = function (a) {
+}var TkSwitcherElement = function (a) {
   function b() {
     _classCallCheck(this, b);var a = _possibleConstructorReturn(this, (b.__proto__ || Object.getPrototypeOf(b)).call(this));return a.inputs = [], a.spans = [], a.inputsContainer = '', a.spansContainer = '', a.newActive = '', a;
   }return _inherits(b, a), _createClass(b, [{ key: 'type', get: function get() {
@@ -31,7 +31,7 @@ var _createClass = function () {
     } }], [{ key: 'observedAttributes', get: function get() {
       return ['type', 'offText', 'onText'];
     } }]), _createClass(b, [{ key: 'connectedCallback', value: function connectedCallback() {
-      var a = this;if (this.inputs = [].slice.call(this.querySelectorAll('input')), 2 !== this.inputs.length || 'radio' !== this.inputs[0].type) throw new Error('`Joomla-switcher` requires two inputs type="checkbox"');this.createMarkup.bind(this)(), this.inputsContainer = this.firstElementChild, this.spansContainer = this.lastElementChild, this.inputs[1].checked ? (this.inputs[1].parentNode.classList.add('active'), this.spans[1].classList.add('active')) : this.spans[0].classList.add('active'), this.inputs.forEach(function (b, c) {
+      var a = this;if (this.inputs = [].slice.call(this.querySelectorAll('input')), 2 !== this.inputs.length || 'radio' !== this.inputs[0].type) throw new Error('`Tk-switcher` requires two inputs type="checkbox"');this.createMarkup.bind(this)(), this.inputsContainer = this.firstElementChild, this.spansContainer = this.lastElementChild, this.inputs[1].checked ? (this.inputs[1].parentNode.classList.add('active'), this.spans[1].classList.add('active')) : this.spans[0].classList.add('active'), this.inputs.forEach(function (b, c) {
         b.setAttribute('tabindex', '-1'), b.setAttribute('role', 'switch'), b.setAttribute('aria-labelledby', a.spans[c].innerHTML), b.addEventListener('click', a.toggle.bind(a));
       }), this.inputsContainer.addEventListener('keydown', this.keyEvents.bind(this));
     } }, { key: 'disconnectedCallback', value: function disconnectedCallback() {
@@ -56,6 +56,6 @@ var _createClass = function () {
     } }, { key: 'keyEvents', value: function keyEvents(a) {
       (13 === a.keyCode || 32 === a.keyCode) && (a.preventDefault(), this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1, this.switch.bind(this)());
     } }]), b;
-}(HTMLElement);customElements.define('tk-switcher', JoomlaSwitcherElement);
+}(HTMLElement);customElements.define('tk-switcher', TkSwitcherElement);
 
 },{}]},{},[1]);

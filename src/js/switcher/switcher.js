@@ -1,4 +1,4 @@
-class JoomlaSwitcherElement extends HTMLElement {
+class TkSwitcherElement extends HTMLElement {
   /* Attributes to monitor */
   static get observedAttributes() { return ['type', 'offText', 'onText']; }
   get type() { return this.getAttribute('type'); }
@@ -21,7 +21,7 @@ class JoomlaSwitcherElement extends HTMLElement {
     this.inputs = [].slice.call(this.querySelectorAll('input'));
 
     if (this.inputs.length !== 2 || this.inputs[0].type !== 'radio') {
-      throw new Error('`Joomla-switcher` requires two inputs type="checkbox"');
+      throw new Error('`Tk-switcher` requires two inputs type="checkbox"');
     }
 
     // Create the markup
@@ -181,4 +181,4 @@ class JoomlaSwitcherElement extends HTMLElement {
   }
 }
 
-customElements.define('tk-switcher', JoomlaSwitcherElement);
+customElements.define('tk-switcher', TkSwitcherElement);

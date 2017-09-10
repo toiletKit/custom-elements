@@ -41,8 +41,6 @@ Control the design and functionality of the custom element through attributes.
 |offText	|The text that's displayed when the switcher is toggled off													|
 |onText		|The text that's displayed when the switcher is toggled on													|
 
-All Strings are translateble, using the common API: `Joomla.JText._('JON')`
-
 ## Methods
 The custom element exposes a method to switch its state.
 
@@ -59,23 +57,23 @@ The custom element exposes a few events for hooking into switcher functionality.
 
 |Event					|Description								     												|
 |-----------------------|-----------------------------------------------------------------------------------------------|
-|joomla.switcher.toggle	|This event fires when the switcher has been switched "on" or "off"								|
-|joomla.switcher.on		|This event fires when the switcher has been switched "on"										|
-|joomla.switcher.off	|This event fires when the switcher has been switched "off"										|
+|tk.switcher.toggle	|This event fires when the switcher has been switched "on" or "off"								|
+|tk.switcher.on		|This event fires when the switcher has been switched "on"										|
+|tk.switcher.off	|This event fires when the switcher has been switched "off"										|
 
 
 Example:
 Add some functonality when the switcher has been toggled
 ```js
-element.addEventListener('joomla.switcher.toggle', function() {alert('Toggled!')} )
+element.addEventListener('tk.switcher.toggle', function() {alert('Toggled!')} )
 ```
 
 Add some functonality when the switcher has been switched "on"
 ```js
-element.addEventListener('joomla.switcher.on', function() {alert('Switched on!')} )
+element.addEventListener('tk.switcher.on', function() {alert('Switched on!')} )
 ```
 
 Add some functonality when the switcher has been switched "off"
 ```js
-element.addEventListener('joomla.switcher.off', function() {alert('Switched off!')} )
+element.addEventListener('tk.switcher.off', function() {alert('Switched off!')} )
 ```
