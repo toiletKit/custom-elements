@@ -18,6 +18,6 @@ notifications:
   email: false
   addons:
   sauce_connect:
-    username: "dgt41"
+    username: dgt41
   jwt:
     secure: "Xd7XBsmLQDoYsZaCS+hwojaKOfnIz/IyO3qanIe55RlHJToDtWQK941Hm4TmhA+OWDVeon027b5ZnuPuGcnsC41nLTPbMTFYjHm9V92rCXpxvKzoDwbOsqCGxzCsWiGMGQ95AUz/1P/5AI2+5ni1plbJVRtM6gAess0FGnhgzXCfvanODyjGIg5yJEYeJy2Cid28h++21+VSrJ2V/CMVAUkRunH9GBtCvKPffNST1Uy+3szulWoVRwEgJi4hdYmtfpj/SDJEDBj9Go2W5RNkxn+OgNXUJh9HwXObenGdB9wvXo/ZL7nz8DLG6sgdXc4I8yw6ByX5flhTp4L6uIgwjj1xKMSgO4M1dJaExkvBhcT9ulKjblnnPpHMv88lcH8JeeX7oqpiMQ8oRu+SINHsKxTM5+4xZCh8Sl3brMr7b1CU5v399LxhlmL/MKTkX3+u4yUHufugyMclHstCZ6BbKpvQyF3smAPamgKhOZdLDc5Q7a1r4CcDIqvS+cOdbw4bkcDWD3712xXj1BYEUQg1yer7+K6HG1kadfDO/iMBa7emKEziwCKL7CgLiiDGlV6I6Xqz6MVg8vEM+Okl7vpVXL0wGkg8bFTZLydyc2Ta2E5tUjgf/zN73Ziye8GsCRfqcv5t2/Hu95UiES4J6cuoGcSAHJswMS0cXW7FpBk4lWs="
