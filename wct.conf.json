@@ -1,9 +1,6 @@
 {
-   "testTimeout":18000,
    "verbose":"true",
-   "persistent":"false",
-   "skipCleanup":"true",
-   "compile":"never",
+   "compile":"always",
    "plugins":{
       "local":{
          "browsers":[
