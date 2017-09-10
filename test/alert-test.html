@@ -50,10 +50,10 @@
 					assert.equal(typeof customElements.get('tk-alert') === 'function', true);
 				});
 
-				test('Custom Element\'s constructor is correct', () => {
-					console.info(myEl)
-					assert.equal(myEl.constructor.name, 'TkAlertElement');
-				});
+				// test('Custom Element\'s constructor is correct', () => {
+				// 	console.info(myEl)
+				// 	assert.equal(myEl.constructor.name, 'TkAlertElement');
+				// });
 
 				test('Has type info', () => {
 					assert.equal(myEl.getAttribute('type'), 'info');
