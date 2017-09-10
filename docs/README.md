@@ -1,6 +1,6 @@
-## Joomla UI Componens
+## toiletKit UI Components
 
-> A collection of all the UI components used in Joomla.
+> A collection of popular the UI components.
 
 ## What is it
 

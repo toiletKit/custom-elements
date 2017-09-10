@@ -2,34 +2,34 @@
 
 In order to use the switcher custom element you need to import the element in the document's head:
 ```html
-<link href="joomla-switcher.min.css" rel="stylesheet">
-<script src="joomla-switcher.min.js"></script>
+<link href="tk-switcher.min.css" rel="stylesheet">
+<script src="tk-switcher.min.js"></script>
 ```
 
 The simplified version of the custom element
 ```html
-<joomla-switcher offText="No" onText="Yes">
+<tk-switcher offText="No" onText="Yes">
 	<input name="switcher" id="sw1" value="0" type="radio" class="active" checked>
 	<input name="switcher" id="sw2" value="1" type="radio">
-</joomla-switcher>
+</tk-switcher>
 
 ```
 
 ### Switcher demo:
-<joomla-switcher type="success" offText="Off" onText="On">
+<tk-switcher type="success" offText="Off" onText="On">
 	<input name="switcher1" id="sw1" value="0" type="radio">
 	<input name="switcher1" id="sw2" value="1" type="radio" class="active" checked>
-</joomla-switcher>
+</tk-switcher>
 
-<joomla-switcher type="primary" offText="No" onText="Yes">
+<tk-switcher type="primary" offText="No" onText="Yes">
 	<input name="switcher2" id="sw3" value="0" type="radio" class="active" checked>
 	<input name="switcher2" id="sw4" value="1" type="radio">
-</joomla-switcher>
+</tk-switcher>
 
-<joomla-switcher type="danger" offText="Stable" onText="Alpha">
+<tk-switcher type="danger" offText="Stable" onText="Alpha">
 	<input name="switcher3" id="sw5" value="0" type="radio" class="active" checked>
 	<input name="switcher3" id="sw6" value="1" type="radio">
-</joomla-switcher>
+</tk-switcher>
 
 
 ## Attibutes
