@@ -7,7 +7,7 @@
 		<script src="../../web-component-tester/browser.js"></script>
 
 		<!-- Step 1: import the element to test -->
-		<script src="../dist/js/joomla-switcher.min.js"></script>
+		<script src="../dist/js/toiletkit-switcher.min.js"></script>
 	</head>
 
 	<body>
@@ -15,15 +15,15 @@
 		<!-- You can use the document as a place to set up your fixtures. -->
 		<test-fixture id="switcher-element-basic">
 			<template>
-				<joomla-switcher offText="No" onText="Yes">
+				<toiletkit-switcher offText="No" onText="Yes">
 					<input name="switcher" id="sw1" value="0" type="radio" class="active" checked>
 					<input name="switcher" id="sw2" value="1" type="radio">
-				</joomla-switcher>
+				</toiletkit-switcher>
 			</template>
 		</test-fixture>
 
 		<script>
-			suite('<joomla-switcher-basic>', () => {
+			suite('<toiletkit-switcher-basic>', () => {
 
 				let myEl;
 
@@ -32,7 +32,7 @@
 				});
 
 				test('Custom Element script is loaded', () => {
-					assert.equal(typeof customElements.get('joomla-switcher') === 'function', true);
+					assert.equal(typeof customElements.get('toiletkit-switcher') === 'function', true);
 				});
 
 				test('Has the container span for the radios', () => {
