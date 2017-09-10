@@ -65,15 +65,21 @@ The custom element exposes a few events for hooking into switcher functionality.
 Example:
 Add some functonality when the switcher has been toggled
 ```js
-element.addEventListener('tk.switcher.toggle', function() {alert('Toggled!')} )
+el.addEventListener('tk.switcher.toggle', function() {
+  alert('Toggled!')
+})
 ```
 
 Add some functonality when the switcher has been switched "on"
 ```js
-element.addEventListener('tk.switcher.on', function() {alert('Switched on!')} )
+el.addEventListener('tk.switcher.on', function() {
+  alert('Switched on!')
+})
 ```
 
 Add some functonality when the switcher has been switched "off"
 ```js
-element.addEventListener('tk.switcher.off', function() {alert('Switched off!')} )
+el.addEventListener('tk.switcher.off', function() {
+  alert('Switched off!')
+})
 ```
