@@ -110,7 +110,7 @@ module.exports = (grunt) => {
 
         // Repeat
         tmpJs = grunt.file.read('src/js/' + element + '/' + element + '.js');
-        tmpJs = tmpJs.replace(/joomla-/g, settings.prefix + '-');
+        tmpJs = tmpJs.replace(/toiletkit-/g, settings.prefix + '-');
 
         grunt.file.write('src/js/' + element + '/' + element + '_es6.js', tmpJs);
 

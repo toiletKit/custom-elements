@@ -6,7 +6,7 @@
 @import "../variables";
 
 // Make the div behave like a button
-joomla-group-buttons {
+toiletkit-group-buttons {
   position: relative;
   display: inline-flex;
   vertical-align: middle; // match .btn alignment given font-size hack above
@@ -183,12 +183,12 @@ joomla-group-buttons {
 
 }
 
-joomla-group-buttons > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+toiletkit-group-buttons > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0;
 }
 
 // Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
-joomla-group-buttons > .btn:first-child {
+toiletkit-group-buttons > .btn:first-child {
   margin-left: 0;
 
   &:not(:last-child):not(.dropdown-toggle) {
@@ -198,21 +198,21 @@ joomla-group-buttons > .btn:first-child {
 }
 
 // Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
-joomla-group-buttons > .btn:last-child:not(:first-child),
-joomla-group-buttons > .dropdown-toggle:not(:first-child) {
+toiletkit-group-buttons > .btn:last-child:not(:first-child),
+toiletkit-group-buttons > .dropdown-toggle:not(:first-child) {
   @include border-left-radius(0);
 }
 
 // Custom edits for including btn-groups within btn-groups (useful for including dropdown buttons within a btn-group)
-joomla-group-buttons > joomla-group-buttons {
+toiletkit-group-buttons > toiletkit-group-buttons {
   float: left;
 }
 
-joomla-group-buttons > joomla-group-buttons:not(:first-child):not(:last-child) > .btn {
+toiletkit-group-buttons > toiletkit-group-buttons:not(:first-child):not(:last-child) > .btn {
   border-radius: 0;
 }
 
-joomla-group-buttons > joomla-group-buttons:first-child:not(:last-child) {
+toiletkit-group-buttons > toiletkit-group-buttons:first-child:not(:last-child) {
 
   > .btn:last-child,
   > .dropdown-toggle {
@@ -221,7 +221,7 @@ joomla-group-buttons > joomla-group-buttons:first-child:not(:last-child) {
 
 }
 
-joomla-group-buttons > joomla-group-buttons:last-child:not(:first-child) > .btn:first-child {
+toiletkit-group-buttons > toiletkit-group-buttons:last-child:not(:first-child) > .btn:first-child {
   @include border-left-radius(0);
 }
 
@@ -260,7 +260,7 @@ joomla-group-buttons > joomla-group-buttons:last-child:not(:first-child) > .btn:
 
 // The clickable button for toggling the menu
 // Set the same inset shadow as the :active state
-joomla-group-buttons.show .dropdown-toggle {
+toiletkit-group-buttons.show .dropdown-toggle {
   @include box-shadow($btn-active-box-shadow);
 
   // Show no shadow for `.btn-link` since it has no other button styles.
@@ -283,7 +283,7 @@ joomla-group-buttons.show .dropdown-toggle {
 // See https://github.com/twbs/bootstrap/pull/12794 and
 // https://github.com/twbs/bootstrap/pull/14559 for more information.
 
-joomla-group-buttons {
+toiletkit-group-buttons {
 
   > .btn,
   > .btn-group > .btn {

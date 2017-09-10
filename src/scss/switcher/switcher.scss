@@ -9,7 +9,7 @@ $switcher-width:  62px;
 $switcher-height: 28px;
 $border-width:    1px;
 
-joomla-switcher {
+toiletkit-switcher {
   box-sizing: border-box;
   display: block;
   height: $switcher-height;
@@ -102,7 +102,7 @@ joomla-switcher {
 
 // Alternate styles
 @each $color, $value in $theme-colors {
-  joomla-switcher[type="#{$color}"] .switcher.active {
+  toiletkit-switcher[type="#{$color}"] .switcher.active {
     background-color: theme-color-level($color);
     border-color: theme-color-level($color);
     box-shadow: 0 0 0 calc(#{$switcher-height} / 2) theme-color-level($color) inset;

@@ -5,7 +5,7 @@
 @import "../../../node_modules/bootstrap/scss/variables";
 @import "../variables";
 
-joomla-panels {
+toiletkit-panels {
   display: flex;
   flex-direction: column;
 
@@ -166,7 +166,7 @@ joomla-panels {
 
 // Alternate styles
 @each $color, $value in $theme-colors {
-  joomla-panels[type="#{$color}"] a[role="tab"] {
+  toiletkit-panels[type="#{$color}"] a[role="tab"] {
     &[active]::after {
       background-color: theme-color-level($color);
     }

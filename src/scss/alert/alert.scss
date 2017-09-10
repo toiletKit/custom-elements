@@ -9,7 +9,7 @@
 // Base styles
 //
 
-joomla-alert {
+toiletkit-alert {
   display: block;
   min-width: 250px;
   padding: $alert-padding-y $alert-padding-x;
@@ -19,11 +19,11 @@ joomla-alert {
   @include border-radius($alert-border-radius);
   @include transition($transition-fade);
 
-  &.joomla-alert--show {
+  &.toiletkit-alert--show {
     opacity: 1;
   }
 
-  .joomla-alert--close, .joomla-alert-button--close {
+  .toiletkit-alert--close, .toiletkit-alert-button--close {
     position: relative;
     top: -$alert-padding-y;
     right: -$alert-padding-x;
@@ -31,14 +31,14 @@ joomla-alert {
     color: inherit;
   }
 
-  .joomla-alert--close {
+  .toiletkit-alert--close {
     font-size: $close-font-size;
     font-weight: $close-font-weight;
     line-height: 1;
     text-shadow: $close-text-shadow;
   }
 
-  .joomla-alert--close, .joomla-alert-button--close {
+  .toiletkit-alert--close, .toiletkit-alert-button--close {
     float: right;
     color: $close-color;
     background: transparent;
@@ -59,7 +59,7 @@ joomla-alert {
   // See https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
 
   // scss-lint:disable QualifyingElement
-  button.joomla-alert-button--close {
+  button.toiletkit-alert-button--close {
     padding-top: .75rem;
     font-size: 100%;
     line-height: 1.15;
@@ -72,18 +72,18 @@ joomla-alert {
 }
 
 // Alternate floated positions
-joomla-alert[position="top-left"] {
+toiletkit-alert[position="top-left"] {
   position: fixed;
   top: 10px;
   left: 10px;
 }
-joomla-alert[position="top-center"] {
+toiletkit-alert[position="top-center"] {
   position: fixed;
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
 }
-joomla-alert[position="top-right"] {
+toiletkit-alert[position="top-right"] {
   position: fixed;
   top: 10px;
   right: 10px;
@@ -91,7 +91,7 @@ joomla-alert[position="top-right"] {
 
 // Alternate styles
 @each $color, $value in $theme-colors {
-  joomla-alert[type="#{$color}"] {
+  toiletkit-alert[type="#{$color}"] {
     @include alert-variant(theme-color-level($color, -10), theme-color-level($color, -9), theme-color-level($color, 6));
   }
 }

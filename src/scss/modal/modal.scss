@@ -5,7 +5,7 @@
 @import "../../../node_modules/bootstrap/scss/variables";
 @import "../variables";
 
-joomla-modal {
+toiletkit-modal {
   position: fixed;
   top: 0;
   right: 0;
@@ -65,7 +65,7 @@ joomla-modal {
     display: block;
   }
 
-  .joomla-modal-dialog {
+  .toiletkit-modal-dialog {
     position: relative;
     display: flex;
     flex-direction: column;

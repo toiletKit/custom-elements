@@ -3,7 +3,7 @@
 #### Comment out the elements you don't want to be created
 
 'prefix':
-    'joomla'
+    'toiletkit'
 
 'elements':
     - 'alert'
