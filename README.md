@@ -24,7 +24,8 @@ The folder named `dist` contains all your elements.
 
 For each component that you need to have available in your page you need to add the custom element in the head of the document:
 ```html
-<script src="toiletkit-alert.min.js"></script>
+<link href="tk-alert.min.css" rel="stylesheet">
+<script src="tk-alert.min.js"></script>
 ```
 
 ### Tests
