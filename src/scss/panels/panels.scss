@@ -5,7 +5,7 @@
 @import "../../../node_modules/bootstrap/scss/variables";
 @import "../variables";
 
-toiletkit-panels {
+tk-panels {
   display: flex;
   flex-direction: column;
 
@@ -166,7 +166,7 @@ toiletkit-panels {
 
 // Alternate styles
 @each $color, $value in $theme-colors {
-  toiletkit-panels[type="#{$color}"] a[role="tab"] {
+  tk-panels[type="#{$color}"] a[role="tab"] {
     &[active]::after {
       background-color: theme-color-level($color);
     }
