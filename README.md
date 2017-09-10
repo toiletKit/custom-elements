@@ -1,20 +1,14 @@
-# Joomla UI custom elements
-
-[![Build Status](https://travis-ci.org/joomla-projects/custom-elements.svg?branch=master)](https://travis-ci.org/joomla-projects/custom-elements) [![Greenkeeper badge](https://badges.greenkeeper.io/joomla-projects/custom-elements.svg)](https://greenkeeper.io/)
-
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](http://gruntjs.com/) [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/joomla-projects/custom-elements)
-
-[![Build Status](https://saucelabs.com/browser-matrix/joomla-custom-elements.svg)](https://saucelabs.com/beta/builds/ea93394ca1344c6aa388509849383c6e)
+# toiletKit UI custom elements
 
 ### UI components using modern technologies
 
-This is a collection of all the components that Joomla is using. They are developed with the new W3C standard: custom elements. Each component is using plain and optimized javascript for performance. Also the HTML markup (wherever possible) is reduced to offer a great benefit for front end developers).
+This is a collection of some common front end components. They are developed with the new W3C standard: custom elements. Each component is using plain and optimized javascript for performance. Also the HTML markup (wherever possible) is reduced to offer a great benefit for front end developers).
 
 ### Using the NPM power
 
 You can install this package by using NPM:
 ```bash
-$ npm i joomla-ui-custom-elements
+$ npm i toiletKit/custom-elements
 ```
 
 ### Configuration
@@ -30,7 +24,7 @@ The folder named `dist` contains all your elements.
 
 For each component that you need to have available in your page you need to add the custom element in the head of the document:
 ```html
-<script src="joomla-alert.min.js"></script>
+<script src="toiletkit-alert.min.js"></script>
 ```
 
 ### Tests
@@ -40,7 +34,7 @@ You will need `wct` (web component tester) installed globally. To do so just run
 You might need to run that command as sudo!
 After that, in the root folder of this project just run `wct` and see the status of the tests...
 
-The default setup is based on MacOS system and looking for Chrome, Firefox and Safari browsers, you can change this by editing line 5 of https://github.com/joomla-projects/custom-elements/blob/master/wct.conf.json#L5
+The default setup is based on MacOS system and looking for Chrome, Firefox and Safari browsers, you can change this by editing line 5 of https://github.com/toiletKit/custom-elements/blob/master/wct.conf.json#L5
 
 ### Browser support
 
@@ -48,8 +42,8 @@ Although all the major browsers are **committed** to support custom elements som
 The repo for the actual polyfill is: https://github.com/webcomponents/webcomponentsjs
 
 ### Documentation
-Fully documented [here](https://joomla-projects.github.io/custom-elements/)
+Fully documented [here](https://toiletkit.github.io/custom-elements/)
 
 ### License
 
-The library is released under the [GPL license](LICENSE)
+
