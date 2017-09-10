@@ -1,7 +1,7 @@
-![logo](_images/80px-Joomla_logo.png)
+![logo](_images/logo.svg)
 
 
-# Joomla UI components
+# toiletKit UI components
 
 > Next generation components.
 
@@ -12,8 +12,8 @@
 - [CSP](https://csp.withgoogle.com/docs/index.html) compliant
 
 
-[GitHub](https://github.com/joomla-projects/custom-elements/)
+[GitHub](https://github.com/toiletKit/custom-elements)
 [Get Started](/quickstart)
 
 <!-- background color -->
-![color](rgb(55, 101, 78))
+![color](rgb(105, 112, 117))

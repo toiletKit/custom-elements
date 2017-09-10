@@ -13,45 +13,45 @@ Alerts are available for any length of text, as well as an optional dismiss butt
 In order to use the alert custom element you need to import the element in the document's head:
 
 ```html
-<link href="joomla-alert.min.css" rel="stylesheet">
-<script src="joomla-alert.min.js"></script>
+<link href="tk-alert.min.css" rel="stylesheet">
+<script src="tk-alert.min.js"></script>
 ```
 
 The simplified version of the custom elements
 ```html
-<joomla-alert>No params passed</joomla-alert>
+<tk-alert>No params passed</tk-alert>
 
-<joomla-alert dismiss="true">
+<tk-alert dismiss="true">
     <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-</joomla-alert>
+</tk-alert>
 
-<joomla-alert type="success" acknowledge="true">
+<tk-alert type="success" acknowledge="true">
     <strong>Well done!</strong> You successfully read this important alert message.
-</joomla-alert>
+</tk-alert>
 
-<joomla-alert type="warning" dismiss="true" auto-dismiss="10000">
+<tk-alert type="warning" dismiss="true" auto-dismiss="10000">
     <strong>Warning!</strong> This one will self distruct in 10secs.
-</joomla-alert>
+</tk-alert>
 
-<joomla-alert type="danger" href="https://www.joomla.org">
-    <strong>Oh snap!</strong> Click open to go to joomla.org
-</joomla-alert>
+<tk-alert type="danger" href="https://www.google.com">
+    <strong>Oh snap!</strong> Click open to go to google.com
+</tk-alert>
 ```
 
 ### Alerts demo:
-<joomla-alert>No params passed</joomla-alert>
-<joomla-alert type="info" dismiss="true">
+<tk-alert>No params passed</tk-alert>
+<tk-alert type="info" dismiss="true">
     <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
-</joomla-alert>
-<joomla-alert type="success" acknowledge="true">
+</tk-alert>
+<tk-alert type="success" acknowledge="true">
     <strong>Well done!</strong> You successfully read this important alert message.
-</joomla-alert>
-<joomla-alert type="warning" dismiss="true" auto-dismiss="10000">
+</tk-alert>
+<tk-alert type="warning" dismiss="true" auto-dismiss="10000">
     <strong>Warning!</strong> This one will self distruct in 10secs.
-</joomla-alert>
-<joomla-alert type="danger" href="https://www.joomla.org">
-    <strong>Oh snap!</strong> Click open to go to joomla.org
-</joomla-alert>
+</tk-alert>
+<tk-alert type="danger" href="https://www.google.com">
+    <strong>Oh snap!</strong> Click open to go to google.com
+</tk-alert>
 <p>
 <button role="button" id="insertNewFloated" class="btn btn-success">Create a floated alert</button>
 </p>
@@ -94,7 +94,7 @@ Remove or add the close button:
 ```js
 el.removeAttribute('dismiss'); // Will remove the attribute
 el.setAttribute('acknowledge', true);
-el.setAttribute('url', 'https://www.joomla.org');
+el.setAttribute('url', 'https://www.google.com');
 el.setAttribute('auto-dismiss', '5000');
 ```
 
@@ -104,23 +104,23 @@ The custom element exposes a few events for hooking into alert functionality.
 
 |Event			|Description								     			|
 |-----------------------|-----------------------------------------------------------------------------------------------|
-|joomla.alert.show		|This event fires immediately when the element is appended in the DOM.				|
-|joomla.alert.close		|This event fires immediately when the close instance method is called.				|
-|joomla.alert.closed	|This event is fired when the alert has been closed (will wait for CSS transitions to complete).|
-|joomla.alert.buttonClicked	|This event is fired when the alert button has been clicked.|
+|tk.alert.show		|This event fires immediately when the element is appended in the DOM.				|
+|tk.alert.close		|This event fires immediately when the close instance method is called.				|
+|tk.alert.closed	|This event is fired when the alert has been closed (will wait for CSS transitions to complete).|
+|tk.alert.buttonClicked	|This event is fired when the alert button has been clicked.|
 
 
 Example:
 Add some functonality when the alert is closing (right before the css transition start):
 ```js
-el.addEventListener('joomla.alert.close', function() {
+el.addEventListener('tk.alert.close', function() {
   alert('Impressed!')
 })
 ```
 
 Add some functonality when the alert is closed (right after the css transition ends):
 ```js
-el.addEventListener('joomla.alert.closed', function() {
+el.addEventListener('tk.alert.closed', function() {
   alert('Very impressive!')
 })
 ```
@@ -131,7 +131,7 @@ Use the following script:
 
 
 ```js
-var el = document.createElement('joomla-alert');
+var el = document.createElement('tk-alert');
 el.setAttribute('type', 'success');
 el.setAttribute('dismiss', true);
 el.innerHTML = 'Wow it works!';
@@ -154,14 +154,14 @@ Use the following script:
 
 
 ```js
-var el = document.querySelector('joomla-alert');
+var el = document.querySelector('tk-alert');
 el.setAttribute('type', 'success');
 el.setAttribute('dismiss', '');
 ```
 
 
 ### Live example
-<joomla-alert id="change-me" type="info" dismiss="true"><strong>Alert:</strong> text goes here</joomla-alert>
+<tk-alert id="change-me" type="info" dismiss="true"><strong>Alert:</strong> text goes here</tk-alert>
 
 <div id="replaceble" markdown="0">
 <button role="button" data-opt1="type" value="info">Make it info</button>
@@ -180,15 +180,15 @@ Use the following script:
 
 
 ```js
-var el = document.querySelector('joomla-alert');
+var el = document.querySelector('tk-alert');
 el.close();
 ```
 
 
 ### Demo
-<joomla-alert id="close-me-with-a-btn" type="danger" acknowledge="true">
+<tk-alert id="close-me-with-a-btn" type="danger" acknowledge="true">
 <strong>Alert:</strong> Close me with javascript
-</joomla-alert>
+</tk-alert>
 <p>
 <button role="button" id="i-will-close-that-alert">Close the above alert</button>
 </p>
@@ -266,7 +266,7 @@ Dynamically rendered alerts are automatically announced by most screen readers, 
 
 <script markdown="0">
 var addNew = function() {
-    var tempElement = document.createElement('joomla-alert');
+    var tempElement = document.createElement('tk-alert');
     tempElement.setAttribute('type', 'success');
     tempElement.setAttribute('dismiss', true);
     tempElement.innerHTML = 'Wow it works!';
@@ -274,7 +274,7 @@ var addNew = function() {
 };
 
 var addNewFloated = function() {
-    var tempElement = document.createElement('joomla-alert');
+    var tempElement = document.createElement('tk-alert');
     tempElement.setAttribute('type', 'warning');
     tempElement.setAttribute('dismiss', true);
 	tempElement.setAttribute('position', 'top-center');
@@ -293,9 +293,9 @@ var addNewButtonFloated = document.getElementById('insertNewFloated');
 
 addNewButton.addEventListener('click', addNew);
 addNewButtonFloated.addEventListener('click', addNewFloated);
-document.getElementById('change-me').addEventListener('joomla.alert.close', function() { alert('Seeing is believing. Event "joomla.alert.close" fired!') });
-document.getElementById('change-me').addEventListener('joomla.alert.closed', function() {
-    document.getElementById('replaceble').innerHTML = '<h4>Oops the alert has been destroyed. This text was initiated using the event "joomla.alert.closed" (the popup used the event "joomla.alert.close"</h4>';
+document.getElementById('change-me').addEventListener('tk.alert.close', function() { alert('Seeing is believing. Event "tk.alert.close" fired!') });
+document.getElementById('change-me').addEventListener('tk.alert.closed', function() {
+    document.getElementById('replaceble').innerHTML = '<h4>Oops the alert has been destroyed. This text was initiated using the event "tk.alert.closed" (the popup used the event "tk.alert.close"</h4>';
  });
 
 for (var i = 0, l = changeButtons.length; i < l; i++) {

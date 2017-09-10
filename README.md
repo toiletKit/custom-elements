@@ -8,7 +8,7 @@ This is a collection of some common front end components. They are developed wit
 
 You can install this package by using NPM:
 ```bash
-$ npm i toiletKit/custom-elements
+$ npm i toiletkit/custom-elements
 ```
 
 ### Configuration

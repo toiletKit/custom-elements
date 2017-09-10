@@ -2,34 +2,34 @@
 
 In order to use the tip custom element you need to import the element in the document's head:
 ```html
-<link href="joomla-tip.min.css" rel="stylesheet">
-<script src="joomla-tip.min.js"></script>
+<link href="tk-tip.min.css" rel="stylesheet">
+<script src="tk-tip.min.js"></script>
 ```
 
 The simplified version of the custom elements
 ```html
-<joomla-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="top">
-</joomla-tip>
+<tk-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="top">
+</tk-tip>
 
-<joomla-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="left">
-</joomla-tip>
+<tk-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="left">
+</tk-tip>
 
-<joomla-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="right">
-</joomla-tip>
+<tk-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="right">
+</tk-tip>
 
-<joomla-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="bottom">
-</joomla-tip>
+<tk-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="bottom">
+</tk-tip>
 ```
 
 ### tip demo:
-<joomla-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="top">
-</joomla-tip>
+<tk-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="top">
+</tk-tip>
 <hr>
-<joomla-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="left">
-</joomla-tip>
+<tk-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="left">
+</tk-tip>
 <hr>
-<joomla-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="right">
-</joomla-tip>
+<tk-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="right">
+</tk-tip>
 <hr>
-<joomla-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="bottom">
-</joomla-tip>
+<tk-tip label="more info" tip="This clarifies whatever needs clarifying" text="i" position="bottom">
+</tk-tip>
