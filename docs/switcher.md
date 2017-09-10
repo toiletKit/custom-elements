@@ -1,6 +1,6 @@
 # Switcher
 
-In order to use the switcher custom element you need to import the element in the document's head:
+In order to use the Switcher custom element you need to import the element in the document's head:
 ```html
 <link href="tk-switcher.min.css" rel="stylesheet">
 <script src="tk-switcher.min.js"></script>
@@ -57,23 +57,29 @@ The custom element exposes a few events for hooking into switcher functionality.
 
 |Event					|Description								     												|
 |-----------------------|-----------------------------------------------------------------------------------------------|
-|tk.switcher.toggle	|This event fires when the switcher has been switched "on" or "off"								|
-|tk.switcher.on		|This event fires when the switcher has been switched "on"										|
-|tk.switcher.off	|This event fires when the switcher has been switched "off"										|
+|tk.switcher.toggle	|This event fires when the Switcher has been switched "on" or "off"								|
+|tk.switcher.on		|This event fires when the Switcher has been switched "on"										|
+|tk.switcher.off	|This event fires when the Switcher has been switched "off"										|
 
 
 Example:
-Add some functonality when the switcher has been toggled
+Add some functonality when the Switcher has been toggled
 ```js
-element.addEventListener('tk.switcher.toggle', function() {alert('Toggled!')} )
+el.addEventListener('tk.switcher.toggle', function() {
+  alert('Toggled!')
+})
 ```
 
-Add some functonality when the switcher has been switched "on"
+Add some functonality when the Switcher has been switched "on"
 ```js
-element.addEventListener('tk.switcher.on', function() {alert('Switched on!')} )
+el.addEventListener('tk.switcher.on', function() {
+  alert('Switched on!')
+})
 ```
 
-Add some functonality when the switcher has been switched "off"
+Add some functonality when the Switcher has been switched "off"
 ```js
-element.addEventListener('tk.switcher.off', function() {alert('Switched off!')} )
+el.addEventListener('tk.switcher.off', function() {
+  alert('Switched off!')
+})
 ```
