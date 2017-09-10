@@ -35,10 +35,10 @@
 					assert.equal(typeof customElements.get('tk-switcher') === 'function', true);
 				});
 
-				test('Custom Element\'s constructor is correct', () => {
-					console.info(myEl)
-					assert.equal(myEl.constructor.name, 'TkSwitcherElement');
-				});
+				// test('Custom Element\'s constructor is correct', () => {
+				// 	console.info(myEl)
+				// 	assert.equal(myEl.constructor.name, 'TkSwitcherElement');
+				// });
 
 				test('Has the container span for the radios', () => {
 					const switcherEl = myEl.firstElementChild;
