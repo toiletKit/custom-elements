@@ -6,11 +6,6 @@ class TkModalElement extends HTMLElement {
     this.triggerBtn = '';
     this.focusableElements = null;
     this.focusableSelectors = ['a[href]', 'area[href]', 'input:not([disabled])', 'select:not([disabled])', 'textarea:not([disabled])', 'button:not([disabled])', 'iframe', 'object', 'embed', '[contenteditable]', '[tabindex]:not([tabindex^="-"])'];
-    this.width = '';
-    this.height = '';
-    this.innerWidth = '';
-    this.innerHeight = '';
-    this.iframe = '';
     this.container = this.querySelector('.tk-modal-dialog');
     this.title = this.getAttribute('title') || 'Modal';
   }

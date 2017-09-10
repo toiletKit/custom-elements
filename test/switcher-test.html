@@ -7,7 +7,7 @@
 		<script src="../../web-component-tester/browser.js"></script>
 
 		<!-- Step 1: import the element to test -->
-		<script src="../dist/js/tk-switcher.min.js"></script>
+		<script src="../dist/js/tk-switcher.js"></script>
 	</head>
 
 	<body>
@@ -33,6 +33,11 @@
 
 				test('Custom Element script is loaded', () => {
 					assert.equal(typeof customElements.get('tk-switcher') === 'function', true);
+				});
+
+				test('Custom Element\'s constructor is correct', () => {
+					console.info(myEl)
+					assert.equal(myEl.constructor.name, 'TkSwitcherElement');
 				});
 
 				test('Has the container span for the radios', () => {

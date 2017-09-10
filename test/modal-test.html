@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+		<script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+		<script src="../../web-component-tester/browser.js"></script>
+
+		<!-- Step 1: import the element to test -->
+		<script src="../dist/js/tk-modal.js"></script>
+	</head>
+
+	<body>
+
+		<!-- You can use the document as a place to set up your fixtures. -->
+		<test-fixture id="modal-element-basic">
+			<template>
+				<tk-modal id="exampleModal" title="Modal title" close-button-title="Close" width="100%" height="400px" iframe="https://www.google.com">
+
+					<section>
+						<h4>I'm a Modal</h4>
+					</section>
+					<footer>
+						<button class="btn btn-secondary" data-dismiss>Close</button>
+						<button class="btn btn-primary">Save changes</button>
+					</footer>
+				</tk-modal>
+
+				<button type="button" class="btn btn-primary" data-href="#exampleModal">Launch demo modal</button>
+			</template>
+		</test-fixture>
+
+		<script>
+			suite('<tk-modal-levels>', () => {
+
+				let myEl;
+
+				setup(() => {
+					myEl = fixture('modal-element-basic');
+				});
+
+				test('Custom Element script is loaded', () => {
+					assert.equal(typeof customElements.get('tk-modal') === 'function', true);
+				});
+
+				// test('Custom Element\'s constructor is correct', () => {
+				// 	console.info(myEl)
+				// 	assert.equal(myEl.constructor.name, 'TkModalElement');
+				// });
+				// test('Has type info', () => {
+				// 	assert.equal(myEl.getAttribute('type'), 'info');
+				// });
+
+				// test('Respects type attribute change, any unsupported value', () => {
+				// 	myEl.setAttribute('type', 'unknown');
+				// 	assert.equal(myEl.getAttribute('type'), 'info');
+				// });
+
+				// test('Respects type attribute change, warning', () => {
+				// 	myEl.setAttribute('type', 'warning');
+				// 	assert.equal(myEl.getAttribute('type'), 'warning');
+				// });
+
+				// test('Respects type attribute change, danger', () => {
+				// 	myEl.setAttribute('type', 'danger');
+				// 	assert.equal(myEl.getAttribute('type'), 'danger');
+				// });
+
+				// test('Respects type attribute change, success', () => {
+				// 	myEl.setAttribute('type', 'success');
+				// 	assert.equal(myEl.getAttribute('type'), 'success');
+				// });
+
+				// test('Has the right text', () => {
+				// 	console.info(myEl)
+				// 	assert.equal(myEl.querySelector('#text').innerText, 'Has some text');
+				// });
+			});
+		</script>
+
+	</body>
+</html>
