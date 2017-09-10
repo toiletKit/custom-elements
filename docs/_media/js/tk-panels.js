@@ -34,7 +34,7 @@ class TkPanelsElement extends HTMLElement {
     }
 
     this.view = this.getAttribute('view') || 'tabs';
-    this.recall = this.recall || 'false';
+    this.recall = this.recall || false;
     this.responsive = this.getAttribute('responsive') || 'false';
     this.collapseWidth = this.getAttribute('collapseWidth') || 0;
 
@@ -43,7 +43,7 @@ class TkPanelsElement extends HTMLElement {
 
     // Sanity check
     if (!this.panels.length) {
-      throw new Error('`Tk-panels` require one ore more panels!');
+      throw new Error('`Tk-panels` require one or more panels!');
     }
 
     // Is this nested
@@ -58,12 +58,14 @@ class TkPanelsElement extends HTMLElement {
 
     // Use the sessionStorage state!
     if (this.recall) {
-      const href = sessionStorage.getItem(this.getStorageKey());
-      // Do not fail on 3.x tab state values hack
-      if (href && !/@\[/.test(href)) {
-        this.tabLinkHash.push(href);
+      if (window.sessionStorage) {
+        const href = sessionStorage.getItem(this.getStorageKey());
+        // Do not fail on 3.x tab state values hack
+        if (href && !/@\[/.test(href)) {
+          this.tabLinkHash.push(href);
+        }
+        this.setTabState();
       }
-      this.setTabState();
     }
 
     // Create the navigation
