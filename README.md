@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/toiletKit/custom-elements.svg?branch=master)](https://travis-ci.org/toiletKit/custom-elements)  [![Greenkeeper badge](https://badges.greenkeeper.io/toiletKit/custom-elements.svg)](https://greenkeeper.io/)
 
-[![Build Status](https://saucelabs.com/browser-matrix/dgt41.svg)](https://saucelabs.com/beta/builds/956c8c4027634d95b2e3d1751ea51e69)
+[![Build Status](https://saucelabs.com/browser-matrix/dgt41.svg)](https://saucelabs.com/beta/builds/1450dab56fdd45afa7bb9a611c28b6b9)
 
 ### UI components using modern technologies
 
