@@ -2,34 +2,10 @@
    "verbose":"true",
    "compile":"always",
    "plugins":{
-      "sauce":{
-         "disabled":true,
+      "local":{
          "browsers":[
-            {
-               "browserName":"safari",
-               "platform":"OS X 10.11",
-               "version":"latest"
-            },
-            {
-               "browserName":"MicrosoftEdge",
-               "platform":"Windows 10",
-               "version":"latest"
-            },
-            {
-               "browserName":"internet explorer",
-               "version":"11",
-               "platform":"Windows 8.1"
-            },
-            {
-               "browserName":"chrome",
-               "platform":"Windows 10",
-               "version":"latest"
-            },
-            {
-               "browserName":"firefox",
-               "platform":"Windows 10",
-               "version":"latest"
-            }
+            "chrome",
+            "firefox"
          ]
       }
    }
