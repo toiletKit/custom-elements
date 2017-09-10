@@ -7,7 +7,7 @@
 		<script src="../../web-component-tester/browser.js"></script>
 
 		<!-- Step 1: import the element to test -->
-		<script src="../dist/js/toiletkit-switcher-es5.min.js"></script>
+		<script src="../dist/js/tk-switcher-es5.min.js"></script>
 	</head>
 
 	<body>
@@ -15,15 +15,15 @@
 		<!-- You can use the document as a place to set up your fixtures. -->
 		<test-fixture id="switcher-element-basic">
 			<template>
-				<toiletkit-switcher offText="No" onText="Yes">
+				<tk-switcher offText="No" onText="Yes">
 					<input name="switcher" id="sw1" value="0" type="radio" class="active" checked>
 					<input name="switcher" id="sw2" value="1" type="radio">
-				</toiletkit-switcher>
+				</tk-switcher>
 			</template>
 		</test-fixture>
 
 		<script>
-			suite('<toiletkit-switcher-basic>', () => {
+			suite('<tk-switcher-basic>', () => {
 
 				let myEl;
 
@@ -32,11 +32,11 @@
 				});
 
 				test('Custom Element script is loaded', () => {
-					assert.equal(typeof customElements.get('toiletkit-switcher') === 'function', true);
+					assert.equal(typeof customElements.get('tk-switcher') === 'function', true);
 				});
 
 				test('Has the container span for the radios', () => {
-					const switcherEl = myEl.firstChild;
+					const switcherEl = myEl.firstElementChild;
 					assert.equal(switcherEl.getAttribute('class'), 'switcher');
 				});
 

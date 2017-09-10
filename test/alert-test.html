@@ -7,7 +7,7 @@
 		<script src="../../web-component-tester/browser.js"></script>
 
 		<!-- Step 1: import the element to test -->
-		<script src="../dist/js/toiletkit-alert.min.js"></script>
+		<script src="../dist/js/tk-alert.min.js"></script>
 	</head>
 
 	<body>
@@ -15,30 +15,30 @@
 		<!-- You can use the document as a place to set up your fixtures. -->
 		<test-fixture id="alert-element-basic">
 			<template>
-				<toiletkit-alert type="info">
+				<tk-alert type="info">
 					<p id="text">Has some text</p>
-				</toiletkit-alert>
+				</tk-alert>
 			</template>
 		</test-fixture>
 
 		<test-fixture id="alert-element-dismiss">
 			<template>
-				<toiletkit-alert type="info" dismiss="true">
+				<tk-alert type="info" dismiss="true">
 					<p id="text">Has some text</p>
-				</toiletkit-alert>
+				</tk-alert>
 			</template>
 		</test-fixture>
 
 		<test-fixture id="alert-element-acknowledge">
 			<template>
-				<toiletkit-alert type="info" acknowledge="true">
+				<tk-alert type="info" acknowledge="true">
 					<p id="text">Has some text</p>
-				</toiletkit-alert>
+				</tk-alert>
 			</template>
 		</test-fixture>
 
 		<script>
-			suite('<toiletkit-alert-levels>', () => {
+			suite('<tk-alert-levels>', () => {
 
 				let myEl;
 
@@ -47,7 +47,7 @@
 				});
 
 				test('Custom Element script is loaded', () => {
-					assert.equal(typeof customElements.get('toiletkit-alert') === 'function', true);
+					assert.equal(typeof customElements.get('tk-alert') === 'function', true);
 				});
 
 				test('Has type info', () => {
@@ -80,7 +80,7 @@
 				});
 			});
 
-			suite('<toiletkit-alert-dismiss>', () => {
+			suite('<tk-alert-dismiss>', () => {
 
 				let myEl;
 
@@ -95,14 +95,14 @@
 				test('Respects button attribute change, false', () => {
 					myEl.setAttribute('dismiss', 'false');
 					assert.equal(myEl.getAttribute('dismiss'), 'false');
-					assert.equal(myEl.querySelectorAll('button.toiletkit-alert--close').length, 0);
+					assert.equal(myEl.querySelectorAll('button.tk-alert--close').length, 0);
 					assert.equal(myEl.querySelector('button'), null);
 				});
 
 				test('Respects button attribute change, any other value', () => {
 					myEl.setAttribute('dismiss', 'true');
 					assert.equal(myEl.getAttribute('dismiss'), 'true');
-					assert.equal(myEl.querySelectorAll('button.toiletkit-alert--close').length, 1);
+					assert.equal(myEl.querySelectorAll('button.tk-alert--close').length, 1);
 					assert.equal(myEl.querySelector('button').tagName.toLowerCase(), 'button');
 				});
 
@@ -113,7 +113,7 @@
 
 			});
 
-			suite('<toiletkit-alert-acknowledge>', () => {
+			suite('<tk-alert-acknowledge>', () => {
 
 				let myEl;
 
@@ -128,14 +128,14 @@
 				test('Respects button attribute change, false', () => {
 					myEl.setAttribute('acknowledge', 'false');
 					assert.equal(myEl.getAttribute('acknowledge'), 'false');
-					assert.equal(myEl.querySelectorAll('button.toiletkit-alert-button--close').length, 0);
+					assert.equal(myEl.querySelectorAll('button.tk-alert-button--close').length, 0);
 					assert.equal(myEl.querySelector('button'), null);
 				});
 
 				test('Respects button attribute change, any other value', () => {
 					myEl.setAttribute('acknowledge', 'true');
 					assert.equal(myEl.getAttribute('acknowledge'), 'true');
-					assert.equal(myEl.querySelectorAll('button.toiletkit-alert-button--close').length, 1);
+					assert.equal(myEl.querySelectorAll('button.tk-alert-button--close').length, 1);
 					assert.equal(myEl.querySelector('button').tagName.toLowerCase(), 'button');
 				});
 
