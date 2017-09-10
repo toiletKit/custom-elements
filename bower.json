@@ -1,5 +1,5 @@
 {
-  "name": "toiletKit-custom-elements",
+  "name": "toiletkit-custom-elements",
   "version": "0.0.12",
   "description": "toiletKit UI components as custom elements",
   "main": "Gruntfile.js",

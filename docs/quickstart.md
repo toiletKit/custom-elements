@@ -3,7 +3,7 @@
 It is recommended to install this repo locally so you can customize the css to match your app/theme/template colours. To do so you can use `npm`:
 
 ```bash
-$ npm i joomla-ui-custom-elements
+$ npm i toiletkit-custom-elements
 ```
 
 ## Build
@@ -15,7 +15,7 @@ $ grunt
 ```
 !> So editing the scss files to match your styles and then running `grunt` will produce the elements based on your styles.
 
-!> You can change the prefix of the element as well, for simplicity this document will refer to elements with the standard prefix `joomla`
+!> You can change the prefix of the element as well, for simplicity this document will refer to elements with the standard prefix `tk`
 
 ## Using the elements
 
@@ -31,8 +31,8 @@ Due to compatibility issues due to browsers support you need to have a polyfill,
 
 For each element that you want to use in your page you have to import the relevant CSS and JS file on your page, e.g:
 ```html
-<link href="joomla-alert.min.css" rel="stylesheet">
-<script src="joomla-alert.min.js"></script>
+<link href="tk-alert.min.css" rel="stylesheet">
+<script src="tk-alert.min.js"></script>
 ```
 
 ?> The polyfill needs to be inserted only once before the first element.

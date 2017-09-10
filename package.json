@@ -1,10 +1,10 @@
 {
-  "name": "toiletKit-custom-elements",
+  "name": "toiletkit-custom-elements",
   "version": "0.0.1",
   "description": "toiletKit UI components as custom elements",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joomla-projects/custom-elements.git"
+    "url": "git+https://github.com/toiletKit/custom-elements.git"
   },
   "license": "MIT",
   "bugs": {
