@@ -1,5 +1,9 @@
 # toiletKit UI custom elements
 
+[![Build Status](https://travis-ci.org/toiletKit/custom-elements.svg?branch=master)](https://travis-ci.org/toiletKit/custom-elements)  [![Greenkeeper badge](https://badges.greenkeeper.io/toiletKit/custom-elements.svg)](https://greenkeeper.io/)
+
+[![Build Status](https://saucelabs.com/browser-matrix/dgt41.svg)](https://saucelabs.com/beta/builds/956c8c4027634d95b2e3d1751ea51e69)
+
 ### UI components using modern technologies
 
 This is a collection of some common front end components. They are developed with the new W3C standard: custom elements. Each component is using plain and optimized javascript for performance. Also the HTML markup (wherever possible) is reduced to offer a great benefit for front end developers).
