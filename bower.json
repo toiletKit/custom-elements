@@ -1,14 +1,14 @@
 {
-  "name": "joomla-ui-custom-elements",
+  "name": "toiletKit-custom-elements",
   "version": "0.0.12",
-  "description": "Joomla UI components as custom elements",
+  "description": "toiletKit UI components as custom elements",
   "main": "Gruntfile.js",
   "authors": [
-    "Dimitrios Grammatikogiannis"
+    "Dimitrios Grammatikogiannis, Charlie Lodder"
   ],
-  "license": "GPL",
+  "license": "MIT",
   "keywords": [
-    "Joomla",
+    "toiletKit",
     "web-component",
     "web-components",
     "custom-element",

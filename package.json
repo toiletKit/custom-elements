@@ -1,19 +1,19 @@
 {
-  "name": "joomla-ui-custom-elements",
-  "version": "0.0.12",
-  "description": "Joomla UI components as custom elements",
+  "name": "toiletKit-custom-elements",
+  "version": "0.0.1",
+  "description": "toiletKit UI components as custom elements",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joomla-projects/custom-elements.git"
   },
-  "license": "GPL-2.0+",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/joomla-projects/custom-elements/issues"
+    "url": "https://github.com/toiletkit/custom-elements/issues"
   },
-  "homepage": "https://github.com/joomla-projects/custom-elements#readme",
+  "homepage": "https://github.com/toiletkit/custom-elements#readme",
   "main": "Gruntfile.js",
   "keywords": [
-    "Joomla",
+    "toletKit",
     "web-components",
     "custom-elements",
     "vanilla-js",
