@@ -1,6 +1,8 @@
 class TkPanelsElement extends HTMLElement {
   /* Attributes to monitor */
-  static get observedAttributes() { return ['recall', 'orientation', 'view', 'responsive', 'collapse-width']; }
+  static get observedAttributes() { return ['type', 'recall', 'orientation', 'view', 'responsive', 'collapse-width']; }
+  get type() { return this.getAttribute('type'); }
+  set type(value) { return this.setAttribute('type', value); }
   get recall() { return this.getAttribute('recall'); }
   set recall(value) { return this.setAttribute('recall', value); }
   get view() { return this.getAttribute('view'); }
@@ -31,6 +33,11 @@ class TkPanelsElement extends HTMLElement {
   connectedCallback() {
     if (!this.orientation || (this.orientation && ['horizontal', 'vertical'].indexOf(this.orientation) === -1)) {
       this.setAttribute('orientation', 'horizontal');
+    }
+
+    // If no type has been defined, the default as "primary"
+    if (!this.type) {
+      this.setAttribute('type', 'primary');
     }
 
     this.view = this.getAttribute('view') || 'tabs';
@@ -148,27 +155,27 @@ class TkPanelsElement extends HTMLElement {
       }
 
       const active = panel.getAttribute('active') || false;
-      const liElement = document.createElement('li');
-      const aElement = document.createElement('a');
+      const listElement = document.createElement('li');
+      const linkElement = document.createElement('a');
 
-      liElement.setAttribute('role', 'presentation');
-      aElement.setAttribute('role', 'tab');
-      aElement.setAttribute('aria-controls', panel.id);
-      aElement.setAttribute('aria-selected', active ? 'true' : 'false');
-      aElement.setAttribute('tabindex', active ? '0' : '-1');
-      aElement.setAttribute('href', `#${panel.id}`);
-      aElement.setAttribute('id', `tab-${panel.id}`);
-      aElement.innerHTML = panel.getAttribute('name');
+      listElement.setAttribute('role', 'presentation');
+      linkElement.setAttribute('role', 'tab');
+      linkElement.setAttribute('aria-controls', panel.id);
+      linkElement.setAttribute('aria-selected', active ? 'true' : 'false');
+      linkElement.setAttribute('tabindex', active ? '0' : '-1');
+      linkElement.setAttribute('href', `#${panel.id}`);
+      linkElement.setAttribute('id', `tab-${panel.id}`);
+      linkElement.innerHTML = panel.getAttribute('name');
 
       if (active) {
-        aElement.setAttribute('active', '');
+        linkElement.setAttribute('active', '');
       }
 
-      aElement.addEventListener('click', self.activateTabFromLink.bind(self));
-      this.tabsLinks.push(aElement);
+      linkElement.addEventListener('click', self.activateTabFromLink.bind(self));
+      this.tabsLinks.push(linkElement);
 
-      liElement.append(aElement);
-      nav.append(liElement);
+      listElement.append(linkElement);
+      nav.append(listElement);
 
       panel.setAttribute('aria-labelledby', `tab-${panel.id}`);
 
