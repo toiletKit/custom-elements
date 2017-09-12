@@ -1,8 +1,7 @@
 // Group buttons
 
-@import "../../../node_modules/bootstrap/scss/functions";
-@import "../../../node_modules/bootstrap/scss/mixins";
-@import "../../../node_modules/bootstrap/scss/variables";
+@import "../functions";
+@import "../mixins";
 @import "../variables";
 
 // Make the div behave like a button
@@ -28,7 +27,7 @@ tk-group-buttons {
     transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     // Bring the hover, focused, and "active" buttons to the front to overlay
     // the borders properly
-    @include hover {
+    &:hover {
       z-index: 2;
       text-decoration: none;
     }
@@ -261,11 +260,11 @@ tk-group-buttons > tk-group-buttons:last-child:not(:first-child) > .btn:first-ch
 // The clickable button for toggling the menu
 // Set the same inset shadow as the :active state
 tk-group-buttons.show .dropdown-toggle {
-  @include box-shadow($btn-active-box-shadow);
+  box-shadow: $btn-active-box-shadow;
 
   // Show no shadow for `.btn-link` since it has no other button styles.
   &.btn-link {
-    @include box-shadow(none);
+    box-shadow: none;
   }
 
 }
@@ -297,4 +296,3 @@ tk-group-buttons {
   }
 
 }
-

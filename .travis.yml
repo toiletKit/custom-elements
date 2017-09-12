@@ -20,7 +20,7 @@ script:
 - wct --configFile saucelabs.conf.json --plugin sauce
 notifications:
   email: false
-  addons:
+addons:
   sauce_connect:
     username: dgt41
   jwt:

@@ -1,8 +1,7 @@
 // Dropdown
 
-@import "../../../node_modules/bootstrap/scss/functions";
-@import "../../../node_modules/bootstrap/scss/mixins";
-@import "../../../node_modules/bootstrap/scss/variables";
+@import "../functions";
+@import "../mixins";
 @import "../variables";
 
 tk-dropdown {
@@ -22,7 +21,7 @@ tk-dropdown {
     color: #292b2c;
     text-align: left;
     list-style: none;
-    background-color: #fff;
+    background-color: $white;
     background-clip: padding-box;
     border: 1px solid rgba(0,0,0,.15);
     border-radius: .25rem;

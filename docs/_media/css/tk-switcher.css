@@ -14,7 +14,7 @@ tk-switcher {
     background-color: #f2f2f2;
     background-clip: content-box;
     border: 1px solid rgba(0, 0, 0, 0.18);
-    border-radius: 0.25rem;
+    border-radius: 0;
     box-shadow: 0 0 0 0 #dfdfdf inset;
     transition: border .4s ease 0s, box-shadow .4s ease 0s; }
     tk-switcher .switcher.active {
@@ -36,7 +36,7 @@ tk-switcher {
     width: calc(62px / 2);
     height: calc(28px - (1px * 2));
     background: #fff;
-    border-radius: 0.25rem;
+    border-radius: 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
     transition: left .2s ease 0s; }
   tk-switcher .switcher:focus .switch {
@@ -63,9 +63,9 @@ tk-switcher {
         transition: all .2s ease-in-out; }
 
 tk-switcher[type="primary"] .switcher.active {
-  background-color: #006898;
-  border-color: #006898;
-  box-shadow: 0 0 0 calc(28px / 2) #006898 inset; }
+  background-color: #1e87f0;
+  border-color: #1e87f0;
+  box-shadow: 0 0 0 calc(28px / 2) #1e87f0 inset; }
 
 tk-switcher[type="secondary"] .switcher.active {
   background-color: #868e96;
@@ -73,34 +73,19 @@ tk-switcher[type="secondary"] .switcher.active {
   box-shadow: 0 0 0 calc(28px / 2) #868e96 inset; }
 
 tk-switcher[type="success"] .switcher.active {
-  background-color: #438243;
-  border-color: #438243;
-  box-shadow: 0 0 0 calc(28px / 2) #438243 inset; }
-
-tk-switcher[type="info"] .switcher.active {
-  background-color: #17a2b8;
-  border-color: #17a2b8;
-  box-shadow: 0 0 0 calc(28px / 2) #17a2b8 inset; }
+  background-color: #32d296;
+  border-color: #32d296;
+  box-shadow: 0 0 0 calc(28px / 2) #32d296 inset; }
 
 tk-switcher[type="warning"] .switcher.active {
-  background-color: #f0ad4e;
-  border-color: #f0ad4e;
-  box-shadow: 0 0 0 calc(28px / 2) #f0ad4e inset; }
+  background-color: #faa05a;
+  border-color: #faa05a;
+  box-shadow: 0 0 0 calc(28px / 2) #faa05a inset; }
 
 tk-switcher[type="danger"] .switcher.active {
-  background-color: #d9534f;
-  border-color: #d9534f;
-  box-shadow: 0 0 0 calc(28px / 2) #d9534f inset; }
-
-tk-switcher[type="light"] .switcher.active {
-  background-color: #f8f9fa;
-  border-color: #f8f9fa;
-  box-shadow: 0 0 0 calc(28px / 2) #f8f9fa inset; }
-
-tk-switcher[type="dark"] .switcher.active {
-  background-color: #343a40;
-  border-color: #343a40;
-  box-shadow: 0 0 0 calc(28px / 2) #343a40 inset; }
+  background-color: #f0506e;
+  border-color: #f0506e;
+  box-shadow: 0 0 0 calc(28px / 2) #f0506e inset; }
 
 @keyframes switcherPulsate {
   0% {

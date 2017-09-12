@@ -1,8 +1,7 @@
 // Alerts
 
-@import "../../../node_modules/bootstrap/scss/functions";
-@import "../../../node_modules/bootstrap/scss/mixins";
-@import "../../../node_modules/bootstrap/scss/variables";
+@import "../functions";
+@import "../mixins";
 @import "../variables";
 
 //
@@ -17,7 +16,7 @@ tk-alert {
   border: $alert-border-width solid transparent;
   opacity: 0;
   @include border-radius($alert-border-radius);
-  @include transition($transition-fade);
+  transition: $transition-fade;
 
   &.tk-alert--show {
     opacity: 1;
@@ -45,7 +44,8 @@ tk-alert {
     border: 0;
     opacity: .5;
 
-    @include hover-focus {
+    &:hover,
+    &:focus {
       color: $close-color;
       text-decoration: none;
       cursor: pointer;
@@ -92,6 +92,8 @@ tk-alert[position="top-right"] {
 // Alternate styles
 @each $color, $value in $theme-colors {
   tk-alert[type="#{$color}"] {
-    @include alert-variant(theme-color-level($color, -10), theme-color-level($color, -9), theme-color-level($color, 6));
+    color: theme-color-level($color, 6);
+    background-color: theme-color-level($color, -10);
+    border-color: theme-color-level($color, -9);
   }
 }
