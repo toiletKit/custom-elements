@@ -1,8 +1,16 @@
 # toiletKit UI custom elements
 
-[![Build Status](https://travis-ci.org/toiletKit/custom-elements.svg?branch=master)](https://travis-ci.org/toiletKit/custom-elements)  [![Greenkeeper badge](https://badges.greenkeeper.io/toiletKit/custom-elements.svg)](https://greenkeeper.io/)
+[![NPM Version](https://img.shields.io/npm/v/toiletkit-cusom-elements.svg)](https://www.npmjs.com/package/toiletkit-cusom-elements
+
+[![Greenkeeper](https://travis-ci.org/toiletKit/custom-elements.svg?branch=master)](https://travis-ci.org/toiletKit/custom-elements)  [![Greenkeeper badge](https://badges.greenkeeper.io/toiletKit/custom-elements.svg)](https://greenkeeper.io/)
 
 [![Build Status](https://saucelabs.com/browser-matrix/dgt41.svg)](https://saucelabs.com/beta/builds/1450dab56fdd45afa7bb9a611c28b6b9)
+
+[![Build Status](https://img.shields.io/travis/toiletKit/custom-elements/master.svg)](https://travis-ci.org/toiletKit/custom-elements)
+
+[![Dependency Status](https://img.shields.io/david/toiletKit/custom-elements.svg)](https://david-dm.org/toiletKit/custom-elements)
+
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
 ### UI components using modern technologies
 
