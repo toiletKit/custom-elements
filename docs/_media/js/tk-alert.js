@@ -27,9 +27,9 @@ class TkAlertElement extends HTMLElement {
     this.setAttribute('role', 'alert');
     this.classList.add('tk-alert--show');
 
-    // If no type has been defined, the default as "info"
+    // If no type has been defined, the default as "primary"
     if (!this.type) {
-      this.setAttribute('type', 'info');
+      this.setAttribute('type', 'primary');
     }
 
     // Append button
@@ -58,8 +58,8 @@ class TkAlertElement extends HTMLElement {
   attributeChangedCallback(attr, oldValue, newValue) {
     switch (attr) {
       case 'type':
-        if (!newValue || ['info', 'warning', 'success', 'danger'].indexOf(newValue) === -1) {
-          this.type = 'info';
+        if (!newValue || ['primary', 'warning', 'success', 'danger'].indexOf(newValue) === -1) {
+          this.type = 'primary';
         }
         break;
       case 'dismiss':

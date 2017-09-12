@@ -5,7 +5,7 @@ tk-alert {
   margin-bottom: 1rem;
   border: 1px solid transparent;
   opacity: 0;
-  border-radius: 0.25rem;
+  border-radius: 0;
   transition: opacity 0.15s linear; }
   tk-alert.tk-alert--show {
     opacity: 1; }
@@ -57,9 +57,9 @@ tk-alert[position="top-right"] {
   right: 10px; }
 
 tk-alert[type="primary"] {
-  color: #00364f;
-  background-color: #cce1ea;
-  border-color: #b8d5e2; }
+  color: #10467d;
+  background-color: #d2e7fc;
+  border-color: #c0ddfb; }
 
 tk-alert[type="secondary"] {
   color: #464a4e;
@@ -67,21 +67,16 @@ tk-alert[type="secondary"] {
   border-color: #dddfe2; }
 
 tk-alert[type="success"] {
-  color: #234423;
-  background-color: #d9e6d9;
-  border-color: #cadcca; }
-
-tk-alert[type="info"] {
-  color: #11694f;
-  background-color: #d2f4ea;
-  border-color: #c1f0e2; }
+  color: #1a6d4e;
+  background-color: #d6f6ea;
+  border-color: #c6f2e2; }
 
 tk-alert[type="warning"] {
-  color: #7d5a29;
-  background-color: #fcefdc;
-  border-color: #fbe8cd; }
+  color: #82532f;
+  background-color: #feecde;
+  border-color: #fee4d1; }
 
 tk-alert[type="danger"] {
-  color: #712b29;
-  background-color: #f7dddc;
-  border-color: #f4cfce; }
+  color: #7d2a39;
+  background-color: #fcdce2;
+  border-color: #fbced6; }

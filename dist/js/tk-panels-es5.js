@@ -20,7 +20,11 @@ var _createClass = function () {
 }var TkPanelsElement = function (a) {
   function b() {
     _classCallCheck(this, b);var a = _possibleConstructorReturn(this, (b.__proto__ || Object.getPrototypeOf(b)).call(this));return a.hasActive = !1, a.currentActive = '', a.hasNested = !1, a.isNested = !1, a.tabs = [], a.tabsLinks = [], a.panels = [], a.tabLinkHash = [], a;
-  }return _inherits(b, a), _createClass(b, [{ key: 'recall', get: function get() {
+  }return _inherits(b, a), _createClass(b, [{ key: 'type', get: function get() {
+      return this.getAttribute('type');
+    }, set: function set(a) {
+      return this.setAttribute('type', a);
+    } }, { key: 'recall', get: function get() {
       return this.getAttribute('recall');
     }, set: function set(a) {
       return this.setAttribute('recall', a);
@@ -41,9 +45,9 @@ var _createClass = function () {
     }, set: function set(a) {
       this.setAttribute('collapse-width', a);
     } }], [{ key: 'observedAttributes', get: function get() {
-      return ['recall', 'orientation', 'view', 'responsive', 'collapse-width'];
+      return ['type', 'recall', 'orientation', 'view', 'responsive', 'collapse-width'];
     } }]), _createClass(b, [{ key: 'connectedCallback', value: function connectedCallback() {
-      var a = this;if ((!this.orientation || this.orientation && -1 === ['horizontal', 'vertical'].indexOf(this.orientation)) && this.setAttribute('orientation', 'horizontal'), this.view = this.getAttribute('view') || 'tabs', this.recall = this.recall || !1, this.responsive = this.getAttribute('responsive') || 'false', this.collapseWidth = this.getAttribute('collapseWidth') || 0, this.panels = [].slice.call(this.querySelectorAll('section')), !this.panels.length) throw new Error('`Tk-panels` require one or more panels!');if (this.findAncestorByTagNme(this, 'tk-tab') && (this.isNested = !0), this.querySelector('tk-tab') && (this.hasNested = !0), this.recall && window.sessionStorage) {
+      var a = this;if ((!this.orientation || this.orientation && -1 === ['horizontal', 'vertical'].indexOf(this.orientation)) && this.setAttribute('orientation', 'horizontal'), this.type || this.setAttribute('type', 'primary'), this.view = this.getAttribute('view') || 'tabs', this.recall = this.recall || !1, this.responsive = this.getAttribute('responsive') || 'false', this.collapseWidth = this.getAttribute('collapseWidth') || 0, this.panels = [].slice.call(this.querySelectorAll('section')), !this.panels.length) throw new Error('`Tk-panels` require one or more panels!');if (this.findAncestorByTagNme(this, 'tk-tab') && (this.isNested = !0), this.querySelector('tk-tab') && (this.hasNested = !0), this.recall && window.sessionStorage) {
         var b = sessionStorage.getItem(this.getStorageKey());b && !/@\[/.test(b) && this.tabLinkHash.push(b), this.setTabState();
       }'ul' !== this.firstElementChild.tagName && this.createNavigation(), this.panels.forEach(function (b) {
         b.setAttribute('role', 'tabpanel'), a.tabs.push('#tab-' + b.id), b.hasAttribute('active') && (a.hasActive = !0, a.currentActive = b.id, a.querySelector('#tab-' + b.id).setAttribute('aria-selected', 'true'), a.querySelector('#tab-' + b.id).setAttribute('active', ''), a.querySelector('#tab-' + b.id).setAttribute('tabindex', '0'));

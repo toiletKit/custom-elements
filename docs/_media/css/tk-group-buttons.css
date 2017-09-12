@@ -132,6 +132,11 @@ tk-group-buttons > tk-group-buttons:last-child:not(:first-child) > .btn:first-ch
   border-top-left-radius: 0;
   border-bottom-left-radius: 0; }
 
+tk-group-buttons.show .dropdown-toggle {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
+  tk-group-buttons.show .dropdown-toggle.btn-link {
+    box-shadow: none; }
+
 tk-group-buttons > .btn input[type="radio"],
 tk-group-buttons > .btn input[type="checkbox"],
 tk-group-buttons > .btn-group > .btn input[type="radio"],
