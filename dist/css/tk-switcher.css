@@ -78,9 +78,9 @@ tk-switcher[type="success"] .switcher.active {
   box-shadow: 0 0 0 calc(28px / 2) #438243 inset; }
 
 tk-switcher[type="info"] .switcher.active {
-  background-color: #17a2b8;
-  border-color: #17a2b8;
-  box-shadow: 0 0 0 calc(28px / 2) #17a2b8 inset; }
+  background-color: #20c997;
+  border-color: #20c997;
+  box-shadow: 0 0 0 calc(28px / 2) #20c997 inset; }
 
 tk-switcher[type="warning"] .switcher.active {
   background-color: #f0ad4e;
@@ -91,16 +91,6 @@ tk-switcher[type="danger"] .switcher.active {
   background-color: #d9534f;
   border-color: #d9534f;
   box-shadow: 0 0 0 calc(28px / 2) #d9534f inset; }
-
-tk-switcher[type="light"] .switcher.active {
-  background-color: #f8f9fa;
-  border-color: #f8f9fa;
-  box-shadow: 0 0 0 calc(28px / 2) #f8f9fa inset; }
-
-tk-switcher[type="dark"] .switcher.active {
-  background-color: #343a40;
-  border-color: #343a40;
-  box-shadow: 0 0 0 calc(28px / 2) #343a40 inset; }
 
 @keyframes switcherPulsate {
   0% {

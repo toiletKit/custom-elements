@@ -117,16 +117,10 @@ tk-panels[type="success"] a[role="tab"][active]::after {
   background-color: #438243; }
 
 tk-panels[type="info"] a[role="tab"][active]::after {
-  background-color: #17a2b8; }
+  background-color: #20c997; }
 
 tk-panels[type="warning"] a[role="tab"][active]::after {
   background-color: #f0ad4e; }
 
 tk-panels[type="danger"] a[role="tab"][active]::after {
   background-color: #d9534f; }
-
-tk-panels[type="light"] a[role="tab"][active]::after {
-  background-color: #f8f9fa; }
-
-tk-panels[type="dark"] a[role="tab"][active]::after {
-  background-color: #343a40; }
