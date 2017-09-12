@@ -1,5 +1,6 @@
 # toiletKit UI custom elements
 
+### Status
 [![NPM Version](https://img.shields.io/npm/v/toiletkit-cusom-elements.svg)](https://www.npmjs.com/package/toiletkit-cusom-elements) [![Greenkeeper](https://travis-ci.org/toiletKit/custom-elements.svg?branch=master)](https://travis-ci.org/toiletKit/custom-elements) [![Greenkeeper badge](https://badges.greenkeeper.io/toiletKit/custom-elements.svg)](https://greenkeeper.io/)  [![Dependency Status](https://img.shields.io/david/toiletKit/custom-elements.svg)](https://david-dm.org/toiletKit/custom-elements) [![License](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
 [![Build Status](https://saucelabs.com/browser-matrix/dgt41.svg)](https://saucelabs.com/beta/builds/1450dab56fdd45afa7bb9a611c28b6b9)
@@ -8,7 +9,7 @@
 
 This is a collection of some common front end components. They are developed with the new W3C standard: custom elements. Each component is using plain and optimized javascript for performance. Also the HTML markup (wherever possible) is reduced to offer a great benefit for front end developers).
 
-### Using the NPM power
+### Installation
 
 You can install this package by using NPM:
 ```bash
@@ -46,9 +47,10 @@ The default setup is based on MacOS system and looking for Chrome, Firefox and S
 Although all the major browsers are **committed** to support custom elements some of the **all green browsers** do need a polyfill. The polyfills can be found in the dist folder and are created by the Polymer team (Polymer is a Google project).
 The repo for the actual polyfill is: https://github.com/webcomponents/webcomponentsjs
 
-### Documentation
-Fully documented [here](https://toiletkit.github.io/custom-elements/)
+### Documentation and demos
+Fully documented [here](https://toiletkit.github.io/custom-elements)
 
 ### License
+Code released under the [MIT License](https://github.com/toiletKit/custom-elements/blob/master/LICENSE).
 
 
