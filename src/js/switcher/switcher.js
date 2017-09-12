@@ -54,7 +54,7 @@ class TkSwitcherElement extends HTMLElement {
 
   /* Lifecycle, element removed from the DOM */
   disconnectedCallback() {
-    this.removeEventListener('toiletkit.switcher.toggle', this.toggle, true);
+    this.removeEventListener('tk.switcher.toggle', this.toggle, true);
     this.removeEventListener('click', this.switch, true);
     this.removeEventListener('keydown', this.keydown, true);
   }
@@ -147,7 +147,7 @@ class TkSwitcherElement extends HTMLElement {
       this.inputs[this.newActive].classList.add('active');
       this.inputs[this.newActive].setAttribute('aria-checked', true);
 
-      this.dispatchCustomEvent('toiletkit.switcher.on');
+      this.dispatchCustomEvent('tk.switcher.on');
     } else {
       this.inputs.forEach((input) => {
         input.classList.remove('active');
@@ -155,7 +155,7 @@ class TkSwitcherElement extends HTMLElement {
         input.setAttribute('aria-checked', false);
       });
 
-      this.dispatchCustomEvent('toiletkit.switcher.off');
+      this.dispatchCustomEvent('tk.switcher.off');
     }
 
     this.inputs[this.newActive].setAttribute('checked', '');

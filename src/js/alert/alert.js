@@ -23,7 +23,7 @@ class TkAlertElement extends HTMLElement {
   /* Lifecycle, element appended to the DOM */
   connectedCallback() {
     // Trigger show event
-    this.dispatchCustomEvent('toiletkit.alert.show');
+    this.dispatchCustomEvent('tk.alert.show');
     this.setAttribute('role', 'alert');
     this.classList.add('tk-alert--show');
 
@@ -40,7 +40,7 @@ class TkAlertElement extends HTMLElement {
     }
 
     // Trigger shown event
-    this.dispatchCustomEvent('toiletkit.alert.show');
+    this.dispatchCustomEvent('tk.alert.show');
 
     if (this.closeButton) {
       this.closeButton.focus();
@@ -92,7 +92,7 @@ class TkAlertElement extends HTMLElement {
   }
 
   buttonCloseFn() {
-    this.dispatchCustomEvent('toiletkit.alert.buttonClicked');
+    this.dispatchCustomEvent('tk.alert.buttonClicked');
     if (this.href) {
       window.location.href = this.href;
     }
@@ -101,9 +101,9 @@ class TkAlertElement extends HTMLElement {
 
   /* Method to close the alert */
   close() {
-    this.dispatchCustomEvent('toiletkit.alert.close');
+    this.dispatchCustomEvent('tk.alert.close');
     this.addEventListener('transitionend', () => {
-      this.dispatchCustomEvent('toiletkit.alert.closed');
+      this.dispatchCustomEvent('tk.alert.closed');
       this.parentNode.removeChild(this);
     });
     this.classList.remove('tk-alert--show');
@@ -155,7 +155,7 @@ class TkAlertElement extends HTMLElement {
       const self = this;
       const timeout = this.autoDismiss;
       setTimeout(() => {
-        self.dispatchCustomEvent('toiletkit.alert.buttonClicked');
+        self.dispatchCustomEvent('tk.alert.buttonClicked');
         if (self.href) {
           window.location.href = self.href;
         }
