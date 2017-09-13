@@ -4,6 +4,10 @@
 @import "../mixins";
 @import "../variables";
 
+$theme-colors: map-merge((
+  info: #18aace
+), $theme-colors);
+
 //
 // Base styles
 //

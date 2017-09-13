@@ -21,7 +21,7 @@ The simplified version of the custom elements
 ```html
 <tk-alert>No params passed</tk-alert>
 
-<tk-alert dismiss="true">
+<tk-alert dismiss="true" type="primary">
     <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
 </tk-alert>
 
@@ -29,8 +29,8 @@ The simplified version of the custom elements
     <strong>Well done!</strong> You successfully read this important alert message.
 </tk-alert>
 
-<tk-alert type="warning" dismiss="true" auto-dismiss="10000">
-    <strong>Warning!</strong> This one will self distruct in 10secs.
+<tk-alert type="warning" dismiss="true" auto-dismiss="15000">
+    <strong>Warning!</strong> This one will self distruct in 15 seconds.
 </tk-alert>
 
 <tk-alert type="danger" href="https://www.google.com">
@@ -40,14 +40,14 @@ The simplified version of the custom elements
 
 ### Alerts demo:
 <tk-alert>No params passed</tk-alert>
-<tk-alert type="info" dismiss="true">
+<tk-alert type="primary" dismiss="true">
     <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
 </tk-alert>
 <tk-alert type="success" acknowledge="true">
     <strong>Well done!</strong> You successfully read this important alert message.
 </tk-alert>
-<tk-alert type="warning" dismiss="true" auto-dismiss="10000">
-    <strong>Warning!</strong> This one will self distruct in 10secs.
+<tk-alert type="warning" dismiss="true" auto-dismiss="15000">
+    <strong>Warning!</strong> This one will self distruct in <strong><span id="countdown">15</span></strong> seconds.
 </tk-alert>
 <tk-alert type="danger" href="https://www.google.com">
     <strong>Oh snap!</strong> Click open to go to google.com
@@ -171,8 +171,6 @@ el.setAttribute('dismiss', '');
 <button role="button" data-opt1="dismiss" value="true">Add close button</button>
 <button role="button" data-opt1="dismiss" value="false">Remove close button</button>
 </div>
-
-
 
 
 ### Programmatically close an alert:
@@ -299,10 +297,26 @@ document.getElementById('change-me').addEventListener('tk.alert.closed', functio
  });
 
 for (var i = 0, l = changeButtons.length; i < l; i++) {
-        changeButtons[i].addEventListener('click', function() { changeAlert(this.getAttribute('data-opt1'), this.getAttribute('value')) });
+    changeButtons[i].addEventListener('click', function() { changeAlert(this.getAttribute('data-opt1'), this.getAttribute('value')) });
 }
 
 document.getElementById('i-will-close-that-alert').addEventListener('click', function(event) { var a = document.getElementById('close-me-with-a-btn');
 if (a) a.close(); event.target.setAttribute('disabled', true); event.target.removeEventListener('click', arguments.callee); });
 
+var input    = document.getElementById('countdown'),
+    countSec = parseInt(input.innerText),
+    timer    = null;
+
+function countdown() {
+	if (countSec > 0) {
+		countSec--;
+	}
+
+	input.innerHTML = countSec;
+
+	if (countSec > 0) {
+		timer = setTimeout(countdown, 1000);
+	}
+}
+countdown();
 </script>
