@@ -309,15 +309,15 @@ var input    = document.getElementById('countdown'),
     timer    = null;
 
 function countdown() {
-	if (countSec > 0) {
-		countSec--;
-	}
+    if (countSec > 0) {
+        countSec--;
+    }
 
-	input.innerHTML = countSec;
+    input.innerHTML = countSec;
 
-	if (countSec > 0) {
-		timer = setTimeout(countdown, 1000);
-	}
+    if (countSec > 0) {
+        timer = setTimeout(countdown, 1000);
+    }
 }
 countdown();
 </script>
