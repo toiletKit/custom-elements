@@ -165,6 +165,7 @@ el.setAttribute('dismiss', '');
 
 <div id="replaceble" markdown="0">
 <button role="button" data-opt1="type" value="info">Make it info</button>
+<button role="button" data-opt1="type" value="primary">Make it primary</button>
 <button role="button" data-opt1="type" value="success">Make it success</button>
 <button role="button" data-opt1="type" value="warning">Make it warning</button>
 <button role="button" data-opt1="type" value="danger">Make it danger</button>
