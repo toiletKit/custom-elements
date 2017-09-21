@@ -45,7 +45,7 @@ class TkSwitcherElement extends HTMLElement {
       this.inputsContainer.setAttribute('aria-label', this.spans[0].innerHTML);
     }
 
-    this.inputs.forEach((switchEl, index) => {
+    this.inputs.forEach((switchEl) => {
       // Add the active class on click
       switchEl.addEventListener('click', this.toggle.bind(this));
     });
