@@ -1,6 +1,6 @@
 class TkSwitcherElement extends HTMLElement {
   /* Attributes to monitor */
-  static get observedAttributes() { return ['type', 'offText', 'onText']; }
+  static get observedAttributes() { return ['type', 'off-text', 'on-text']; }
   get type() { return this.getAttribute('type'); }
   set type(value) { return this.setAttribute('type', value); }
   get offText() { return this.getAttribute('off-text') || 'Off'; }
@@ -45,7 +45,7 @@ class TkSwitcherElement extends HTMLElement {
       this.inputsContainer.setAttribute('aria-label', this.spans[0].innerHTML);
     }
 
-    this.inputs.forEach((switchEl, index) => {
+    this.inputs.forEach((switchEl) => {
       // Add the active class on click
       switchEl.addEventListener('click', this.toggle.bind(this));
     });

@@ -14,7 +14,7 @@ class TkModalElement extends HTMLElement {
     return ['width', 'height', 'innerWidth', 'innerHeight', 'iframe'];
   }
 
-  /*eslint-disable */
+  /* eslint-disable */
   attributeChangedCallback(attr, oldValue, newValue) {
     switch (attr) {
       // case 'name':
@@ -22,7 +22,7 @@ class TkModalElement extends HTMLElement {
       // break;
     }
   }
-  /*eslint-enable */
+  /* eslint-enable */
 
   connectedCallback() {
     if (!this.id) {
@@ -222,12 +222,12 @@ class TkModalElement extends HTMLElement {
     }
   }
 
-  /*eslint-disable */
+  /* eslint-disable */
   findAncestorByClass(el, className) {
     while ((el = el.parentElement) && !el.classList.contains(className));
     return el;
   }
-  /*eslint-enable */
+  /* eslint-enable */
 }
 
 customElements.define('tk-modal', TkModalElement);
