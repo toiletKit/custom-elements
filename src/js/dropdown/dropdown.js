@@ -44,7 +44,7 @@ class TkDropdownElement extends HTMLElement {
     });
   }
 
-  /*eslint-disable */
+  /* eslint-disable */
   disconnectedCallback() { }
 
   adoptedCallback(oldDocument, newDocument) { }
@@ -57,7 +57,7 @@ class TkDropdownElement extends HTMLElement {
       // break;
     }
   }
-  /*eslint-enable */
+  /* eslint-enable */
 
   close() {
     const button = document.querySelector(`#${this.getAttribute('aria-labelledby')}`);
@@ -65,12 +65,12 @@ class TkDropdownElement extends HTMLElement {
     button.setAttribute('aria-expanded', 'false');
   }
 
-  /*eslint-disable */
+  /* eslint-disable */
   findAncestor(el, tagName) {
     while ((el = el.parentElement) && el.nodeName.toLowerCase() !== tagName);
     return el;
   }
-  /*eslint-enable */
+  /* eslint-enable */
 }
 
 customElements.define('tk-dropdown', TkDropdownElement);
