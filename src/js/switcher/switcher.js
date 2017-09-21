@@ -71,7 +71,6 @@ class TkSwitcherElement extends HTMLElement {
   /** Method to build the switch */
   createMarkup() {
     let checked = 0;
-    const self = this;
 
     // Create the first 'span' wrapper
     const spanFirst = document.createElement('span');
@@ -144,7 +143,7 @@ class TkSwitcherElement extends HTMLElement {
     }
 
     // Remove active class from all inputs
-    this.inputs.forEach((input, index) => {
+    this.inputs.forEach((input) => {
       input.classList.remove('active');
     });
 
