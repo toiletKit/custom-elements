@@ -31,6 +31,10 @@ tk-switcher {
 
     &.active {
       transition: border .4s ease 0s, box-shadow .4s ease 0s, background-color 1.2s ease 0s;
+
+      .switch {
+        left: calc((#{$switcher-width} / 2) - (#{$border-width} * 2));
+      }
     }
 
   }
@@ -51,6 +55,7 @@ tk-switcher {
   .switch {
     position: absolute;
     top: 0;
+    left: 0;
     width: calc(#{$switcher-width} / 2);
     height: calc(#{$switcher-height} - (#{$border-width} * 2));
     background: $white;
@@ -61,14 +66,6 @@ tk-switcher {
 
   .switcher:focus .switch {
     animation: switcherPulsate 1.5s infinite;
-  }
-
-  input:checked~.switch {
-    left: 0;
-  }
-
-  input~:checked~.switch {
-    left: calc((#{$switcher-width} / 2) - (#{$border-width} * 2));
   }
 
   input:checked {

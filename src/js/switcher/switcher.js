@@ -3,8 +3,8 @@ class TkSwitcherElement extends HTMLElement {
   static get observedAttributes() { return ['type', 'offText', 'onText']; }
   get type() { return this.getAttribute('type'); }
   set type(value) { return this.setAttribute('type', value); }
-  get offText() { return this.getAttribute('offText') || 'Off'; }
-  get onText() { return this.getAttribute('onText') || 'On'; }
+  get offText() { return this.getAttribute('off-text') || 'Off'; }
+  get onText() { return this.getAttribute('on-text') || 'On'; }
 
   constructor() {
     super();
@@ -30,21 +30,22 @@ class TkSwitcherElement extends HTMLElement {
     this.inputsContainer = this.firstElementChild;
     this.spansContainer = this.lastElementChild;
 
+    this.inputsContainer.setAttribute('role', 'switch');
+
     if (this.inputs[1].checked) {
       this.inputs[1].parentNode.classList.add('active');
       this.spans[1].classList.add('active');
+
+      // Aria-label ONLY in the container span!
+      this.inputsContainer.setAttribute('aria-label', this.spans[1].innerHTML);
     } else {
       this.spans[0].classList.add('active');
+
+      // Aria-label ONLY in the container span!
+      this.inputsContainer.setAttribute('aria-label', this.spans[0].innerHTML);
     }
 
     this.inputs.forEach((switchEl, index) => {
-      // Remove the tab focus from the inputs
-      switchEl.setAttribute('tabindex', '-1');
-
-      // Aria-labelledby ONLY in the first input
-      switchEl.setAttribute('role', 'switch');
-      switchEl.setAttribute('aria-labelledby', this.spans[index].innerHTML);
-
       // Add the active class on click
       switchEl.addEventListener('click', this.toggle.bind(this));
     });
@@ -70,6 +71,7 @@ class TkSwitcherElement extends HTMLElement {
   /** Method to build the switch */
   createMarkup() {
     let checked = 0;
+    const self = this;
 
     // Create the first 'span' wrapper
     const spanFirst = document.createElement('span');
@@ -85,8 +87,11 @@ class TkSwitcherElement extends HTMLElement {
     switchEl.classList.add('switch');
 
     this.inputs.forEach((input, index) => {
+      // Remove the tab focus from the inputs
+      input.setAttribute('tabindex', '-1');
+
       if (input.checked) {
-        input.setAttribute('aria-checked', true);
+        spanFirst.setAttribute('aria-checked', true);
       }
 
       spanFirst.appendChild(input);
@@ -138,34 +143,42 @@ class TkSwitcherElement extends HTMLElement {
       this.inputsContainer.classList.add('active');
     }
 
-    if (!this.inputs[this.newActive].classList.contains('active')) {
-      this.inputs.forEach((input) => {
-        input.classList.remove('active');
-        input.removeAttribute('checked');
-        input.removeAttribute('aria-checked');
-      });
-      this.inputs[this.newActive].classList.add('active');
-      this.inputs[this.newActive].setAttribute('aria-checked', true);
+    // Remove active class from all inputs
+    this.inputs.forEach((input, index) => {
+      input.classList.remove('active');
+    });
 
+    // Check if active
+    if (this.newActive === 1) {
+      this.inputs[this.newActive].classList.add('active');
+      this.inputs[1].setAttribute('checked', '');
+      this.inputs[0].removeAttribute('checked');
+      this.inputsContainer.setAttribute('aria-checked', true);
+
+      // Aria-label ONLY in the container span!
+      this.inputsContainer.setAttribute('aria-label', this.spans[1].innerHTML);
+
+      // Dispatch the "tk.switcher.on" event
       this.dispatchCustomEvent('tk.switcher.on');
     } else {
-      this.inputs.forEach((input) => {
-        input.classList.remove('active');
-        input.removeAttribute('checked');
-        input.setAttribute('aria-checked', false);
-      });
+      this.inputs[1].removeAttribute('checked');
+      this.inputs[0].setAttribute('checked', '');
+      this.inputs[0].classList.add('active');
+      this.inputsContainer.setAttribute('aria-checked', false);
 
+      // Aria-label ONLY in the container span!
+      this.inputsContainer.setAttribute('aria-label', this.spans[0].innerHTML);
+
+      // Dispatch the "tk.switcher.off" event
       this.dispatchCustomEvent('tk.switcher.off');
     }
 
-    this.inputs[this.newActive].setAttribute('checked', '');
-    this.inputs[this.newActive].setAttribute('aria-checked', true);
     this.spans[this.newActive].classList.add('active');
   }
 
   /** Method to toggle the switch */
-  toggle() {
-    // e.preventDefault();
+  toggle(e) {
+    e.preventDefault();
     this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1;
 
     this.switch.bind(this)();
