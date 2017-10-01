@@ -195,14 +195,14 @@ class TkPanelsElement extends HTMLElement {
     if (this.currentActive) {
       // Emit hide event
       const el = this.querySelector(`a[aria-controls="${this.currentActive}"]`);
-      this.dispatchCustomEvent('toiletkit.tab.hide', el, this.querySelector(`#tab-${this.currentActive}`));
+      this.dispatchCustomEvent('tk.tab.hide', el, this.querySelector(`#tab-${this.currentActive}`));
       el.removeAttribute('active');
       el.setAttribute('tabindex', '-1');
       this.querySelector(`#${this.currentActive}`).removeAttribute('active');
       this.querySelector(`#${this.currentActive}`).setAttribute('aria-hidden', 'true');
       el.removeAttribute('aria-selected');
       // Emit hidden event
-      this.dispatchCustomEvent('toiletkit.tab.hidden', el, this.querySelector(`#tab-${this.currentActive}`));
+      this.dispatchCustomEvent('tk.tab.hidden', el, this.querySelector(`#tab-${this.currentActive}`));
     }
   }
 
@@ -217,7 +217,7 @@ class TkPanelsElement extends HTMLElement {
 
     // Set the selected tab as active
     // Emit show event
-    this.dispatchCustomEvent('toiletkit.tab.show', e.target, this.querySelector(`#tab-${currentTabLink}`));
+    this.dispatchCustomEvent('tk.tab.show', e.target, this.querySelector(`#tab-${currentTabLink}`));
     e.target.setAttribute('active', '');
     e.target.setAttribute('aria-selected', 'true');
     e.target.setAttribute('tabindex', '0');
@@ -225,7 +225,7 @@ class TkPanelsElement extends HTMLElement {
     this.querySelector(e.target.hash).removeAttribute('aria-hidden');
     this.currentActive = e.target.hash.substring(1);
     // Emit shown event
-    this.dispatchCustomEvent('toiletkit.tab.shown', e.target, this.querySelector(`#tab-${currentTabLink}`));
+    this.dispatchCustomEvent('tk.tab.shown', e.target, this.querySelector(`#tab-${currentTabLink}`));
     this.saveState(`#tab-${e.target.hash.substring(1)}`);
   }
 
@@ -277,11 +277,11 @@ class TkPanelsElement extends HTMLElement {
     }
   }
 
-  /*eslint-disable */
+  /* eslint-disable */
   getStorageKey() {
     return window.location.href.toString().split(window.location.host)[1].replace(/&return=[a-zA-Z0-9%]+/, '').split('#')[0];
   }
-  /*eslint-disable */
+  /* eslint-disable */
 
   saveState(value) {
     const storageKey = this.getStorageKey();
@@ -418,12 +418,12 @@ class TkPanelsElement extends HTMLElement {
       }
     }
   }
-  /*eslint-disable */
+  /* eslint-disable */
   findAncestorByTagNme(el, tagName) {
     while ((el = el.parentElement) && el.nodeName.toLowerCase() !== tagName);
     return el;
   }
-  /*eslint-enable */
+  /* eslint-enable */
 
   /* Method to dispatch events */
   dispatchCustomEvent(eventName, element, related) {

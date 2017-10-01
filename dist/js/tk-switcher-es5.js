@@ -25,34 +25,32 @@ var _createClass = function () {
     }, set: function set(a) {
       return this.setAttribute('type', a);
     } }, { key: 'offText', get: function get() {
-      return this.getAttribute('offText') || 'Off';
+      return this.getAttribute('off-text') || 'Off';
     } }, { key: 'onText', get: function get() {
-      return this.getAttribute('onText') || 'On';
+      return this.getAttribute('on-text') || 'On';
     } }], [{ key: 'observedAttributes', get: function get() {
-      return ['type', 'offText', 'onText'];
+      return ['type', 'off-text', 'on-text'];
     } }]), _createClass(b, [{ key: 'connectedCallback', value: function connectedCallback() {
-      var a = this;if (this.inputs = [].slice.call(this.querySelectorAll('input')), 2 !== this.inputs.length || 'radio' !== this.inputs[0].type) throw new Error('`Tk-switcher` requires two inputs type="checkbox"');this.createMarkup.bind(this)(), this.inputsContainer = this.firstElementChild, this.spansContainer = this.lastElementChild, this.inputs[1].checked ? (this.inputs[1].parentNode.classList.add('active'), this.spans[1].classList.add('active')) : this.spans[0].classList.add('active'), this.inputs.forEach(function (b, c) {
-        b.setAttribute('tabindex', '-1'), b.setAttribute('role', 'switch'), b.setAttribute('aria-labelledby', a.spans[c].innerHTML), b.addEventListener('click', a.toggle.bind(a));
+      var a = this;if (this.inputs = [].slice.call(this.querySelectorAll('input')), 2 !== this.inputs.length || 'radio' !== this.inputs[0].type) throw new Error('`Tk-switcher` requires two inputs type="checkbox"');this.createMarkup.bind(this)(), this.inputsContainer = this.firstElementChild, this.spansContainer = this.lastElementChild, this.inputsContainer.setAttribute('role', 'switch'), this.inputs[1].checked ? (this.inputs[1].parentNode.classList.add('active'), this.spans[1].classList.add('active'), this.inputsContainer.setAttribute('aria-label', this.spans[1].innerHTML)) : (this.spans[0].classList.add('active'), this.inputsContainer.setAttribute('aria-label', this.spans[0].innerHTML)), this.inputs.forEach(function (b) {
+        b.addEventListener('click', a.toggle.bind(a));
       }), this.inputsContainer.addEventListener('keydown', this.keyEvents.bind(this));
     } }, { key: 'disconnectedCallback', value: function disconnectedCallback() {
-      this.removeEventListener('toiletkit.switcher.toggle', this.toggle, !0), this.removeEventListener('click', this.switch, !0), this.removeEventListener('keydown', this.keydown, !0);
+      this.removeEventListener('tk.switcher.toggle', this.toggle, !0), this.removeEventListener('click', this.switch, !0), this.removeEventListener('keydown', this.keydown, !0);
     } }, { key: 'dispatchCustomEvent', value: function dispatchCustomEvent(a) {
       var b = new CustomEvent(a, { bubbles: !0, cancelable: !0 });b.relatedTarget = this, this.dispatchEvent(b), this.removeEventListener(a, this);
     } }, { key: 'createMarkup', value: function createMarkup() {
       var a = 0,
           b = document.createElement('span');b.classList.add('switcher'), b.setAttribute('tabindex', 0), this.type || this.setAttribute('type', 'success');var c = document.createElement('span');c.classList.add('switch'), this.inputs.forEach(function (c, d) {
-        c.checked && c.setAttribute('aria-checked', !0), b.appendChild(c), 1 === d && c.checked && (a = 1);
+        c.setAttribute('tabindex', '-1'), c.checked && b.setAttribute('aria-checked', !0), b.appendChild(c), 1 === d && c.checked && (a = 1);
       }), b.appendChild(c);var d = document.createElement('span');d.classList.add('switcher-labels');var e = document.createElement('span');e.classList.add('switcher-label-0'), e.innerText = this.offText;var f = document.createElement('span');f.classList.add('switcher-label-1'), f.innerText = this.onText, 0 == a ? e.classList.add('active') : f.classList.add('active'), this.spans.push(e), this.spans.push(f), d.appendChild(e), d.appendChild(f), this.appendChild(b), this.appendChild(d);
     } }, { key: 'switch', value: function _switch() {
       this.spans.forEach(function (a) {
         a.classList.remove('active');
-      }), this.inputsContainer.classList.contains('active') ? this.inputsContainer.classList.remove('active') : this.inputsContainer.classList.add('active'), this.inputs[this.newActive].classList.contains('active') ? (this.inputs.forEach(function (a) {
-        a.classList.remove('active'), a.removeAttribute('checked'), a.setAttribute('aria-checked', !1);
-      }), this.dispatchCustomEvent('toiletkit.switcher.off')) : (this.inputs.forEach(function (a) {
-        a.classList.remove('active'), a.removeAttribute('checked'), a.removeAttribute('aria-checked');
-      }), this.inputs[this.newActive].classList.add('active'), this.inputs[this.newActive].setAttribute('aria-checked', !0), this.dispatchCustomEvent('toiletkit.switcher.on')), this.inputs[this.newActive].setAttribute('checked', ''), this.inputs[this.newActive].setAttribute('aria-checked', !0), this.spans[this.newActive].classList.add('active');
-    } }, { key: 'toggle', value: function toggle() {
-      this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1, this.switch.bind(this)();
+      }), this.inputsContainer.classList.contains('active') ? this.inputsContainer.classList.remove('active') : this.inputsContainer.classList.add('active'), this.inputs.forEach(function (a) {
+        a.classList.remove('active');
+      }), 1 === this.newActive ? (this.inputs[this.newActive].classList.add('active'), this.inputs[1].setAttribute('checked', ''), this.inputs[0].removeAttribute('checked'), this.inputsContainer.setAttribute('aria-checked', !0), this.inputsContainer.setAttribute('aria-label', this.spans[1].innerHTML), this.dispatchCustomEvent('tk.switcher.on')) : (this.inputs[1].removeAttribute('checked'), this.inputs[0].setAttribute('checked', ''), this.inputs[0].classList.add('active'), this.inputsContainer.setAttribute('aria-checked', !1), this.inputsContainer.setAttribute('aria-label', this.spans[0].innerHTML), this.dispatchCustomEvent('tk.switcher.off')), this.spans[this.newActive].classList.add('active');
+    } }, { key: 'toggle', value: function toggle(a) {
+      a.preventDefault(), this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1, this.switch.bind(this)();
     } }, { key: 'keyEvents', value: function keyEvents(a) {
       (13 === a.keyCode || 32 === a.keyCode) && (a.preventDefault(), this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1, this.switch.bind(this)());
     } }]), b;

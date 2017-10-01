@@ -19,33 +19,34 @@ var _createClass = function () {
   if ('function' != typeof b && null !== b) throw new TypeError('Super expression must either be null or a function, not ' + (typeof b === 'undefined' ? 'undefined' : _typeof(b)));a.prototype = Object.create(b && b.prototype, { constructor: { value: a, enumerable: !1, writable: !0, configurable: !0 } }), b && (Object.setPrototypeOf ? Object.setPrototypeOf(a, b) : a.__proto__ = b);
 }var TkModalElement = function (a) {
   function b() {
-    _classCallCheck(this, b);var a = _possibleConstructorReturn(this, (b.__proto__ || Object.getPrototypeOf(b)).call(this));return a.modal = a, a.triggerBtn = '', a.focusableElements = null, a.focusableSelectors = ['a[href]', 'area[href]', 'input:not([disabled])', 'select:not([disabled])', 'textarea:not([disabled])', 'button:not([disabled])', 'iframe', 'object', 'embed', '[contenteditable]', '[tabindex]:not([tabindex^="-"])'], a.container = a.querySelector('.tk-modal-dialog'), a.title = a.getAttribute('title') || 'Modal', a;
+    _classCallCheck(this, b);var a = _possibleConstructorReturn(this, (b.__proto__ || Object.getPrototypeOf(b)).call(this));return a.triggerBtn = '', a.focusableElements = null, a.focusableSelectors = ['a[href]', 'area[href]', 'input:not([disabled])', 'select:not([disabled])', 'textarea:not([disabled])', 'button:not([disabled])', 'iframe', 'object', 'embed', '[contenteditable]', '[tabindex]:not([tabindex^="-"])'], a.container = a.querySelector('.tk-modal-dialog'), a;
   }return _inherits(b, a), _createClass(b, [{ key: 'attributeChangedCallback', value: function attributeChangedCallback(a) {
       switch (a) {}
     } }, { key: 'connectedCallback', value: function connectedCallback() {
-      if (!this.id) throw new Error('`Tk-modal` requires an id');if (this.setAttribute('role', 'dialog'), this.classList.add('fade'), this.iframe = this.getAttribute('iframe') || '', this.width = this.getAttribute('width') || '100%', this.height = this.getAttribute('height') || '600px', !this.container) {
+      if (!this.id) throw new Error('`Tk-modal` requires an id');if (this.title = this.getAttribute('title') || 'Modal', this.setAttribute('role', 'dialog'), this.classList.add('fade'), this.iframe = this.getAttribute('iframe') || '', this.width = this.getAttribute('width') || '100%', this.height = this.getAttribute('height') || '600px', !this.container) {
         var b = document.createElement('div');b.classList.add('tk-modal-dialog'), b.setAttribute('role', 'document'), b.innerHTML = this.innerHTML, this.innerHTML = '', this.appendChild(b), this.container = this.querySelector('.tk-modal-dialog');
       }this.header = this.querySelector('header'), this.main = this.querySelector('section'), this.footer = this.querySelector('footer'), this.setAttribute('tabindex', -1);var a = 'modal-title-' + new Date().getUTCMilliseconds();if (this.setAttribute('aria-labelledby', a), !this.header) {
         var c = document.createElement('h5');c.innerText = this.title, c.id = a;var d = document.createElement('button');d.setAttribute('aria-label', 'Close'), d.setAttribute('data-dismiss', ''), d.innerHTML = '<span aria-hidden="true">\xD7</span>';var e = document.createElement('header');e.appendChild(c), e.appendChild(d), this.container.insertAdjacentElement('afterbegin', e);
-      }this.header = this.container.querySelector('header'), this.body = this.container.querySelector('section'), this.footer = this.container.querySelector('footer'), this.triggerBtn = document.querySelector('button[data-href="#' + this.id + '"]'), this.triggerBtn && this.triggerBtn.addEventListener('click', this.open.bind(this));
+      }this.header = this.container.querySelector('header'), this.body = this.container.querySelector('section'), this.footer = this.container.querySelector('footer'), this.triggerBtn = document.querySelector('[data-href="#' + this.id + '"]'), this.triggerBtn && this.triggerBtn.addEventListener('click', this.open.bind(this));
     } }, { key: 'disconnectedCallback', value: function disconnectedCallback() {
       this.triggerBtn && this.triggerBtn.removeEventListener('click', this.open);
     } }, { key: 'open', value: function open() {
       var a = this,
-          b = this,
-          c = document.createElement('div');if (c.classList.add('modal-backdrop', 'fade'), c.classList.add('modal-backdrop', 'show'), document.body.appendChild(c), this.removeAttribute('aria-hidden'), this.body && (this.iframeEl = this.main.querySelector('iframe'), this.iframe)) {
-        this.iframeEl && this.iframeEl.parentNode.remove(this.iframeEl);var e = document.createElement('iframe');e.width = this.width, e.height = this.height, e.src = this.iframe, e.setAttribute('frameborder', 0), this.body.appendChild(e), this.iframeEl = this.main.querySelector('iframe');
-      }this.adjustDimensions(), this.scrollTop = 0, this.modal.classList.add('show'), this.focusableElements = [].slice.call(this.querySelectorAll(this.focusableSelectors.join())), this.focusableElements.length ? this.focusableElements[0].focus() : this.header.querySelector('button').focus(), this.addEventListener('keydown', this.keyPress.bind(this)), document.addEventListener('click', function (c) {
-        b.findAncestorByClass(c.target, 'tk-modal-dialog') || c.target === a.triggerBtn || b.close();
-      });var d = b.querySelectorAll('button[data-dismiss]');d.forEach(function (c) {
-        c.addEventListener('click', b.close.bind(a));
+          b = document.createElement('div');if (b.classList.add('modal-backdrop', 'fade'), b.classList.add('modal-backdrop', 'show'), document.body.appendChild(b), this.removeAttribute('aria-hidden'), this.body && (this.iframeEl = this.main.querySelector('iframe'), this.iframe)) {
+        this.iframeEl && this.iframeEl.parentNode.remove(this.iframeEl);var d = document.createElement('iframe');d.width = this.width, d.height = this.height, d.src = this.iframe, d.setAttribute('frameborder', 0), this.body.appendChild(d), this.iframeEl = this.main.querySelector('iframe');
+      }this.adjustDimensions(), this.scrollTop = 0, this.classList.add('show'), this.focusableElements = [].slice.call(this.querySelectorAll(this.focusableSelectors.join())), this.focusableElements.length ? this.focusableElements[0].focus() : this.header.querySelector('button').focus(), this.evKeypress = this.keyPress.bind(this), this.evClose = this.close.bind(this), this.evDocumentClose = this.documentClose.bind(this), this.addEventListener('keydown', this.evKeypress), document.addEventListener('click', this.evDocumentClose);var c = [].slice.call(this.querySelectorAll('[data-dismiss]'));c.forEach(function (b) {
+        b.addEventListener('click', a.evClose);
       });
     } }, { key: 'close', value: function close() {
-      this.removeEventListener('keydown', this.keyPress, !0);var a = document.querySelector('.modal-backdrop');a && document.body.removeChild(a), this.setAttribute('aria-hidden', 'true'), this.classList.remove('show'), this.main.innerHTML = '', this.triggerBtn.focus();
-    } }, { key: 'handleTabEvent', value: function handleTabEvent(a) {
-      var b = this.focusableElements.indexOf(document.activeElement);a.shiftKey && (0 === b || -1 === b) && (this.focusableElements[this.focusableElements.length - 1].focus(), a.preventDefault()), a.shiftKey || b !== this.focusableElements.length - 1 || (this.focusableElements[0].focus(), a.preventDefault());
+      var a = this;this.removeEventListener('keydown', this.evKeypress), document.removeEventListener('click', this.evDocumentClose);var b = [].slice.call(this.querySelectorAll('[data-dismiss]'));b.forEach(function (b) {
+        b.removeEventListener('click', a.evClose);
+      });var c = document.querySelector('.modal-backdrop');c && document.body.removeChild(c), this.setAttribute('aria-hidden', 'true'), this.classList.remove('show'), this.main.innerHTML = '', this.triggerBtn.focus();
+    } }, { key: 'documentClose', value: function documentClose(a) {
+      this.findAncestorByClass(a.target, 'tk-modal-dialog') || a.target === this.triggerBtn || this.close();
     } }, { key: 'keyPress', value: function keyPress(a) {
-      27 === a.keyCode && this.close(), 9 === a.keyCode && this.handleTabEvent(a);
+      if (27 === a.keyCode && this.close(), 9 === a.keyCode) {
+        var b = this.focusableElements.indexOf(document.activeElement);a.shiftKey && (0 === b || -1 === b) && (this.focusableElements[this.focusableElements.length - 1].focus(), a.preventDefault()), a.shiftKey || b !== this.focusableElements.length - 1 || (this.focusableElements[0].focus(), a.preventDefault());
+      }
     } }, { key: 'adjustDimensions', value: function adjustDimensions() {
       var a = this.offsetHeight;a += parseInt(window.getComputedStyle(this).getPropertyValue('margin-top'), 10), a += parseInt(window.getComputedStyle(this).getPropertyValue('margin-bottom'), 10);var b = this.body.getBoundingClientRect.height,
           c = this.body.offsetHeight;c += parseInt(window.getComputedStyle(this.body).getPropertyValue('margin-top'), 10), c += parseInt(window.getComputedStyle(this.body).getPropertyValue('margin-bottom'), 10);var d = this.header.offsetHeight;d += parseInt(window.getComputedStyle(this.header).getPropertyValue('margin-top'), 10), d += parseInt(window.getComputedStyle(this.header).getPropertyValue('margin-bottom'), 10);var e = this.footer.offsetHeight;e += parseInt(window.getComputedStyle(this.footer).getPropertyValue('margin-top'), 10), e += parseInt(window.getComputedStyle(this.footer).getPropertyValue('margin-bottom'), 10);var f = this.offsetTop,
