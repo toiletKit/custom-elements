@@ -54,12 +54,12 @@
 				});
 
 				test('Has type info', () => {
-					assert.equal(myEl.getAttribute('type'), 'primary');
+					assert.equal(myEl.getAttribute('type'), 'unknown');
 				});
 
 				test('Respects type attribute change, any unsupported value', () => {
 					myEl.setAttribute('type', 'unknown');
-					assert.equal(myEl.getAttribute('type'), 'primary');
+					assert.equal(myEl.getAttribute('type'), 'info');
 				});
 
 				test('Respects type attribute change, warning', () => {

@@ -49,8 +49,8 @@ var _createClass = function () {
       }), this.inputsContainer.classList.contains('active') ? this.inputsContainer.classList.remove('active') : this.inputsContainer.classList.add('active'), this.inputs.forEach(function (a) {
         a.classList.remove('active');
       }), 1 === this.newActive ? (this.inputs[this.newActive].classList.add('active'), this.inputs[1].setAttribute('checked', ''), this.inputs[0].removeAttribute('checked'), this.inputsContainer.setAttribute('aria-checked', !0), this.inputsContainer.setAttribute('aria-label', this.spans[1].innerHTML), this.dispatchCustomEvent('tk.switcher.on')) : (this.inputs[1].removeAttribute('checked'), this.inputs[0].setAttribute('checked', ''), this.inputs[0].classList.add('active'), this.inputsContainer.setAttribute('aria-checked', !1), this.inputsContainer.setAttribute('aria-label', this.spans[0].innerHTML), this.dispatchCustomEvent('tk.switcher.off')), this.spans[this.newActive].classList.add('active');
-    } }, { key: 'toggle', value: function toggle(a) {
-      a.preventDefault(), this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1, this.switch.bind(this)();
+    } }, { key: 'toggle', value: function toggle() {
+      this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1, this.switch.bind(this)();
     } }, { key: 'keyEvents', value: function keyEvents(a) {
       (13 === a.keyCode || 32 === a.keyCode) && (a.preventDefault(), this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1, this.switch.bind(this)());
     } }]), b;

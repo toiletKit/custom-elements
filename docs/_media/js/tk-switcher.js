@@ -176,8 +176,7 @@ class TkSwitcherElement extends HTMLElement {
   }
 
   /** Method to toggle the switch */
-  toggle(e) {
-    e.preventDefault();
+  toggle() {
     this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1;
 
     this.switch.bind(this)();
