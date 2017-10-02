@@ -182,9 +182,15 @@ class TkSwitcherElement extends HTMLElement {
     this.switch.bind(this)();
   }
 
-  keyEvents(event) {
-    if (event.keyCode === 13 || event.keyCode === 32) {
-      event.preventDefault();
+  keyEvents(e) {
+    // Keycodes
+    const KEYCODE = {
+      ENTER: 13,
+      SPACE: 32,
+    };
+
+    if (e.keyCode === KEYCODE.ENTER || e.keyCode === KEYCODE.SPACE) {
+      e.preventDefault();
       this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1;
 
       this.switch.bind(this)();

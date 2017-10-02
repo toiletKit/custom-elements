@@ -44,8 +44,8 @@ var _createClass = function () {
     } }, { key: 'documentClose', value: function documentClose(a) {
       this.findAncestorByClass(a.target, 'tk-modal-dialog') || a.target === this.triggerBtn || this.close();
     } }, { key: 'keyPress', value: function keyPress(a) {
-      if (27 === a.keyCode && this.close(), 9 === a.keyCode) {
-        var b = this.focusableElements.indexOf(document.activeElement);a.shiftKey && (0 === b || -1 === b) && (this.focusableElements[this.focusableElements.length - 1].focus(), a.preventDefault()), a.shiftKey || b !== this.focusableElements.length - 1 || (this.focusableElements[0].focus(), a.preventDefault());
+      var b = { TAB: 9, ESC: 27 };if (a.keyCode === b.ESC && this.close(), a.keyCode === b.TAB) {
+        var c = this.focusableElements.indexOf(document.activeElement);a.shiftKey && (0 === c || -1 === c) && (this.focusableElements[this.focusableElements.length - 1].focus(), a.preventDefault()), a.shiftKey || c !== this.focusableElements.length - 1 || (this.focusableElements[0].focus(), a.preventDefault());
       }
     } }, { key: 'adjustDimensions', value: function adjustDimensions() {
       var a = this.offsetHeight;a += parseInt(window.getComputedStyle(this).getPropertyValue('margin-top'), 10), a += parseInt(window.getComputedStyle(this).getPropertyValue('margin-bottom'), 10);var b = this.body.getBoundingClientRect.height,

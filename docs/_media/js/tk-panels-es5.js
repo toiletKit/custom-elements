@@ -79,11 +79,12 @@ var _createClass = function () {
     } }, { key: 'show', value: function show(a) {
       a.click();
     } }, { key: 'keyBehaviour', value: function keyBehaviour(a) {
-      var b = this.querySelector('#tab-' + this.currentActive),
-          c = b.parentNode.previousElementSibling || b.parentNode.parentNode.lastElementChild,
-          d = b.parentNode.nextElementSibling || b.parentNode.parentNode.firstElementChild;if (!(a.metaKey || a.altKey) && -1 !== this.tabs.indexOf('#' + document.activeElement.id)) switch (a.keyCode) {case 37:case 38:
-          a.preventDefault(), a.stopPropagation(), c.querySelector('a').click(), c.querySelector('a').focus();break;case 39:case 40:
-          a.preventDefault(), a.stopPropagation(), d.querySelector('a').click(), d.querySelector('a').focus();break;default:}
+      var b = { TAB: 9, ESC: 27, ARROW_LEFT: 37, ARROW_UP: 38, ARROW_RIGHT: 39, ARROW_DOWN: 40 },
+          c = this.querySelector('#tab-' + this.currentActive),
+          d = c.parentNode.previousElementSibling || c.parentNode.parentNode.lastElementChild,
+          e = c.parentNode.nextElementSibling || c.parentNode.parentNode.firstElementChild;if (!(a.metaKey || a.altKey) && -1 !== this.tabs.indexOf('#' + document.activeElement.id)) switch (a.keyCode) {case b.ARROW_LEFT:case b.ARROW_UP:
+          a.preventDefault(), a.stopPropagation(), d.querySelector('a').click(), d.querySelector('a').focus();break;case b.ARROW_RIGHT:case b.ARROW_DOWN:
+          a.preventDefault(), a.stopPropagation(), e.querySelector('a').click(), e.querySelector('a').focus();break;default:}
     } }, { key: 'getStorageKey', value: function getStorageKey() {
       return window.location.href.toString().split(window.location.host)[1].replace(/&return=[a-zA-Z0-9%]+/, '').split('#')[0];
     } }, { key: 'saveState', value: function saveState(a) {

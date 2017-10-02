@@ -52,7 +52,7 @@ var _createClass = function () {
     } }, { key: 'toggle', value: function toggle() {
       this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1, this.switch.bind(this)();
     } }, { key: 'keyEvents', value: function keyEvents(a) {
-      (13 === a.keyCode || 32 === a.keyCode) && (a.preventDefault(), this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1, this.switch.bind(this)());
+      var b = { ENTER: 13, SPACE: 32 };(a.keyCode === b.ENTER || a.keyCode === b.SPACE) && (a.preventDefault(), this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1, this.switch.bind(this)());
     } }]), b;
 }(HTMLElement);customElements.define('tk-switcher', TkSwitcherElement);
 

@@ -239,6 +239,16 @@ class TkPanelsElement extends HTMLElement {
   }
 
   keyBehaviour(e) {
+    // Keycodes
+    const KEYCODE = {
+      TAB: 9,
+      ESC: 27,
+      ARROW_LEFT: 37,
+      ARROW_UP: 38,
+      ARROW_RIGHT: 39,
+      ARROW_DOWN: 40,
+    };
+
     // collect tab targets, and their parents' prev/next (or first/last)
     const currentTab = this.querySelector(`#tab-${this.currentActive}`);
 
@@ -258,15 +268,15 @@ class TkPanelsElement extends HTMLElement {
 
     // catch left/right and up/down arrow key events
     switch (e.keyCode) {
-      case 37:
-      case 38:
+      case KEYCODE.ARROW_LEFT:
+      case KEYCODE.ARROW_UP:
         e.preventDefault();
         e.stopPropagation();
         previousTabItem.querySelector('a').click();
         previousTabItem.querySelector('a').focus();
         break;
-      case 39:
-      case 40:
+      case KEYCODE.ARROW_RIGHT:
+      case KEYCODE.ARROW_DOWN:
         e.preventDefault();
         e.stopPropagation();
         nextTabItem.querySelector('a').click();
