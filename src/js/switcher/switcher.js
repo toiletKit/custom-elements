@@ -185,8 +185,8 @@ class TkSwitcherElement extends HTMLElement {
   keyEvents(e) {
     // Keycodes
     const KEYCODE = {
-      ENTER : 13,
-      SPACE : 32
+      ENTER: 13,
+      SPACE: 32,
     };
 
     if (e.keyCode === KEYCODE.ENTER || e.keyCode === KEYCODE.SPACE) {

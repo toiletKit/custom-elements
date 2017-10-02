@@ -170,8 +170,8 @@ class TkModalElement extends HTMLElement {
   keyPress(e) {
     // Keycodes
     const KEYCODE = {
-      TAB : 9,
-      ESC : 27
+      TAB: 9,
+      ESC: 27,
     };
 
     // ESC key

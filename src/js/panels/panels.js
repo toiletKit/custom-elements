@@ -241,12 +241,12 @@ class TkPanelsElement extends HTMLElement {
   keyBehaviour(e) {
     // Keycodes
     const KEYCODE = {
-      TAB : 9,
-      ESC : 27,
-      ARROW_LEFT : 37,
-      ARROW_UP : 38,
-      ARROW_RIGHT : 39,
-      ARROW_DOWN : 40
+      TAB: 9,
+      ESC: 27,
+      ARROW_LEFT: 37,
+      ARROW_UP: 38,
+      ARROW_RIGHT: 39,
+      ARROW_DOWN: 40,
     };
 
     // collect tab targets, and their parents' prev/next (or first/last)

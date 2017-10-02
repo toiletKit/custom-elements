@@ -43,7 +43,7 @@ class TkTipElement extends HTMLElement {
 
     // Keycodes
     const KEYCODE = {
-      ESC : 9
+      ESC: 9,
     };
 
     // Close on outside click
