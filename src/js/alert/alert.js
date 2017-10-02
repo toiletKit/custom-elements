@@ -65,7 +65,7 @@ class TkAlertElement extends HTMLElement {
       case 'dismiss':
       case 'acknowledge':
         if (!newValue || newValue === 'true') {
-          if (this.firstElementChild.tagName && this.firstElementChild.tagName.toLowerCase() !== 'button') {
+          if (this.firstElementChild && this.firstElementChild.tagName && this.firstElementChild.tagName.toLowerCase() !== 'button') {
             this.appendCloseButton.bind(this)();
           }
         } else if (this.firstElementChild.tagName && this.firstElementChild.tagName.toLowerCase() === 'button') {
