@@ -2,19 +2,17 @@ class TkModalElement extends HTMLElement {
   constructor() {
     super();
 
-    this.modal = this;
     this.triggerBtn = '';
     this.focusableElements = null;
     this.focusableSelectors = ['a[href]', 'area[href]', 'input:not([disabled])', 'select:not([disabled])', 'textarea:not([disabled])', 'button:not([disabled])', 'iframe', 'object', 'embed', '[contenteditable]', '[tabindex]:not([tabindex^="-"])'];
     this.container = this.querySelector('.tk-modal-dialog');
-    this.title = this.getAttribute('title') || 'Modal';
   }
 
   static get observedAttributes() {
     return ['width', 'height', 'innerWidth', 'innerHeight', 'iframe'];
   }
 
-  /*eslint-disable */
+  /* eslint-disable */
   attributeChangedCallback(attr, oldValue, newValue) {
     switch (attr) {
       // case 'name':
@@ -22,13 +20,14 @@ class TkModalElement extends HTMLElement {
       // break;
     }
   }
-  /*eslint-enable */
+  /* eslint-enable */
 
   connectedCallback() {
     if (!this.id) {
       throw new Error('`Tk-modal` requires an id');
     }
 
+    this.title = this.getAttribute('title') || 'Modal';
     this.setAttribute('role', 'dialog');
     this.classList.add('fade');
     this.iframe = this.getAttribute('iframe') || '';
@@ -75,7 +74,7 @@ class TkModalElement extends HTMLElement {
     this.body = this.container.querySelector('section');
     this.footer = this.container.querySelector('footer');
 
-    this.triggerBtn = document.querySelector(`button[data-href="#${this.id}"]`);
+    this.triggerBtn = document.querySelector(`[data-href="#${this.id}"]`);
     if (this.triggerBtn) {
       this.triggerBtn.addEventListener('click', this.open.bind(this));
     }
@@ -89,7 +88,6 @@ class TkModalElement extends HTMLElement {
   }
 
   open() {
-    const self = this;
     const dropShadow = document.createElement('div');
     dropShadow.classList.add('modal-backdrop', 'fade');
     dropShadow.classList.add('modal-backdrop', 'show');
@@ -117,7 +115,7 @@ class TkModalElement extends HTMLElement {
     this.adjustDimensions();
 
     this.scrollTop = 0;
-    this.modal.classList.add('show');
+    this.classList.add('show');
 
     this.focusableElements = [].slice.call(this.querySelectorAll(this.focusableSelectors.join()));
     if (this.focusableElements.length) {
@@ -126,25 +124,34 @@ class TkModalElement extends HTMLElement {
       this.header.querySelector('button').focus();
     }
 
-    this.addEventListener('keydown', this.keyPress.bind(this));
+    this.evKeypress = this.keyPress.bind(this);
+    this.evClose = this.close.bind(this);
+    this.evDocumentClose = this.documentClose.bind(this);
+
+    // Keyboard handling
+    this.addEventListener('keydown', this.evKeypress);
 
     // Close on click outside the modal
-    document.addEventListener('click', (event) => {
-      if (!self.findAncestorByClass(event.target, 'tk-modal-dialog') && event.target !== this.triggerBtn) {
-        self.close();
-      }
-    });
+    document.addEventListener('click', this.evDocumentClose);
 
     // Is there a close button?
-    const modalButtons = self.querySelectorAll('button[data-dismiss]');
+    const modalButtons = [].slice.call(this.querySelectorAll('[data-dismiss]'));
     // Add listeners for close
     modalButtons.forEach((modalButton) => {
-      modalButton.addEventListener('click', self.close.bind(this));
+      modalButton.addEventListener('click', this.evClose);
     });
   }
 
   close() {
-    this.removeEventListener('keydown', this.keyPress, true);
+    this.removeEventListener('keydown', this.evKeypress);
+    document.removeEventListener('click', this.evDocumentClose);
+
+    // Is there a close button?
+    const modalButtons = [].slice.call(this.querySelectorAll('[data-dismiss]'));
+    // Add listeners for close
+    modalButtons.forEach((modalButton) => {
+      modalButton.removeEventListener('click', this.evClose);
+    });
 
     const dropShadow = document.querySelector('.modal-backdrop');
     if (dropShadow) document.body.removeChild(dropShadow);
@@ -154,21 +161,9 @@ class TkModalElement extends HTMLElement {
     this.triggerBtn.focus();
   }
 
-  handleTabEvent(e) {
-    // Get the index of the current active element within the modal
-    const focusedIndex = this.focusableElements.indexOf(document.activeElement);
-    // Handle TAB event if need to skip
-    // If first element is focused and shiftkey is in use
-    if (e.shiftKey && (focusedIndex === 0 || focusedIndex === -1)) {
-      // Focus last item within modal
-      this.focusableElements[this.focusableElements.length - 1].focus();
-      e.preventDefault();
-    }
-    // If last element is focused and shiftkey is not in use
-    if (!e.shiftKey && focusedIndex === this.focusableElements.length - 1) {
-      // Focus first item within modal
-      this.focusableElements[0].focus();
-      e.preventDefault();
+  documentClose(event) {
+    if (!this.findAncestorByClass(event.target, 'tk-modal-dialog') && event.target !== this.triggerBtn) {
+      this.close();
     }
   }
 
@@ -179,7 +174,22 @@ class TkModalElement extends HTMLElement {
     }
     // TAB key
     if (e.keyCode === 9) {
-      this.handleTabEvent(e);
+      // this.handleTabEvent(e);
+      // Get the index of the current active element within the modal
+      const focusedIndex = this.focusableElements.indexOf(document.activeElement);
+      // Handle TAB event if need to skip
+      // If first element is focused and shiftkey is in use
+      if (e.shiftKey && (focusedIndex === 0 || focusedIndex === -1)) {
+        // Focus last item within modal
+        this.focusableElements[this.focusableElements.length - 1].focus();
+        e.preventDefault();
+      }
+      // If last element is focused and shiftkey is not in use
+      if (!e.shiftKey && focusedIndex === this.focusableElements.length - 1) {
+        // Focus first item within modal
+        this.focusableElements[0].focus();
+        e.preventDefault();
+      }
     }
   }
 
@@ -222,12 +232,12 @@ class TkModalElement extends HTMLElement {
     }
   }
 
-  /*eslint-disable */
+  /* eslint-disable */
   findAncestorByClass(el, className) {
     while ((el = el.parentElement) && !el.classList.contains(className));
     return el;
   }
-  /*eslint-enable */
+  /* eslint-enable */
 }
 
 customElements.define('tk-modal', TkModalElement);

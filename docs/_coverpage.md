@@ -1,9 +1,11 @@
 ![logo](_images/logo.svg)
 
 
-# toiletKit UI components
+# toiletKit
 
-> Next generation components.
+### Web Componnents => WC
+
+### toiletKit => UI components on WC
 
 - Simple, fully functional and lightweight
 - Extremely small footprint, no dependencies

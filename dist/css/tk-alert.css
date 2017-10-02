@@ -56,6 +56,11 @@ tk-alert[position="top-right"] {
   top: 10px;
   right: 10px; }
 
+tk-alert[type="info"] {
+  color: #0c586b;
+  background-color: #d1eef5;
+  border-color: #bee7f1; }
+
 tk-alert[type="primary"] {
   color: #10467d;
   background-color: #d2e7fc;
