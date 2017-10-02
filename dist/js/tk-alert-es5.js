@@ -27,7 +27,7 @@ var _createClass = function () {
     } }, { key: 'attributeChangedCallback', value: function attributeChangedCallback(a, b, c) {
       switch (a) {case 'type':
           c && -1 !== ['info', 'primary', 'warning', 'success', 'danger'].indexOf(c) || (this.type = 'info');break;case 'dismiss':case 'acknowledge':
-          c && 'true' !== c ? this.firstElementChild.tagName && 'button' === this.firstElementChild.tagName.toLowerCase() && this.removeCloseButton.bind(this)() : this.firstElementChild.tagName && 'button' !== this.firstElementChild.tagName.toLowerCase() && this.appendCloseButton.bind(this)();break;case 'href':
+          c && 'true' !== c ? this.firstElementChild.tagName && 'button' === this.firstElementChild.tagName.toLowerCase() && this.removeCloseButton.bind(this)() : this.firstElementChild && this.firstElementChild.tagName && 'button' !== this.firstElementChild.tagName.toLowerCase() && this.appendCloseButton.bind(this)();break;case 'href':
           c && '' !== c ? this.firstElementChild.tagName && 'button' !== this.firstElementChild.tagName.toLowerCase() && this.firstElementChild.classList.contains('tk-alert-button--close') && this.appendCloseButton.bind(this)() : this.firstElementChild.tagName && 'button' !== this.firstElementChild.tagName.toLowerCase() && this.removeCloseButton.bind(this)();break;case 'auto-dismiss':
           c && '' !== c || this.removeAttribute('auto-dismiss');break;default:}
     } }, { key: 'buttonCloseFn', value: function buttonCloseFn() {
