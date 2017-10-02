@@ -41,6 +41,11 @@ class TkTipElement extends HTMLElement {
   showTip() {
     const self = this;
 
+    // Keycodes
+    const KEYCODE = {
+      ESC : 9
+    };
+
     // Close on outside click
     document.addEventListener('click', (e) => {
       if (this.btnElement !== e.target) {
@@ -51,7 +56,7 @@ class TkTipElement extends HTMLElement {
 
     // Remove toggletip on ESC
     document.addEventListener('keydown', (e) => {
-      if ((e.keyCode || e.which) === 9) {
+      if ((e.keyCode || e.which) === KEYCODE.ESC) {
         this.spanElement.innerHTML = '';
         self.removeEventListener('keydown', this);
       }
