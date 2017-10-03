@@ -17,31 +17,33 @@ var _createClass = function () {
   if (!a) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return b && ('object' == (typeof b === 'undefined' ? 'undefined' : _typeof(b)) || 'function' == typeof b) ? b : a;
 }function _inherits(a, b) {
   if ('function' != typeof b && null !== b) throw new TypeError('Super expression must either be null or a function, not ' + (typeof b === 'undefined' ? 'undefined' : _typeof(b)));a.prototype = Object.create(b && b.prototype, { constructor: { value: a, enumerable: !1, writable: !0, configurable: !0 } }), b && (Object.setPrototypeOf ? Object.setPrototypeOf(a, b) : a.__proto__ = b);
-}var TkButtonElement = function (a) {
-  function b() {
-    return _classCallCheck(this, b), _possibleConstructorReturn(this, (b.__proto__ || Object.getPrototypeOf(b)).apply(this, arguments));
-  }return _inherits(b, a), _createClass(b, [{ key: 'connectedCallback', value: function connectedCallback() {
-      var a = this,
-          b = [].slice.call(this.querySelectorAll('[type="checkbox"]'));if (b.length) b.forEach(function (b) {
-        'label' !== b.parentNode.tagName.toLowerCase() || (b.getAttribute('checked') || b.parentNode.classList.contains('active') ? (b.setAttribute('checked', ''), b.parentNode.setAttribute('aria-pressed', 'true')) : (b.removeAttribute('checked'), b.parentNode.setAttribute('aria-pressed', 'false')), b.setAttribute('tabindex', 0), b.addEventListener('click', function () {
-          a.checked ? (a.setAttribute('checked', ''), a.parentNode.classList.add('active'), a.parentNode.setAttribute('aria-pressed', 'true')) : (a.removeAttribute('checked'), a.parentNode.classList.remove('active'), a.parentNode.setAttribute('aria-pressed', 'false'));
-        }));
-      });else {
-        var c = [].slice.call(this.querySelectorAll('[type="radio"]'));c.length && c.forEach(function (b) {
-          'label' !== b.parentNode.tagName.toLowerCase() || (b.getAttribute('checked') || b.parentNode.classList.contains('active') ? (b.setAttribute('checked', ''), b.parentNode.setAttribute('aria-pressed', 'true')) : (b.removeAttribute('checked'), b.parentNode.setAttribute('aria-pressed', 'false')), b.addEventListener('click', function () {
-            a.checked ? (a.parentNode.parentNode.clearAllRadios(), a.setAttribute('checked', ''), a.parentNode.classList.add('active'), a.parentNode.setAttribute('aria-pressed', 'true')) : (a.parentNode.parentNode.clearAllRadios(), a.removeAttribute('checked'), a.parentNode.classList.remove('active'), a.parentNode.setAttribute('aria-pressed', 'false'));
+}(function () {
+  var a = function (a) {
+    function b() {
+      return _classCallCheck(this, b), _possibleConstructorReturn(this, (b.__proto__ || Object.getPrototypeOf(b)).apply(this, arguments));
+    }return _inherits(b, a), _createClass(b, [{ key: 'connectedCallback', value: function connectedCallback() {
+        var a = this,
+            b = [].slice.call(this.querySelectorAll('[type="checkbox"]'));if (b.length) b.forEach(function (b) {
+          'label' !== b.parentNode.tagName.toLowerCase() || (b.getAttribute('checked') || b.parentNode.classList.contains('active') ? (b.setAttribute('checked', ''), b.parentNode.setAttribute('aria-pressed', 'true')) : (b.removeAttribute('checked'), b.parentNode.setAttribute('aria-pressed', 'false')), b.setAttribute('tabindex', 0), b.addEventListener('click', function () {
+            a.checked ? (a.setAttribute('checked', ''), a.parentNode.classList.add('active'), a.parentNode.setAttribute('aria-pressed', 'true')) : (a.removeAttribute('checked'), a.parentNode.classList.remove('active'), a.parentNode.setAttribute('aria-pressed', 'false'));
           }));
+        });else {
+          var c = [].slice.call(this.querySelectorAll('[type="radio"]'));c.length && c.forEach(function (b) {
+            'label' !== b.parentNode.tagName.toLowerCase() || (b.getAttribute('checked') || b.parentNode.classList.contains('active') ? (b.setAttribute('checked', ''), b.parentNode.setAttribute('aria-pressed', 'true')) : (b.removeAttribute('checked'), b.parentNode.setAttribute('aria-pressed', 'false')), b.addEventListener('click', function () {
+              a.checked ? (a.parentNode.parentNode.clearAllRadios(), a.setAttribute('checked', ''), a.parentNode.classList.add('active'), a.parentNode.setAttribute('aria-pressed', 'true')) : (a.parentNode.parentNode.clearAllRadios(), a.removeAttribute('checked'), a.parentNode.classList.remove('active'), a.parentNode.setAttribute('aria-pressed', 'false'));
+            }));
+          });
+        }
+      } }, { key: 'disconnectedCallback', value: function disconnectedCallback() {} }, { key: 'adoptedCallback', value: function adoptedCallback() {} }, { key: 'attributeChangedCallback', value: function attributeChangedCallback(a) {
+        switch (a) {}
+      } }, { key: 'clearAllRadios', value: function clearAllRadios() {
+        var a = [].slice.call(this.querySelectorAll('[type="radio"]'));a.forEach(function (a) {
+          a.removeAttribute('checked'), 'label' === a.parentNode.tagName.toLowerCase() && (a.parentNode.classList.remove('active'), a.parentNode.setAttribute('aria-pressed', 'false'));
         });
-      }
-    } }, { key: 'disconnectedCallback', value: function disconnectedCallback() {} }, { key: 'adoptedCallback', value: function adoptedCallback() {} }, { key: 'attributeChangedCallback', value: function attributeChangedCallback(a) {
-      switch (a) {}
-    } }, { key: 'clearAllRadios', value: function clearAllRadios() {
-      var a = [].slice.call(this.querySelectorAll('[type="radio"]'));a.forEach(function (a) {
-        a.removeAttribute('checked'), 'label' === a.parentNode.tagName.toLowerCase() && (a.parentNode.classList.remove('active'), a.parentNode.setAttribute('aria-pressed', 'false'));
-      });
-    } }, { key: 'dispatchCustomEvent', value: function dispatchCustomEvent(a) {
-      var b = new CustomEvent(a, { bubbles: !0, cancelable: !0 });b.relatedTarget = this, this.dispatchEvent(b), this.removeEventListener(a, this);
-    } }], [{ key: 'observedAttributes', get: function get() {} }]), b;
-}(HTMLElement);customElements.define('tk-group-buttons', TkButtonElement);
+      } }, { key: 'dispatchCustomEvent', value: function dispatchCustomEvent(a) {
+        var b = new CustomEvent(a, { bubbles: !0, cancelable: !0 });b.relatedTarget = this, this.dispatchEvent(b), this.removeEventListener(a, this);
+      } }], [{ key: 'observedAttributes', get: function get() {} }]), b;
+  }(HTMLElement);customElements.define('tk-group-buttons', a);
+})();
 
 },{}]},{},[1]);
