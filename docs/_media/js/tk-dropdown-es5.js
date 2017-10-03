@@ -17,34 +17,36 @@ var _createClass = function () {
   if (!a) throw new ReferenceError('this hasn\'t been initialised - super() hasn\'t been called');return b && ('object' == (typeof b === 'undefined' ? 'undefined' : _typeof(b)) || 'function' == typeof b) ? b : a;
 }function _inherits(a, b) {
   if ('function' != typeof b && null !== b) throw new TypeError('Super expression must either be null or a function, not ' + (typeof b === 'undefined' ? 'undefined' : _typeof(b)));a.prototype = Object.create(b && b.prototype, { constructor: { value: a, enumerable: !1, writable: !0, configurable: !0 } }), b && (Object.setPrototypeOf ? Object.setPrototypeOf(a, b) : a.__proto__ = b);
-}var TkDropdownElement = function (a) {
-  function b() {
-    return _classCallCheck(this, b), _possibleConstructorReturn(this, (b.__proto__ || Object.getPrototypeOf(b)).apply(this, arguments));
-  }return _inherits(b, a), _createClass(b, [{ key: 'connectedCallback', value: function connectedCallback() {
-      this.setAttribute('aria-labelledby', this.for.substring(1));var a = document.querySelector(this.for),
-          b = this.querySelectorAll('a'),
-          c = this;a.id && (a.setAttribute('aria-haspopup', 'true'), a.setAttribute('aria-expanded', 'false'), a.addEventListener('click', function (d) {
-        c.hasAttribute('expanded') ? (c.removeAttribute('expanded'), d.target.setAttribute('aria-expanded', 'false')) : (c.setAttribute('expanded', ''), d.target.setAttribute('aria-expanded', 'true')), document.addEventListener('click', function (b) {
-          b.target === a || c.findAncestor(b.target, 'tk-dropdown') || c.close();
-        }), b.forEach(function (a) {
-          a.addEventListener('click', function () {
-            c.close();
+}(function () {
+  var a = function (a) {
+    function b() {
+      return _classCallCheck(this, b), _possibleConstructorReturn(this, (b.__proto__ || Object.getPrototypeOf(b)).apply(this, arguments));
+    }return _inherits(b, a), _createClass(b, [{ key: 'connectedCallback', value: function connectedCallback() {
+        this.setAttribute('aria-labelledby', this.for.substring(1));var a = document.querySelector(this.for),
+            b = this.querySelectorAll('a'),
+            c = this;a.id && (a.setAttribute('aria-haspopup', 'true'), a.setAttribute('aria-expanded', 'false'), a.addEventListener('click', function (d) {
+          c.hasAttribute('expanded') ? (c.removeAttribute('expanded'), d.target.setAttribute('aria-expanded', 'false')) : (c.setAttribute('expanded', ''), d.target.setAttribute('aria-expanded', 'true')), document.addEventListener('click', function (b) {
+            b.target === a || c.findAncestor(b.target, 'tk-dropdown') || c.close();
+          }), b.forEach(function (a) {
+            a.addEventListener('click', function () {
+              c.close();
+            });
           });
-        });
-      }));
-    } }, { key: 'disconnectedCallback', value: function disconnectedCallback() {} }, { key: 'adoptedCallback', value: function adoptedCallback() {} }, { key: 'attributeChangedCallback', value: function attributeChangedCallback(a) {
-      switch (a) {}
-    } }, { key: 'close', value: function close() {
-      var a = document.querySelector('#' + this.getAttribute('aria-labelledby'));this.removeAttribute('expanded'), a.setAttribute('aria-expanded', 'false');
-    } }, { key: 'findAncestor', value: function findAncestor(a, b) {
-      for (; (a = a.parentElement) && a.nodeName.toLowerCase() !== b;) {}return a;
-    } }, { key: 'for', get: function get() {
-      return this.getAttribute('for');
-    }, set: function set(a) {
-      return this.setAttribute('for', a);
-    } }], [{ key: 'observedAttributes', get: function get() {
-      return ['for'];
-    } }]), b;
-}(HTMLElement);customElements.define('tk-dropdown', TkDropdownElement);
+        }));
+      } }, { key: 'disconnectedCallback', value: function disconnectedCallback() {} }, { key: 'adoptedCallback', value: function adoptedCallback() {} }, { key: 'attributeChangedCallback', value: function attributeChangedCallback(a) {
+        switch (a) {}
+      } }, { key: 'close', value: function close() {
+        var a = document.querySelector('#' + this.getAttribute('aria-labelledby'));this.removeAttribute('expanded'), a.setAttribute('aria-expanded', 'false');
+      } }, { key: 'findAncestor', value: function findAncestor(a, b) {
+        for (; (a = a.parentElement) && a.nodeName.toLowerCase() !== b;) {}return a;
+      } }, { key: 'for', get: function get() {
+        return this.getAttribute('for');
+      }, set: function set(a) {
+        return this.setAttribute('for', a);
+      } }], [{ key: 'observedAttributes', get: function get() {
+        return ['for'];
+      } }]), b;
+  }(HTMLElement);customElements.define('tk-dropdown', a);
+})();
 
 },{}]},{},[1]);
