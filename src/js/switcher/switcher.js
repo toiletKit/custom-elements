@@ -1,4 +1,4 @@
-;(() => {
+(() => {
   // Keycodes
   const KEYCODE = {
     ENTER: 13,
@@ -188,10 +188,10 @@
       this.switch.bind(this)();
     }
 
-  keyEvents(event) {
-    if (event.keyCode === KEYCODE.ENTER || event.keyCode === KEYCODE.SPACE) {
-      event.preventDefault();
-      this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1;
+    keyEvents(event) {
+      if (event.keyCode === KEYCODE.ENTER || event.keyCode === KEYCODE.SPACE) {
+        event.preventDefault();
+        this.newActive = this.inputs[1].classList.contains('active') ? 0 : 1;
 
         this.switch.bind(this)();
       }

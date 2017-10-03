@@ -1,4 +1,4 @@
-;(() => {
+(() => {
   class TkCollapseElement extends HTMLElement {
     static get observedAttributes() {
       return ['state'];

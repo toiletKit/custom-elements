@@ -1,4 +1,4 @@
-;(() => {
+(() => {
   // Keycodes
   const KEYCODE = {
     ESC: 9,
@@ -46,21 +46,21 @@
     showTip() {
       const self = this;
 
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (this.btnElement !== e.target) {
-        this.spanElement.innerHTML = '';
-        self.removeEventListener('keydown', this);
-      }
-    });
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (this.btnElement !== e.target) {
+          this.spanElement.innerHTML = '';
+          self.removeEventListener('keydown', this);
+        }
+      });
 
-    // Remove toggletip on ESC
-    document.addEventListener('keydown', (e) => {
-      if ((e.keyCode || e.which) === KEYCODE.ESC) {
-        this.spanElement.innerHTML = '';
-        self.removeEventListener('keydown', this);
-      }
-    });
+      // Remove toggletip on ESC
+      document.addEventListener('keydown', (e) => {
+        if ((e.keyCode || e.which) === KEYCODE.ESC) {
+          this.spanElement.innerHTML = '';
+          self.removeEventListener('keydown', this);
+        }
+      });
 
       this.spanElement.innerHTML = '';
       this.spanElement.innerHTML = `<span class="toggletip-bubble ${this.position}">${this.tip}</span>`;

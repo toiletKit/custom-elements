@@ -1,4 +1,4 @@
-;(() => {
+(() => {
   class TkAlertElement extends HTMLElement {
     /* Attributes to monitor */
     static get observedAttributes() { return ['type', 'dismiss', 'acknowledge', 'href', 'auto-dismiss', 'position', 'textClose', 'textDismiss', 'textAcknowledge']; }

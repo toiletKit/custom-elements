@@ -1,4 +1,4 @@
-;(() => {
+(() => {
   class TkButtonElement extends HTMLElement {
     connectedCallback() {
       const buttons = [].slice.call(this.querySelectorAll('[type="checkbox"]'));

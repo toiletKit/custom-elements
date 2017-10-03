@@ -1,4 +1,4 @@
-;(() => {
+(() => {
   class TkDropdownElement extends HTMLElement {
     static get observedAttributes() {
       return ['for'];

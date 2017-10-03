@@ -1,4 +1,4 @@
-;(() => {
+(() => {
   // Keycodes
   const KEYCODE = {
     TAB: 9,
@@ -248,9 +248,9 @@
       ulLink.click();
     }
 
-  keyBehaviour(e) {
-    // collect tab targets, and their parents' prev/next (or first/last)
-    const currentTab = this.querySelector(`#tab-${this.currentActive}`);
+    keyBehaviour(e) {
+      // collect tab targets, and their parents' prev/next (or first/last)
+      const currentTab = this.querySelector(`#tab-${this.currentActive}`);
 
       const previousTabItem = currentTab.parentNode.previousElementSibling ||
         currentTab.parentNode.parentNode.lastElementChild;
@@ -266,26 +266,26 @@
         return;
       }
 
-    // catch left/right and up/down arrow key events
-    switch (e.keyCode) {
-      case KEYCODE.ARROW_LEFT:
-      case KEYCODE.ARROW_UP:
-        e.preventDefault();
-        e.stopPropagation();
-        previousTabItem.querySelector('a').click();
-        previousTabItem.querySelector('a').focus();
-        break;
-      case KEYCODE.ARROW_RIGHT:
-      case KEYCODE.ARROW_DOWN:
-        e.preventDefault();
-        e.stopPropagation();
-        nextTabItem.querySelector('a').click();
-        nextTabItem.querySelector('a').focus();
-        break;
-      default:
-        break;
+      // catch left/right and up/down arrow key events
+      switch (e.keyCode) {
+        case KEYCODE.ARROW_LEFT:
+        case KEYCODE.ARROW_UP:
+          e.preventDefault();
+          e.stopPropagation();
+          previousTabItem.querySelector('a').click();
+          previousTabItem.querySelector('a').focus();
+          break;
+        case KEYCODE.ARROW_RIGHT:
+        case KEYCODE.ARROW_DOWN:
+          e.preventDefault();
+          e.stopPropagation();
+          nextTabItem.querySelector('a').click();
+          nextTabItem.querySelector('a').focus();
+          break;
+        default:
+          break;
+      }
     }
-  }
 
     /* eslint-disable */
     getStorageKey() {

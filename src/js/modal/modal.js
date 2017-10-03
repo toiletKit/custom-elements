@@ -1,4 +1,4 @@
-;(() => {
+(() => {
   // Keycodes
   const KEYCODE = {
     TAB: 9,
@@ -174,31 +174,31 @@
       }
     }
 
-  keyPress(e) {
+    keyPress(e) {
     // ESC key
-    if (e.keyCode === KEYCODE.ESC) {
-      this.close();
-    }
-    // TAB key
-    if (e.keyCode === KEYCODE.TAB) {
+      if (e.keyCode === KEYCODE.ESC) {
+        this.close();
+      }
+      // TAB key
+      if (e.keyCode === KEYCODE.TAB) {
       // this.handleTabEvent(e);
       // Get the index of the current active element within the modal
-      const focusedIndex = this.focusableElements.indexOf(document.activeElement);
-      // Handle TAB event if need to skip
-      // If first element is focused and shiftkey is in use
-      if (e.shiftKey && (focusedIndex === 0 || focusedIndex === -1)) {
+        const focusedIndex = this.focusableElements.indexOf(document.activeElement);
+        // Handle TAB event if need to skip
+        // If first element is focused and shiftkey is in use
+        if (e.shiftKey && (focusedIndex === 0 || focusedIndex === -1)) {
         // Focus last item within modal
-        this.focusableElements[this.focusableElements.length - 1].focus();
-        e.preventDefault();
-      }
-      // If last element is focused and shiftkey is not in use
-      if (!e.shiftKey && focusedIndex === this.focusableElements.length - 1) {
+          this.focusableElements[this.focusableElements.length - 1].focus();
+          e.preventDefault();
+        }
+        // If last element is focused and shiftkey is not in use
+        if (!e.shiftKey && focusedIndex === this.focusableElements.length - 1) {
         // Focus first item within modal
-        this.focusableElements[0].focus();
-        e.preventDefault();
+          this.focusableElements[0].focus();
+          e.preventDefault();
+        }
       }
     }
-  }
 
     adjustDimensions() {
       // Legacy code
