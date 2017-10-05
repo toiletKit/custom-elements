@@ -8,16 +8,16 @@ tk-dropdown {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 
   .tk-dropdown {
     position: absolute;
+    z-index: $dropdown-z-index;
+    box-sizing: border-box;
     display: none;
     min-width: $dropdown-min-width;
-    z-index: $dropdown-z-index;
     padding: $dropdown-padding-y $dropdown-padding-x;
     margin-top: $dropdown-margin-top;
-    box-sizing: border-box;
     background: $dropdown-background-colour;
     box-shadow: $dropdown-box-shadow;
   }

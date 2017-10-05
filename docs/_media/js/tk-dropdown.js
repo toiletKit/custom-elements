@@ -9,7 +9,6 @@
     /* Lifecycle, element appended to the DOM */
     connectedCallback() {
       const trigger = this.firstElementChild;
-      const dropdown = this.querySelector('.tk-dropdown');
 
       // Set the trigger mode
       this.mode = this.mode === 'hover' ? 'mouseover' : 'click';
@@ -18,12 +17,12 @@
       trigger.setAttribute('aria-haspopup', true);
       trigger.setAttribute('aria-expanded', false);
 
-      trigger.addEventListener(this.mode, (event) => {
+      trigger.addEventListener(this.mode, () => {
         if (this.hasAttribute('expanded')) {
           // Remove the "expanded" attribute to hide the dropdown
           this.removeAttribute('expanded');
           trigger.setAttribute('aria-expanded', false);
-		  
+
           // Dispatch the "tk.dropdown.hide" event
           this.dispatchCustomEvent('tk.dropdown.hide');
         } else {

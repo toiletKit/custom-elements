@@ -23,8 +23,7 @@ var _createClass = function () {
       return _classCallCheck(this, b), _possibleConstructorReturn(this, (b.__proto__ || Object.getPrototypeOf(b)).apply(this, arguments));
     }return _inherits(b, a), _createClass(b, [{ key: 'connectedCallback', value: function connectedCallback() {
         var a = this,
-            b = this.firstElementChild,
-            c = this.querySelector('.tk-dropdown');this.mode = 'hover' === this.mode ? 'mouseover' : 'click', b.setAttribute('aria-haspopup', !0), b.setAttribute('aria-expanded', !1), b.addEventListener(this.mode, function () {
+            b = this.firstElementChild;this.mode = 'hover' === this.mode ? 'mouseover' : 'click', b.setAttribute('aria-haspopup', !0), b.setAttribute('aria-expanded', !1), b.addEventListener(this.mode, function () {
           a.hasAttribute('expanded') ? (a.removeAttribute('expanded'), b.setAttribute('aria-expanded', !1), a.dispatchCustomEvent('tk.dropdown.hide')) : (a.setAttribute('expanded', ''), b.setAttribute('aria-expanded', !0), a.dispatchCustomEvent('tk.dropdown.show')), document.addEventListener(a.mode, function (c) {
             c.target === b || a.findAncestor(c.target, 'tk-dropdown') || a.close();
           });
