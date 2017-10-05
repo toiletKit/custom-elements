@@ -63,16 +63,20 @@
 		<hr>
 		<h2>Dropdown</h2>
 
-
-		<button class="btn btn-secondary" id="dropdownMenuButton">
-			Dropdown button
-		</button>
-
-
-		<tk-dropdown for="#dropdownMenuButton">
-			<a class="dropdown-item" href="#">Action</a>
-			<a class="dropdown-item" href="#">Another action</a>
-			<a class="dropdown-item" href="#">Something else here</a>
+		<tk-dropdown>
+			<button class="btn btn-secondary">Click</button>
+			<div class="tk-dropdown">
+				<a class="tk-dropdown-item" href="#">Item 1</a>
+				<a class="tk-dropdown-item" href="#">Item 2</a>
+				<a class="tk-dropdown-item" href="#">Item 3</a>
+				<a class="tk-dropdown-item" href="#">Another item</a>
+			</div>
+		</tk-dropdown>
+		<tk-dropdown mode="hover">
+			<button class="btn btn-secondary">Hover</button>
+			<div class="tk-dropdown">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
 		</tk-dropdown>
 
 		<hr>
