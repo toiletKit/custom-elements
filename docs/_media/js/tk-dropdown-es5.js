@@ -22,29 +22,29 @@ var _createClass = function () {
     function b() {
       return _classCallCheck(this, b), _possibleConstructorReturn(this, (b.__proto__ || Object.getPrototypeOf(b)).apply(this, arguments));
     }return _inherits(b, a), _createClass(b, [{ key: 'connectedCallback', value: function connectedCallback() {
-        this.setAttribute('aria-labelledby', this.for.substring(1));var a = document.querySelector(this.for),
-            b = this.querySelectorAll('a'),
-            c = this;a.id && (a.setAttribute('aria-haspopup', 'true'), a.setAttribute('aria-expanded', 'false'), a.addEventListener('click', function (d) {
-          c.hasAttribute('expanded') ? (c.removeAttribute('expanded'), d.target.setAttribute('aria-expanded', 'false')) : (c.setAttribute('expanded', ''), d.target.setAttribute('aria-expanded', 'true')), document.addEventListener('click', function (b) {
-            b.target === a || c.findAncestor(b.target, 'tk-dropdown') || c.close();
-          }), b.forEach(function (a) {
-            a.addEventListener('click', function () {
-              c.close();
-            });
+        var a = this,
+            b = this.firstElementChild,
+            c = this.querySelector('.tk-dropdown');this.mode = 'hover' === this.mode ? 'mouseover' : 'click', b.setAttribute('aria-haspopup', !0), b.setAttribute('aria-expanded', !1), b.addEventListener(this.mode, function () {
+          a.hasAttribute('expanded') ? (a.removeAttribute('expanded'), b.setAttribute('aria-expanded', !1), a.dispatchCustomEvent('tk.dropdown.hide')) : (a.setAttribute('expanded', ''), b.setAttribute('aria-expanded', !0), a.dispatchCustomEvent('tk.dropdown.show')), document.addEventListener(a.mode, function (c) {
+            c.target === b || a.findAncestor(c.target, 'tk-dropdown') || a.close();
           });
-        }));
-      } }, { key: 'disconnectedCallback', value: function disconnectedCallback() {} }, { key: 'adoptedCallback', value: function adoptedCallback() {} }, { key: 'attributeChangedCallback', value: function attributeChangedCallback(a) {
+        });
+      } }, { key: 'disconnectedCallback', value: function disconnectedCallback() {
+        this.removeEventListener('tk.dropdown.show', this.close, !0), this.removeEventListener('tk.dropdown.hide', this.close, !0), this.removeEventListener('mouseover', this.close, !0), this.removeEventListener('click', this.close, !0);
+      } }, { key: 'attributeChangedCallback', value: function attributeChangedCallback(a) {
         switch (a) {}
       } }, { key: 'close', value: function close() {
-        var a = document.querySelector('#' + this.getAttribute('aria-labelledby'));this.removeAttribute('expanded'), a.setAttribute('aria-expanded', 'false');
+        this.removeAttribute('expanded'), this.firstElementChild.setAttribute('aria-expanded', !1), this.dispatchCustomEvent('tk.dropdown.hide');
+      } }, { key: 'dispatchCustomEvent', value: function dispatchCustomEvent(a) {
+        var b = new CustomEvent(a, { bubbles: !0, cancelable: !0 });b.relatedTarget = this, this.dispatchEvent(b), this.removeEventListener(a, this);
       } }, { key: 'findAncestor', value: function findAncestor(a, b) {
         for (; (a = a.parentElement) && a.nodeName.toLowerCase() !== b;) {}return a;
-      } }, { key: 'for', get: function get() {
-        return this.getAttribute('for');
+      } }, { key: 'mode', get: function get() {
+        return this.getAttribute('mode');
       }, set: function set(a) {
-        return this.setAttribute('for', a);
+        return this.setAttribute('mode', a);
       } }], [{ key: 'observedAttributes', get: function get() {
-        return ['for'];
+        return ['mode'];
       } }]), b;
   }(HTMLElement);customElements.define('tk-dropdown', a);
 })();

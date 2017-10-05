@@ -5,26 +5,28 @@
 @import "../variables";
 
 tk-dropdown {
-  display: none;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-backface-visibility: hidden;
 
-  &[expanded] {
-    position: relative;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    display: block;
-    width: 20rem;
-    min-width: 10rem;
-    padding: .5rem 0;
-    margin: .125rem 0 0;
-    font-size: 1rem;
-    color: #292b2c;
-    text-align: left;
-    list-style: none;
-    background-color: $white;
-    background-clip: padding-box;
-    border: 1px solid rgba(0,0,0,.15);
-    border-radius: .25rem;
+  .tk-dropdown {
+    position: absolute;
+    display: none;
+    min-width: $dropdown-min-width;
+    z-index: $dropdown-z-index;
+    padding: $dropdown-padding-y $dropdown-padding-x;
+    margin-top: $dropdown-margin-top;
+    box-sizing: border-box;
+    background: $dropdown-background-colour;
+    box-shadow: $dropdown-box-shadow;
   }
 
+  &[expanded] > .tk-dropdown {
+    display: block;
+  }
+
+  .tk-dropdown-item {
+    display: block;
+  }
 }

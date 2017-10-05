@@ -1,56 +1,60 @@
 (() => {
   class TkDropdownElement extends HTMLElement {
-    static get observedAttributes() {
-      return ['for'];
-    }
+    /* Attributes to monitor */
+    static get observedAttributes() { return ['mode']; }
 
-    get for() { return this.getAttribute('for'); }
-    set for(value) { return this.setAttribute('for', value); }
+    get mode() { return this.getAttribute('mode'); }
+    set mode(value) { return this.setAttribute('mode', value); }
 
+    /* Lifecycle, element appended to the DOM */
     connectedCallback() {
-      this.setAttribute('aria-labelledby', this.for.substring(1));
-      const button = document.querySelector(this.for);
-      const innerLinks = this.querySelectorAll('a');
-      const self = this;
+      const trigger = this.firstElementChild;
+      const dropdown = this.querySelector('.tk-dropdown');
 
-      if (!button.id) return;
-      // var children = [].slice.call( menu[getElementsByTagName]('*'));
-      // this.classList.add('dropdown');
+      // Set the trigger mode
+      this.mode = this.mode === 'hover' ? 'mouseover' : 'click';
 
-      button.setAttribute('aria-haspopup', 'true');
-      button.setAttribute('aria-expanded', 'false');
+      // Set the accessibility attributes
+      trigger.setAttribute('aria-haspopup', true);
+      trigger.setAttribute('aria-expanded', false);
 
-      button.addEventListener('click', (ev) => {
-        if (self.hasAttribute('expanded')) {
-          self.removeAttribute('expanded');
-          ev.target.setAttribute('aria-expanded', 'false');
+      trigger.addEventListener(this.mode, (event) => {
+        if (this.hasAttribute('expanded')) {
+          // Remove the "expanded" attribute to hide the dropdown
+          this.removeAttribute('expanded');
+          trigger.setAttribute('aria-expanded', false);
+		  
+          // Dispatch the "tk.dropdown.hide" event
+          this.dispatchCustomEvent('tk.dropdown.hide');
         } else {
-          self.setAttribute('expanded', '');
-          ev.target.setAttribute('aria-expanded', 'true');
+          // Set the "expanded" attribute to show the dropdown
+          this.setAttribute('expanded', '');
+          trigger.setAttribute('aria-expanded', true);
+
+          // Dispatch the "tk.dropdown.show" event
+          this.dispatchCustomEvent('tk.dropdown.show');
         }
 
-        document.addEventListener('click', (evt) => {
-          if (evt.target !== button) {
-            if (!self.findAncestor(evt.target, 'tk-dropdown')) {
-              self.close();
-            }
+        // Hide the dropdown
+        document.addEventListener(this.mode, (event) => {
+          if (event.target !== trigger && !this.findAncestor(event.target, 'tk-dropdown')) {
+            this.close();
           }
         });
 
-        innerLinks.forEach((innerLink) => {
-          innerLink.addEventListener('click', () => {
-            self.close();
-          });
-        });
       });
     }
 
+    /* Lifecycle, element removed from the DOM */
+    disconnectedCallback() {
+      this.removeEventListener('tk.dropdown.show', this.close, true);
+      this.removeEventListener('tk.dropdown.hide', this.close, true);
+      this.removeEventListener('mouseover', this.close, true);
+      this.removeEventListener('click', this.close, true);
+    }
+
     /* eslint-disable */
-    disconnectedCallback() { }
-
-    adoptedCallback(oldDocument, newDocument) { }
-
-
+    /* Respond to attribute changes */
     attributeChangedCallback(attr, oldValue, newValue) {
       switch (attr) {
         // case 'name':
@@ -60,10 +64,20 @@
     }
     /* eslint-enable */
 
+    /* Method to close the dropdown */
     close() {
-      const button = document.querySelector(`#${this.getAttribute('aria-labelledby')}`);
       this.removeAttribute('expanded');
-      button.setAttribute('aria-expanded', 'false');
+      this.firstElementChild.setAttribute('aria-expanded', false);
+      // Remove the event listener
+      this.dispatchCustomEvent('tk.dropdown.hide');
+    }
+
+    /* Method to dispatch events. Internal */
+    dispatchCustomEvent(eventName) {
+      const OriginalCustomEvent = new CustomEvent(eventName, { bubbles: true, cancelable: true });
+      OriginalCustomEvent.relatedTarget = this;
+      this.dispatchEvent(OriginalCustomEvent);
+      this.removeEventListener(eventName, this);
     }
 
     /* eslint-disable */
