@@ -1,20 +1,19 @@
 tk-dropdown {
-  display: none; }
-  tk-dropdown[expanded] {
-    position: relative;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    display: block;
-    width: 20rem;
-    min-width: 10rem;
-    padding: .5rem 0;
-    margin: .125rem 0 0;
-    font-size: 1rem;
-    color: #292b2c;
-    text-align: left;
-    list-style: none;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: .25rem; }
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  backface-visibility: hidden; }
+  tk-dropdown .tk-dropdown {
+    position: absolute;
+    z-index: 1010;
+    box-sizing: border-box;
+    display: none;
+    min-width: 200px;
+    padding: 1rem 1rem;
+    margin-top: 1rem;
+    background: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); }
+  tk-dropdown[expanded] > .tk-dropdown {
+    display: block; }
+  tk-dropdown .tk-dropdown-item {
+    display: block; }
