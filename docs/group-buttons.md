@@ -46,6 +46,10 @@ The simplified version of the custom elements
 ```
 
 ### Group Buttons demo:
+<tk-group-buttons><label class="btn active" aria-pressed="true"><input type="checkbox" checked="" autocomplete="off"> Checkbox 1 (pre-checked)</label><label class="btn" aria-pressed="false"><input type="checkbox" autocomplete="off"> Checkbox 2</label><label class="btn" aria-pressed="false"><input type="checkbox" autocomplete="off"> Checkbox 3</label><label class="btn" aria-pressed="false"><input type="checkbox" autocomplete="off"> Checkbox 4</label><label class="btn" aria-pressed="false"><input type="checkbox" autocomplete="off"> Checkbox 5</label></tk-group-buttons>
+
+<hr>
+
 <tk-group-buttons><label class="btn btn-info active" aria-pressed="true"><input type="checkbox" checked="" autocomplete="off"> Checkbox 1 (pre-checked)</label><label class="btn btn-info" aria-pressed="false"><input type="checkbox" autocomplete="off"> Checkbox 2</label><label class="btn btn-info" aria-pressed="false"><input type="checkbox" autocomplete="off"> Checkbox 3</label><label class="btn btn-info" aria-pressed="false"><input type="checkbox" autocomplete="off"> Checkbox 4</label><label class="btn btn-info" aria-pressed="false"><input type="checkbox" autocomplete="off"> Checkbox 5</label></tk-group-buttons>
 
 <hr>
