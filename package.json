@@ -32,7 +32,7 @@
     "babelify": "latest",
     "browserify": "*",
     "eslint": "latest",
-    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-airbnb": "^16.0.0",
     "eslint-config-airbnb-base": "latest",
     "eslint-plugin-import": "latest",
     "grunt": "latest",
