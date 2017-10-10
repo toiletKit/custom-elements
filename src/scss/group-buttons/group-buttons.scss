@@ -24,22 +24,6 @@ tk-group-buttons {
       @include border-left-radius(0);
     }
 
-    > tk-group-buttons:not(:first-child):not(:last-child) > .tk-btn {
-      @include border-radius(0);
-    }
-
-    > tk-group-buttons:first-child:not(:last-child) {
-
-      > .tk-btn:last-child {
-        @include border-right-radius(0);
-      }
-
-    }
-
-    > tk-group-buttons:last-child:not(:first-child) > .tk-btn:first-child {
-      @include border-left-radius(0);
-    }
-
     // Checkbox and radio options
     input[type="radio"],
     input[type="checkbox"] {
@@ -49,4 +33,21 @@ tk-group-buttons {
     }
 
   }
+
+  > tk-group-buttons:not(:first-child):not(:last-child) > .tk-btn {
+    @include border-radius(0);
+  }
+
+  > tk-group-buttons:first-child:not(:last-child) {
+
+    > .tk-btn:last-child {
+      @include border-right-radius(0);
+    }
+
+  }
+
+  > tk-group-buttons:last-child:not(:first-child) > .tk-btn:first-child {
+    @include border-left-radius(0);
+  }
+
 }
