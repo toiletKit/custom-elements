@@ -1,0 +1,30 @@
+.tk-btn {
+  display: inline-block;
+  flex: 0 1 auto;
+  padding: 0.6rem 1rem;
+  margin-bottom: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.02) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  transition: background-color .15s ease-in-out, border .15s ease-in-out; }
+  .tk-btn:hover, .tk-btn:active, .tk-btn.active {
+    z-index: 2;
+    text-decoration: none;
+    background: #e9ecef;
+    border: 1px solid rgba(0, 0, 0, 0.15); }
+  .tk-btn:focus, .tk-btn.focus {
+    z-index: 2;
+    border: 1px solid rgba(0, 0, 0, 0.15); }
+  .tk-btn:disabled {
+    opacity: 0.65; }
+
+.tk-btn.tk-btn-small {
+  padding: calc(0.6rem / 2) calc(1rem / 2);
+  font-size: .8rem; }
