@@ -2,129 +2,36 @@ tk-group-buttons {
   position: relative;
   display: inline-flex;
   vertical-align: middle; }
-  tk-group-buttons > .btn {
+  tk-group-buttons .tk-btn {
     display: inline-block;
     flex: 0 1 auto;
-    padding: .6rem 1rem;
+    padding: 0.6rem 1rem;
     margin-bottom: 0;
     font-size: 1rem;
     font-weight: normal;
     line-height: 1.25;
+    text-decoration: none;
     text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.07);
     white-space: nowrap;
     vertical-align: middle;
     user-select: none;
-    background-color: #fff;
-    background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.02) 100%);
-    border-radius: .25rem;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 5px 0 rgba(0, 0, 0, 0.05), 0 1px 1.5px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
-    transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out; }
-    tk-group-buttons > .btn:hover, tk-group-buttons > .btn:active, tk-group-buttons > .btn.active {
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.02) 100%);
+    transition: background-color .15s ease-in-out, border .15s ease-in-out; }
+    tk-group-buttons .tk-btn:hover, tk-group-buttons .tk-btn:active, tk-group-buttons .tk-btn.active {
       z-index: 2;
       text-decoration: none;
-      background-color: #eee; }
-    tk-group-buttons > .btn:focus, tk-group-buttons > .btn.focus {
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      background: #e9ecef; }
+    tk-group-buttons .tk-btn:focus, tk-group-buttons .tk-btn.focus {
       z-index: 2;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 5px 0 rgba(0, 0, 0, 0.05), 0 1px 1.5px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.08), 0 0 0 3px rgba(0, 123, 255, 0.25); }
-    tk-group-buttons > .btn:disabled {
-      opacity: .65; }
-    tk-group-buttons > .btn.btn-primary {
-      color: #fff;
-      background-color: #007bff; }
-      tk-group-buttons >
-.btn.btn-primary:hover tk-group-buttons > .btn.btn-primary:active, tk-group-buttons > .btn.btn-primary.active {
-        color: #fff;
-        background-color: #0069d9; }
-    tk-group-buttons > .btn.btn-primary:focus, tk-group-buttons > .btn.btn-primary.focus {
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 5px 0 rgba(0, 0, 0, 0.05), 0 1px 1.5px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.08), 0 0 0 3px rgba(0, 123, 255, 0.5); }
-    tk-group-buttons > .btn.btn-primary.disabled, tk-group-buttons > .btn.btn-primary:disabled {
-      background-color: #007bff; }
-    tk-group-buttons > .btn.btn-success {
-      color: #fff;
-      background-color: #28a745; }
-      tk-group-buttons > .btn.btn-success:hover, tk-group-buttons > .btn.btn-success:active, tk-group-buttons > .btn.btn-success.active {
-        color: #fff;
-        background-color: #218838; }
-    tk-group-buttons > .btn.btn-success:focus, tk-group-buttons > .btn.btn-success.focus {
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 5px 0 rgba(0, 0, 0, 0.05), 0 1px 1.5px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.08), 0 0 0 3px rgba(40, 167, 69, 0.5); }
-    tk-group-buttons > .btn.btn-success.disabled, tk-group-buttons > .btn.btn-success:disabled {
-      background-color: #28a745; }
-    tk-group-buttons > .btn.btn-info {
-      color: #fff;
-      background-color: #17a2b8; }
-      tk-group-buttons > .btn.btn-info:hover, tk-group-buttons > .btn.btn-info:active, tk-group-buttons > .btn.btn-info.active {
-        color: #fff;
-        background-color: #138496; }
-    tk-group-buttons > .btn.btn-info:focus, tk-group-buttons > .btn.btn-info.focus {
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 5px 0 rgba(0, 0, 0, 0.05), 0 1px 1.5px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.08), 0 0 0 3px rgba(23, 162, 184, 0.5); }
-    tk-group-buttons > .btn.btn-info.disabled, tk-group-buttons > .btn.btn-info:disabled {
-      background-color: #17a2b8; }
-    tk-group-buttons > .btn.btn-warning {
-      color: #111;
-      background-color: #ffc107; }
-      tk-group-buttons > .btn.btn-warning:hover, tk-group-buttons > .btn.btn-warning:active, tk-group-buttons > .btn.btn-warning.active {
-        color: #111;
-        background-color: #e0a800; }
-    tk-group-buttons > .btn.btn-warning:focus, tk-group-buttons > .btn.btn-warning.focus {
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 5px 0 rgba(0, 0, 0, 0.05), 0 1px 1.5px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.08), 0 0 0 3px rgba(255, 193, 7, 0.5); }
-    tk-group-buttons > .btn.btn-warning.disabled, tk-group-buttons > .btn.btn-warning:disabled {
-      background-color: #ffc107; }
-    tk-group-buttons > .btn.btn-danger {
-      color: #fff;
-      background-color: #dc3545; }
-      tk-group-buttons > .btn.btn-danger:hover, tk-group-buttons > .btn.btn-danger:active, tk-group-buttons > .btn.btn-danger.active {
-        color: #fff;
-        background-color: #c82333; }
-    tk-group-buttons > .btn.btn-danger:focus, tk-group-buttons > .btn.btn-danger.focus {
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07), 0 2px 5px 0 rgba(0, 0, 0, 0.05), 0 1px 1.5px 0 rgba(0, 0, 0, 0.07), 0 1px 2px 0 rgba(0, 0, 0, 0.08), 0 0 0 3px rgba(220, 53, 69, 0.5); }
-    tk-group-buttons > .btn.btn-danger.disabled, tk-group-buttons > .btn.btn-danger:disabled {
-      background-color: #dc3545; }
-
-.btn-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start; }
-  .btn-toolbar .input-group {
-    width: auto; }
-
-tk-group-buttons > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
-  border-radius: 0; }
-
-tk-group-buttons > .btn:first-child {
-  margin-left: 0; }
-  tk-group-buttons > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0; }
-
-tk-group-buttons > .btn:last-child:not(:first-child),
-tk-group-buttons > .dropdown-toggle:not(:first-child) {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0; }
-
-tk-group-buttons > tk-group-buttons {
-  float: left; }
-
-tk-group-buttons > tk-group-buttons:not(:first-child):not(:last-child) > .btn {
-  border-radius: 0; }
-
-tk-group-buttons > tk-group-buttons:first-child:not(:last-child) > .btn:last-child,
-tk-group-buttons > tk-group-buttons:first-child:not(:last-child) > .dropdown-toggle {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0; }
-
-tk-group-buttons > tk-group-buttons:last-child:not(:first-child) > .btn:first-child {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0; }
-
-tk-group-buttons.show .dropdown-toggle {
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
-  tk-group-buttons.show .dropdown-toggle.btn-link {
-    box-shadow: none; }
-
-tk-group-buttons > .btn input[type="radio"],
-tk-group-buttons > .btn input[type="checkbox"],
-tk-group-buttons > .btn-group > .btn input[type="radio"],
-tk-group-buttons > .btn-group > .btn input[type="checkbox"] {
-  position: absolute;
-  clip: rect(0, 0, 0, 0);
-  pointer-events: none; }
+      border: 1px solid rgba(0, 0, 0, 0.15); }
+    tk-group-buttons .tk-btn:disabled {
+      opacity: 0.65; }
+  tk-group-buttons > .tk-btn + .tk-btn {
+    margin-left: -1px; }
+  tk-group-buttons > .tk-btn input[type="radio"],
+  tk-group-buttons > .tk-btn input[type="checkbox"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none; }

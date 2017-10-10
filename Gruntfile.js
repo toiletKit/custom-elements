@@ -80,6 +80,30 @@ module.exports = (grunt) => {
     });
   });
 
+  // Compile the css for docs
+  grunt.registerTask('compileButtons', 'Compile css for docs', () => {
+    const compileButtons = () => {
+      // Compile the css files
+      grunt.config.set('sass.buttons.files', [{
+        src: 'src/scss/buttons.scss',
+        dest: 'docs/_media/buttons.css'
+      }]);
+
+      grunt.task.run('sass:buttons');
+
+      // Autoprefix the CSS files
+      grunt.config.set('cssmin.buttons.files', [{
+        src: 'docs/_media/buttons.css',
+        dest: 'docs/_media/buttons.min.css'
+      }]);
+
+      grunt.task.run('cssmin:buttons');
+    };
+
+    console.info('Build the stylesheet')
+    compileButtons();
+  });
+
   // Create the Custom Elements
   grunt.registerTask('createElements', 'Create the Custom Elemets', () => {
     // Create the custom element
@@ -187,6 +211,9 @@ module.exports = (grunt) => {
     if (grunt.file.exists('dist/polyfills/webcomponents-loader.min.js')) {
       grunt.file.delete('dist/polyfills/webcomponents-loader.min.js');
     }
+    if (grunt.file.exists('docs/_media/buttons.css')) {
+      grunt.file.delete('docs/_media/buttons.css');
+    }
   });
 
   // Copy files to the docs and demo foders
@@ -221,6 +248,9 @@ module.exports = (grunt) => {
 
     // Create the css files
     grunt.task.run('compile');
+
+    // Create the buttons.css file
+    grunt.task.run('compileButtons');
 
     // Create the elements
     grunt.task.run('createElements');

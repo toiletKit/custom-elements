@@ -53,7 +53,7 @@ The simplified version of the custom elements
     <strong>Oh snap!</strong> Click open to go to google.com
 </tk-alert>
 <p>
-<button role="button" id="insertNewFloated" class="btn btn-success">Create a floated alert</button>
+<button role="button" id="insertNewFloated" class="tk-btn tk-btn-small">Create a floated alert</button>
 </p>
 
 ## Attibutes
@@ -146,7 +146,7 @@ document.body.appendChild(el);
 
 Run the above command by clicking this button:
 <p>
-<button role="button" id="insertNew" class="btn btn-success">Create An Alert</button>
+<button role="button" id="insertNew" class="tk-btn tk-btn-small">Create An Alert</button>
 </p>
 
 ### Programmatically change an alert or add remove the close button:
@@ -164,13 +164,13 @@ el.setAttribute('dismiss', '');
 <tk-alert id="change-me" type="info" dismiss="true"><strong>Alert:</strong> text goes here</tk-alert>
 
 <div id="replaceble" markdown="0">
-<button role="button" data-opt1="type" value="info">Make it info</button>
-<button role="button" data-opt1="type" value="primary">Make it primary</button>
-<button role="button" data-opt1="type" value="success">Make it success</button>
-<button role="button" data-opt1="type" value="warning">Make it warning</button>
-<button role="button" data-opt1="type" value="danger">Make it danger</button>
-<button role="button" data-opt1="dismiss" value="true">Add close button</button>
-<button role="button" data-opt1="dismiss" value="false">Remove close button</button>
+<button role="button" data-opt1="type" value="info" class="tk-btn tk-btn-small">Make it info</button>
+<button role="button" data-opt1="type" value="primary" class="tk-btn tk-btn-small">Make it primary</button>
+<button role="button" data-opt1="type" value="success" class="tk-btn tk-btn-small">Make it success</button>
+<button role="button" data-opt1="type" value="warning" class="tk-btn tk-btn-small">Make it warning</button>
+<button role="button" data-opt1="type" value="danger" class="tk-btn tk-btn-small">Make it danger</button>
+<button role="button" data-opt1="dismiss" value="true" class="tk-btn tk-btn-small">Add close button</button>
+<button role="button" data-opt1="dismiss" value="false" class="tk-btn tk-btn-small">Remove close button</button>
 </div>
 
 
