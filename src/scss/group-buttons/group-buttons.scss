@@ -8,269 +8,39 @@
 tk-group-buttons {
   position: relative;
   display: inline-flex;
-  vertical-align: middle; // match .btn alignment given font-size hack above
+  vertical-align: middle;
 
-  > .btn {
-    display: inline-block;
-    flex: 0 1 auto;
-    padding: .6rem 1rem;
-    margin-bottom: 0;
-    font-size: 1rem;
-    font-weight: normal;
-    line-height: 1.25;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    user-select: none;
-    background-color: #fff;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,.02) 100%);
-    border-radius: .25rem;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, .07), 0 2px 5px 0 rgba(0, 0, 0, .05), 0 1px 1.5px 0 rgba(0, 0, 0, .07), 0 1px 2px 0 rgba(0, 0, 0, .08);
-    transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    // Bring the hover, focused, and "active" buttons to the front to overlay
-    // the borders properly
-    &:hover,
-    &:active,
-    &.active {
-      z-index: 2;
-      text-decoration: none;
-      background-color: #eee;
+  // Include the button mixin for styling
+  @include buttons();
+
+  > .tk-btn {
+
+    + .tk-btn {
+      margin-left: -$btn-border-width;
     }
 
-    &:focus,
-    &.focus {
-      z-index: 2;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, .07), 0 2px 5px 0 rgba(0, 0, 0, .05), 0 1px 1.5px 0 rgba(0, 0, 0, .07), 0 1px 2px 0 rgba(0, 0, 0, .08), 0 0 0 3px rgba(0, 123, 255, .25);
+    // Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
+    &:last-child:not(:first-child) {
+      @include border-left-radius(0);
     }
 
-    &:disabled {
-      opacity: .65;
+    > tk-group-buttons:not(:first-child):not(:last-child) > .tk-btn {
+      @include border-radius(0);
     }
 
-    &.btn-primary {
-      color: #fff;
-      background-color: #007bff;
-      &:hover
-      &:active,
-      &.active {
-        color: #fff;
-        background-color: #0069d9;
+    > tk-group-buttons:first-child:not(:last-child) {
+
+      > .tk-btn:last-child {
+        @include border-right-radius(0);
       }
+
     }
 
-    &.btn-primary:focus,
-    &.btn-primary.focus {
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, .07), 0 2px 5px 0 rgba(0, 0, 0, .05), 0 1px 1.5px 0 rgba(0, 0, 0, .07), 0 1px 2px 0 rgba(0, 0, 0, .08), 0 0 0 3px rgba(0, 123, 255, .5);
+    > tk-group-buttons:last-child:not(:first-child) > .tk-btn:first-child {
+      @include border-left-radius(0);
     }
 
-    &.btn-primary.disabled,
-    &.btn-primary:disabled {
-      background-color: #007bff;
-    }
-
-    &.btn-success {
-      color: #fff;
-      background-color: #28a745;
-      &:hover,
-      &:active,
-      &.active {
-        color: #fff;
-        background-color: #218838;
-      }
-    }
-
-    &.btn-success:focus,
-    &.btn-success.focus {
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, .07), 0 2px 5px 0 rgba(0, 0, 0, .05), 0 1px 1.5px 0 rgba(0, 0, 0, .07), 0 1px 2px 0 rgba(0, 0, 0, .08), 0 0 0 3px rgba(40, 167, 69, .5);
-    }
-
-    &.btn-success.disabled,
-    &.btn-success:disabled {
-      background-color: #28a745;
-    }
-
-    &.btn-info {
-      color: #fff;
-      background-color: #17a2b8;
-      &:hover,
-      &:active,
-      &.active {
-        color: #fff;
-        background-color: #138496;
-      }
-    }
-
-    &.btn-info:focus,
-    &.btn-info.focus {
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, .07), 0 2px 5px 0 rgba(0, 0, 0, .05), 0 1px 1.5px 0 rgba(0, 0, 0, .07), 0 1px 2px 0 rgba(0, 0, 0, .08), 0 0 0 3px rgba(23, 162, 184, .5);
-    }
-
-    &.btn-info.disabled,
-    &.btn-info:disabled {
-      background-color: #17a2b8;
-    }
-
-    &.btn-warning {
-      color: #111;
-      background-color: #ffc107;
-      &:hover,
-      &:active,
-      &.active {
-        color: #111;
-        background-color: #e0a800;
-      }
-    }
-
-    &.btn-warning:focus,
-    &.btn-warning.focus {
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, .07), 0 2px 5px 0 rgba(0, 0, 0, .05), 0 1px 1.5px 0 rgba(0, 0, 0, .07), 0 1px 2px 0 rgba(0, 0, 0, .08), 0 0 0 3px rgba(255, 193, 7, .5);
-    }
-
-    &.btn-warning.disabled,
-    &.btn-warning:disabled {
-      background-color: #ffc107;
-    }
-
-    &.btn-danger {
-      color: #fff;
-      background-color: #dc3545;
-      &:hover,
-      &:active,
-      &.active {
-        color: #fff;
-        background-color: #c82333;
-      }
-    }
-
-    &.btn-danger:focus,
-    &.btn-danger.focus {
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, .07), 0 2px 5px 0 rgba(0, 0, 0, .05), 0 1px 1.5px 0 rgba(0, 0, 0, .07), 0 1px 2px 0 rgba(0, 0, 0, .08), 0 0 0 3px rgba(220, 53, 69, .5);
-    }
-
-    &.btn-danger.disabled,
-    &.btn-danger:disabled {
-      background-color: #dc3545;
-    }
-  }
-
-}
-
-// Optional: Group multiple button groups together for a toolbar
-.btn-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-
-  .input-group {
-    width: auto;
-  }
-
-}
-
-tk-group-buttons > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
-  border-radius: 0;
-}
-
-// Set corners individual because sometimes a single button can be in a .btn-group and we need :first-child and :last-child to both match
-tk-group-buttons > .btn:first-child {
-  margin-left: 0;
-
-  &:not(:last-child):not(.dropdown-toggle) {
-    @include border-right-radius(0);
-  }
-
-}
-
-// Need .dropdown-toggle since :last-child doesn't apply given a .dropdown-menu immediately after it
-tk-group-buttons > .btn:last-child:not(:first-child),
-tk-group-buttons > .dropdown-toggle:not(:first-child) {
-  @include border-left-radius(0);
-}
-
-// Custom edits for including btn-groups within btn-groups (useful for including dropdown buttons within a btn-group)
-tk-group-buttons > tk-group-buttons {
-  float: left;
-}
-
-tk-group-buttons > tk-group-buttons:not(:first-child):not(:last-child) > .btn {
-  border-radius: 0;
-}
-
-tk-group-buttons > tk-group-buttons:first-child:not(:last-child) {
-
-  > .btn:last-child,
-  > .dropdown-toggle {
-    @include border-right-radius(0);
-  }
-
-}
-
-tk-group-buttons > tk-group-buttons:last-child:not(:first-child) > .btn:first-child {
-  @include border-left-radius(0);
-}
-
-
-// // Sizing
-// //
-// // Remix the default button sizing classes into new ones for easier manipulation.
-
-// .btn-group-sm > .btn { @extend .btn-sm; }
-// .btn-group-lg > .btn { @extend .btn-lg; }
-
-
-//
-// Split button dropdowns
-//
-
-// .btn + .dropdown-toggle-split {
-//   padding-right: $input-btn-padding-x * .75;
-//   padding-left: $input-btn-padding-x * .75;
-
-//   &::after {
-//     margin-left: 0;
-//   }
-// }
-
-// .btn-sm + .dropdown-toggle-split {
-//   padding-right: $input-btn-padding-x-sm * .75;
-//   padding-left: $input-btn-padding-x-sm * .75;
-// }
-
-// .btn-lg + .dropdown-toggle-split {
-//   padding-right: $input-btn-padding-x-lg * .75;
-//   padding-left: $input-btn-padding-x-lg * .75;
-// }
-
-
-// The clickable button for toggling the menu
-// Set the same inset shadow as the :active state
-tk-group-buttons.show .dropdown-toggle {
-  box-shadow: $btn-active-box-shadow;
-
-  // Show no shadow for `.btn-link` since it has no other button styles.
-  &.btn-link {
-    box-shadow: none;
-  }
-
-}
-
-
-// Checkbox and radio options
-//
-// In order to support the browser's form validation feedback, powered by the
-// `required` attribute, we have to "hide" the inputs via `clip`. We cannot use
-// `display: none;` or `visibility: hidden;` as that also hides the popover.
-// Simply visually hiding the inputs via `opacity` would leave them clickable in
-// certain cases which is prevented by using `clip` and `pointer-events`.
-// This way, we ensure a DOM element is visible to position the popover from.
-//
-// See https://github.com/twbs/bootstrap/pull/12794 and
-// https://github.com/twbs/bootstrap/pull/14559 for more information.
-
-tk-group-buttons {
-
-  > .btn,
-  > .btn-group > .btn {
+    // Checkbox and radio options
     input[type="radio"],
     input[type="checkbox"] {
       position: absolute;
@@ -279,5 +49,4 @@ tk-group-buttons {
     }
 
   }
-
 }

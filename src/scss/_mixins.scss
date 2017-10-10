@@ -2,28 +2,94 @@
 //
 // Used in conjunction with global variables to enable certain theme features.
 
+@import "functions";
+@import "variables";
 
 // Single side border-radius
 @mixin border-radius($radius: $border-radius) {
-  border-radius: $radius;
+  @if $border-rounded {
+    border-radius: $radius;
+  }
 }
 
 @mixin border-top-radius($radius) {
-  border-top-left-radius: $radius;
-  border-top-right-radius: $radius;
+  @if $border-rounded {
+    border-top-left-radius: $radius;
+    border-top-left-radius: $radius;
+  }
 }
 
 @mixin border-right-radius($radius) {
-  border-top-right-radius: $radius;
-  border-bottom-right-radius: $radius;
+  @if $border-rounded {
+    border-top-right-radius: $radius;
+    border-top-right-radius: $radius;
+  }
 }
 
 @mixin border-bottom-radius($radius) {
-  border-bottom-right-radius: $radius;
-  border-bottom-left-radius: $radius;
+  @if $border-rounded {
+    border-bottom-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+  }
 }
 
 @mixin border-left-radius($radius) {
-  border-top-left-radius: $radius;
-  border-bottom-left-radius: $radius;
+  @if $border-rounded {
+    border-top-left-radius: $radius;
+    border-top-left-radius: $radius;
+  }
+}
+
+// Buttons
+@mixin buttons() {
+  .tk-btn {
+    display: inline-block;
+    flex: 0 1 auto;
+    padding: $btn-padding-y $btn-padding-x;
+    margin-bottom: 0;
+    font-size: $font-size-base;
+    font-weight: normal;
+    line-height: 1.25;
+    text-decoration: none;
+    text-align: center;
+    border: $btn-border;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    background: $btn-background;
+    @include border-radius($border-radius);
+    transition: background-color .15s ease-in-out, border .15s ease-in-out;
+
+    &:hover,
+    &:active,
+    &.active {
+      z-index: 2;
+      text-decoration: none;
+      border: $btn-border-hover;
+      background: $btn-background-hover;
+    }
+
+    &:focus,
+    &.focus {
+      z-index: 2;
+      border: $btn-border-hover;
+    }
+
+    &:disabled {
+      opacity: $btn-disabled-opacity;
+    }
+  }
+}
+
+// Button size mofifiers
+@mixin buttonsSizes() {
+  .tk-btn {
+
+    &.tk-btn-small {
+      padding: calc(#{$btn-padding-y} / 2) calc(#{$btn-padding-x} / 2);
+      font-size: .8rem;
+    }
+
+  }
+
 }

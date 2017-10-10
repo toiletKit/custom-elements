@@ -12,7 +12,7 @@ In order to use the dropdown custom element you need to import the element in th
 The simplified version of the custom elements
 ```html
 <tk-dropdown>
-	<button class="btn btn-secondary">Click</button>
+	<button>Click</button>
 	<div class="tk-dropdown">
 		<a class="tk-dropdown-item" href="#">Item 1</a>
 		<a class="tk-dropdown-item" href="#">Item 2</a>
@@ -25,8 +25,9 @@ The simplified version of the custom elements
 ## Dropdown demo
 
 <div class="mermaid">
+
 	<tk-dropdown>
-		<button class="btn btn-secondary">Click</button>
+		<button class="tk-btn tk-btn-small">Click</button>
 		<div class="tk-dropdown">
 			<a class="tk-dropdown-item" href="#">Item 1</a>
 			<a class="tk-dropdown-item" href="#">Item 2</a>
@@ -34,12 +35,14 @@ The simplified version of the custom elements
 			<a class="tk-dropdown-item" href="#">Another item</a>
 		</div>
 	</tk-dropdown>
+
 	<tk-dropdown mode="hover">
-		<button class="btn btn-secondary">Hover</button>
+		<button class="tk-btn tk-btn-small">Hover</button>
 		<div class="tk-dropdown">
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 		</div>
 	</tk-dropdown>
+
 </div>
 
 ## Attibutes

@@ -9,6 +9,7 @@ In order to use the tab custom element you need to import the element in the doc
 ```
 
 The simplified version of the a simple accordion:
+
 ```html
 <tk-panels view="accordion">
 	<section id="panel-1-1" name="Tab panel 1">
@@ -27,6 +28,7 @@ The simplified version of the a simple accordion:
 ```
 
 The simplified version of the a simple tab:
+
 ```html
 <tk-panels>
 	<section id="panel-2-1" name="Tab panel 1">
@@ -43,10 +45,11 @@ The simplified version of the a simple tab:
 	</section>
 </tk-panels>
 ```
+
 ### Tab demo:
 
-
 <div class="mermaid">
+
 	<tk-panels view="accordion" recall="false">
 		<section id="panel1" name="Tab panel 1">
 			<h3>Tab panel 1</h3>
@@ -63,6 +66,7 @@ The simplified version of the a simple tab:
 	</tk-panels>
 
 	<hr>
+
 	<tk-panels responsive="true" recall="false">
 		<section id="panel1" name="Tab panel 1">
 			<h3>Tab panel 1</h3>
@@ -77,4 +81,5 @@ The simplified version of the a simple tab:
 			<p>Content for the tab panel</p>
 		</section>
 	</tk-panels>
+
 </div>
