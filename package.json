@@ -24,7 +24,7 @@
     "@polymer/test-fixture": "latest",
     "@webcomponents/custom-elements": "latest",
     "@webcomponents/webcomponentsjs": "latest",
-    "autoprefixer": "^7.1.4",
+    "autoprefixer": "^7.2.5",
     "babel-eslint": "^8.0.0",
     "babel-minify": "latest",
     "babel-plugin-static-fs": "latest",
