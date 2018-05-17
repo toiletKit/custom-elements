@@ -4,6 +4,7 @@ dist: trusty
 language: node_js
 node_js:
 - '9'
+- '10'
 before_install:
 - if [[ `npm -v` != 5* ]]; then npm install -g npm@5; fi
 install:
